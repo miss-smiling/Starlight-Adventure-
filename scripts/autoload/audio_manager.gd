@@ -57,32 +57,21 @@ func _watchdog_tick() -> void:
 	_player.play()
 
 
-# Web browsers suspend all audio until the first user gesture. Probing
-# showed a play() issued synchronously INSIDE the tap gesture works, while
-# delayed restarts can be swallowed - so unlock restarts the queued mood
-# immediately, in the gesture itself.
+# Web browsers suspend all audio until the first user gesture. On web the
+# unlock plays the queued mood through the browser's own <audio> element,
+# issued synchronously inside the gesture. Desktop audio starts at boot
+# and works without any unlock.
 func unlock() -> void:
 	if _current == "":
 		return
 	var mood := _current
 	_current = ""
-	var path: String = MUSIC.get(mood, "")
-	var stream := _stream(path)
-	if stream == null:
+	if not OS.has_feature("web"):
 		return
-	if stream is AudioStreamMP3:
-		stream.loop = true
-	# Brand-new player created INSIDE the gesture: the diagnostic probe
-	# proved a fresh player + play() at the tap sounds, while reusing a
-	# player that already attempted play into a suspended context can
-	# stay dead on web no matter how often it is restarted.
-	_player.queue_free()
-	_player = AudioStreamPlayer.new()
-	_player.bus = "Master"
-	add_child(_player)
-	_current = mood
-	_player.stream = stream
-	_player.play()
+	_audio_unlocked = true
+	var path: String = MUSIC.get(mood, "")
+	if path != "" and FileAccess.file_exists(path):
+		_js_music(path)
 
 
 func _input(event: InputEvent) -> void:
@@ -112,18 +101,41 @@ func music(id: String) -> void:
 	if stream is AudioStreamMP3:
 		stream.loop = true
 	_current = id
+	if OS.has_feature("web"):
+		# Web: route through the browser's own <audio> element - immune
+		# to Godot's web audio driver quirks. Playback waits for unlock().
+		if _audio_unlocked:
+			_js_music(path)
+		return
 	_player.stream = stream
 	_player.play()
 
 
+# Web-only: play a music file via JavaScript's native Audio element.
+# Files are served next to the build by the web host.
+func _js_music(path: String) -> void:
+	var file: String = path.get_file().uri_encode()
+	JavaScriptBridge.eval("var a = window.__saMusic || (window.__saMusic = new Audio()); a.loop = true; a.src = '/%s'; a.volume = 0.8; a.play();" % file)
+
+
 func stop_music() -> void:
 	_current = ""
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("if (window.__saMusic) { window.__saMusic.pause(); }")
 	_player.stop()
 
 
 # One-shot click sound; the player frees itself when finished.
 func sfx(id: String) -> void:
-	var stream := _stream(SFX.get(id, ""))
+	var path: String = SFX.get(id, "")
+	if path == "" or not FileAccess.file_exists(path):
+		return
+	if OS.has_feature("web"):
+		# Web: browser-native one-shot Audio element, played inside the
+		# button-press gesture so autoplay policy permits it.
+		JavaScriptBridge.eval("new Audio('/%s').play();" % path.get_file().uri_encode())
+		return
+	var stream := _stream(path)
 	if stream == null:
 		return
 	var player := AudioStreamPlayer.new()

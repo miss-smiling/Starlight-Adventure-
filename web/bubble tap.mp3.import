@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvru6jpfvvtes"
+path="res://.godot/imported/bubble tap.mp3-dc37724b904e70b4965a74b49c872804.mp3str"
+
+[deps]
+
+source_file="res://web/bubble tap.mp3"
+dest_files=["res://.godot/imported/bubble tap.mp3-dc37724b904e70b4965a74b49c872804.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

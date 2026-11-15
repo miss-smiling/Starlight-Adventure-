@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ckfpwbe556yxw"
+path="res://.godot/imported/simple mouse click.mp3-31bf52b3a11d8de3a3fe739b5bcd5b9e.mp3str"
+
+[deps]
+
+source_file="res://web/simple mouse click.mp3"
+dest_files=["res://.godot/imported/simple mouse click.mp3-31bf52b3a11d8de3a3fe739b5bcd5b9e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
