@@ -26,12 +26,35 @@ var _player: AudioStreamPlayer = null
 var _current := ""
 var _streams := {}
 var _audio_unlocked := false
+var _last_pos := 0.0
 
 
 func _ready() -> void:
 	_player = AudioStreamPlayer.new()
 	_player.bus = "Master"
 	add_child(_player)
+	# Web-only watchdog: right after the tap the browser's audio context
+	# resumes asynchronously, and a play() issued too early is swallowed.
+	# Every second, if music should be playing but its position hasn't
+	# advanced, kick it again - so the bed always starts within ~1s.
+	if OS.has_feature("web"):
+		var watchdog := Timer.new()
+		watchdog.wait_time = 1.0
+		watchdog.autostart = true
+		add_child(watchdog)
+		watchdog.timeout.connect(_watchdog_tick)
+
+
+func _watchdog_tick() -> void:
+	if _current == "" or _player.stream == null:
+		return
+	var pos := _player.get_playback_position()
+	if pos > _last_pos + 0.01:
+		_last_pos = pos
+		return
+	# Stopped or frozen: restart the stream from the top of the track.
+	_last_pos = 0.0
+	_player.play()
 
 
 # Web browsers suspend all audio until the first user gesture. The music
