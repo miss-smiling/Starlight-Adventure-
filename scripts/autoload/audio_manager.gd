@@ -66,7 +66,23 @@ func unlock() -> void:
 		return
 	var mood := _current
 	_current = ""
-	music(mood)
+	var path: String = MUSIC.get(mood, "")
+	var stream := _stream(path)
+	if stream == null:
+		return
+	if stream is AudioStreamMP3:
+		stream.loop = true
+	# Brand-new player created INSIDE the gesture: the diagnostic probe
+	# proved a fresh player + play() at the tap sounds, while reusing a
+	# player that already attempted play into a suspended context can
+	# stay dead on web no matter how often it is restarted.
+	_player.queue_free()
+	_player = AudioStreamPlayer.new()
+	_player.bus = "Master"
+	add_child(_player)
+	_current = mood
+	_player.stream = stream
+	_player.play()
 
 
 func _input(event: InputEvent) -> void:
