@@ -1,0 +1,3131 @@
+{
+	"year": 2026,
+	"title": "Genesis Year",
+	"campaign": "The First Crew",
+	"tech": {
+		"id": "manual_diagnostics_2026",
+		"title": "Manual Diagnostics",
+		"summary": "Check the numbers by hand before you trust a screen.",
+		"effect": "Every task asks you to show your work."
+	},
+	"missions": [
+		{
+			"id": "genesis",
+			"title": "Project Genesis",
+			"intro": "genesis_intro",
+			"ending": "genesis_end",
+			"duty_text": "Finish your station duty for the build shift.",
+			"optional": {
+				"text": "Read the wall chart of safe walking lanes.",
+				"station": "Wall Chart",
+				"fact": "Painted walking lanes keep tools and people out of each other's way."
+			},
+			"learn": [
+				"Checklists catch mistakes before they grow.",
+				"Safe teams double-check each other."
+			],
+			"team": [
+				{
+					"id": "mira_vale",
+					"note": "Everyone checked someone else's work today."
+				},
+				{
+					"id": "samira_shah",
+					"note": "The capsule looks ready."
+				},
+				{
+					"id": "alex_rivera",
+					"note": "The stack went together clean."
+				}
+			],
+			"talks": {
+				"mira_vale": "genesis_talk_mira_vale",
+				"samira_shah": "genesis_talk_samira_shah",
+				"alex_rivera": "genesis_talk_alex_rivera",
+				"ingrid_solheim": "genesis_talk_ingrid_solheim",
+				"dev_malhotra": "genesis_talk_dev_malhotra",
+				"amara_okonkwo": "genesis_talk_amara_okonkwo",
+				"leo_marchetti": "genesis_talk_leo_marchetti",
+				"yuki_tanaka": "genesis_talk_yuki_tanaka"
+			},
+			"room": {
+				"name": "Assembly Hangar",
+				"bg": "#1b2a41",
+				"world": [
+					1280,
+					640
+				],
+				"start": [
+					80,
+					400
+				],
+				"walls": [
+					[
+						0,
+						0,
+						1280,
+						16
+					],
+					[
+						0,
+						624,
+						1280,
+						16
+					],
+					[
+						0,
+						0,
+						16,
+						640
+					],
+					[
+						1264,
+						0,
+						16,
+						640
+					],
+					[
+						600,
+						150,
+						24,
+						220
+					]
+				],
+				"stations": [
+					{
+						"id": "briefing",
+						"label": "Briefing Table",
+						"kind": "briefing",
+						"pos": [
+							150,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "duty",
+						"label": "Duty Station",
+						"kind": "duty",
+						"pos": [
+							1080,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_1",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							420,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_2",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							760,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_3",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							960,
+							470
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "optional",
+						"label": "Wall Chart",
+						"kind": "optional",
+						"pos": [
+							330,
+							500
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "finish",
+						"label": "Close Shift",
+						"kind": "finish",
+						"pos": [
+							1120,
+							560
+						],
+						"size": [
+							72,
+							72
+						]
+					}
+				]
+			},
+			"emergency_script": [
+				{
+					"speaker": "mira_vale",
+					"text": "Alert. {warning}"
+				},
+				{
+					"speaker": "alex_rivera",
+					"text": "Hold on. Take a breath and run the step again, nice and slow."
+				},
+				{
+					"speaker": "mira_vale",
+					"text": "Recovery is open. Do the critical step again. The shift is not over."
+				}
+			],
+			"tasks": {
+				"astronaut": {
+					"pattern": "route",
+					"cols": 8,
+					"rows": 6,
+					"start": [
+						0,
+						5
+					],
+					"goal": [
+						7,
+						0
+					],
+					"hazards": [
+						[
+							2,
+							4
+						],
+						[
+							2,
+							5
+						],
+						[
+							3,
+							1
+						],
+						[
+							4,
+							3
+						],
+						[
+							4,
+							4
+						],
+						[
+							5,
+							1
+						],
+						[
+							6,
+							3
+						]
+					],
+					"title": "Hangar Walk to the Capsule",
+					"science": "Planning a path before you move saves time and keeps you away from hazards.",
+					"hint": "Click tiles that touch each other, from the green start tile to the goal. Skip the red tiles.",
+					"mistake": "Stepped onto a hazard tile.",
+					"emergency": {
+						"id": "hazard_contact",
+						"warning": "You stepped onto a marked hazard. Back out and plot the walk again."
+					}
+				},
+				"engineer": {
+					"pattern": "build",
+					"parts": [
+						{
+							"id": "frame",
+							"label": "Frame"
+						},
+						{
+							"id": "tank",
+							"label": "Fuel tank"
+						},
+						{
+							"id": "engine",
+							"label": "Engine"
+						},
+						{
+							"id": "avionics",
+							"label": "Avionics"
+						},
+						{
+							"id": "heatshield",
+							"label": "Heat shield"
+						}
+					],
+					"order": [
+						"frame",
+						"tank",
+						"engine",
+						"avionics",
+						"heatshield"
+					],
+					"gauges": [
+						{
+							"id": "volt",
+							"label": "Voltage",
+							"value": 28,
+							"unit": "V",
+							"lo": 24,
+							"hi": 32,
+							"ok": true
+						},
+						{
+							"id": "press",
+							"label": "Tank pressure",
+							"value": 3.1,
+							"unit": "bar",
+							"lo": 2.8,
+							"hi": 3.4,
+							"ok": true
+						},
+						{
+							"id": "temp",
+							"label": "Engine temperature",
+							"value": 96,
+							"unit": "C",
+							"lo": 10,
+							"hi": 80,
+							"ok": false
+						}
+					],
+					"bad_gauge": "temp",
+					"malfunction": "The engine goes in after the tank, or the fuel line gets pinched.",
+					"title": "Build the Test Stack",
+					"science": "Parts go on in order so each one can carry the weight of the next. A gauge outside its range is a warning.",
+					"hint": "Install parts from the bottom of the stack to the top. Then flag the gauge that is out of range.",
+					"mistake": "Installed a part out of order.",
+					"emergency": {
+						"id": "misaligned_stack",
+						"warning": "The stack is misaligned. Remove the last part and rebuild in order."
+					}
+				},
+				"physicist": {
+					"pattern": "measure",
+					"given": {
+						"mass_kg": 2500,
+						"delta_v_m_s": 3.2
+					},
+					"parts": [
+						{
+							"id": "impulse",
+							"prompt": "Impulse (mass x delta-v)",
+							"answer": 8000.0,
+							"tolerance": 160.0,
+							"unit": "N s"
+						}
+					],
+					"bar": {
+						"zone": [
+							0.42,
+							0.58
+						],
+						"speed": 0.9
+					},
+					"title": "Impulse Check",
+					"science": "Impulse is mass times the change in velocity. Bigger mass needs a bigger push for the same change.",
+					"hint": "Multiply 2500 kg by 3.2 m/s. Then hold the button to stop the bar inside the green zone.",
+					"mistake": "Entered an impulse outside the 2 percent tolerance.",
+					"emergency": {
+						"id": "bad_impulse",
+						"warning": "The impulse does not match the thruster log. Recheck mass times delta-v."
+					}
+				},
+				"mathematician": {
+					"pattern": "figure",
+					"given": {
+						"distance_km": 450,
+						"efficiency_km_per_kg": 5,
+						"reserve": 0.2
+					},
+					"parts": [
+						{
+							"id": "fuel",
+							"prompt": "Fuel to carry, with reserve (kg)",
+							"answer": 108.0,
+							"tolerance": 1,
+							"unit": "kg"
+						}
+					],
+					"table": {
+						"prompt": "Which burn uses the least fuel for the same trip?",
+						"columns": [
+							"Burn",
+							"Efficiency km/kg"
+						],
+						"rows": [
+							{
+								"id": "a",
+								"cells": [
+									"Burn A",
+									"5.0"
+								]
+							},
+							{
+								"id": "b",
+								"cells": [
+									"Burn B",
+									"4.5"
+								]
+							},
+							{
+								"id": "c",
+								"cells": [
+									"Burn C",
+									"6.0"
+								]
+							}
+						],
+						"answer": "c"
+					},
+					"title": "Fuel With a Safety Reserve",
+					"science": "Always carry extra fuel. A reserve covers surprises that no plan can predict.",
+					"hint": "Fuel = distance divided by efficiency, then add the 20 percent reserve.",
+					"mistake": "Forgot or misused the fuel reserve.",
+					"emergency": {
+						"id": "fuel_short",
+						"warning": "The fuel number is too low to be safe. Recompute with the reserve."
+					}
+				},
+				"biologist": {
+					"pattern": "procedure",
+					"steps": [
+						{
+							"id": "sterilize",
+							"label": "Sterilize gloves and tools"
+						},
+						{
+							"id": "label",
+							"label": "Label the sample tube"
+						},
+						{
+							"id": "swab",
+							"label": "Take the swab"
+						},
+						{
+							"id": "focus",
+							"label": "Focus the microscope"
+						},
+						{
+							"id": "record",
+							"label": "Record the result"
+						}
+					],
+					"order": [
+						"sterilize",
+						"label",
+						"swab",
+						"focus",
+						"record"
+					],
+					"question": "Which sample shows paired rods, like ID card G-1?",
+					"samples": [
+						{
+							"id": "s1",
+							"label": "Sample 1",
+							"view": "round cells"
+						},
+						{
+							"id": "s2",
+							"label": "Sample 2",
+							"view": "chains"
+						},
+						{
+							"id": "s3",
+							"label": "Sample 3",
+							"view": "paired rods"
+						},
+						{
+							"id": "s4",
+							"label": "Sample 4",
+							"view": "single rods"
+						}
+					],
+					"answer": "s3",
+					"conclusions": [
+						{
+							"id": "c1",
+							"text": "Harmless lab bacteria. Safe to log.",
+							"ok": true
+						},
+						{
+							"id": "c2",
+							"text": "Dangerous. Seal the hangar.",
+							"ok": false
+						}
+					],
+					"title": "Clean Sample Practice",
+					"science": "Contamination means unwanted germs spoil a sample. Sterilize first so the result is trustworthy.",
+					"hint": "Do the five steps in order. Sterilize before you touch anything else.",
+					"mistake": "Handled the sample before sterilizing.",
+					"emergency": {
+						"id": "contamination",
+						"warning": "The sample was contaminated. Re-sterilize and collect it again.",
+						"fail_flag": "contamination_noted"
+					}
+				},
+				"medical": {
+					"pattern": "triage",
+					"scan_first": true,
+					"patients": [
+						{
+							"id": "p1",
+							"name": "Crew A",
+							"vitals": {
+								"heart_rate": 72,
+								"temp_c": 36.7,
+								"spo2": 98
+							},
+							"abnormal": false,
+							"note": "Rested and calm."
+						},
+						{
+							"id": "p2",
+							"name": "Crew B",
+							"vitals": {
+								"heart_rate": 88,
+								"temp_c": 38.6,
+								"spo2": 97
+							},
+							"abnormal": true,
+							"note": "Tired with a warm forehead."
+						},
+						{
+							"id": "p3",
+							"name": "Crew C",
+							"vitals": {
+								"heart_rate": 68,
+								"temp_c": 36.5,
+								"spo2": 99
+							},
+							"abnormal": false,
+							"note": "Feels fine."
+						}
+					],
+					"actions": [
+						{
+							"id": "rest",
+							"label": "Rest and fluids",
+							"correct": true,
+							"effect": "Temperature drops over the afternoon."
+						},
+						{
+							"id": "surgery",
+							"label": "Surgery",
+							"correct": false,
+							"effect": "Surgery is far too big for a mild fever."
+						},
+						{
+							"id": "ignore",
+							"label": "Do nothing",
+							"correct": false,
+							"effect": "The fever is left alone and grows."
+						}
+					],
+					"correct_patient": "p2",
+					"correct_action": "rest",
+					"title": "Baseline Vitals",
+					"science": "Triage means checking everyone first, then helping the person who needs it most.",
+					"hint": "Scan all three crew members before you choose a treatment.",
+					"mistake": "Treated before scanning every crew member.",
+					"emergency": {
+						"id": "treated_early",
+						"warning": "Treatment began before the scan finished. Stabilize and scan again."
+					}
+				},
+				"comms": {
+					"pattern": "tune",
+					"frequency": {
+						"min": 400.0,
+						"max": 460.0,
+						"step": 0.5,
+						"target": 437.5,
+						"tolerance": 0.5,
+						"unit": "MHz"
+					},
+					"backup_frequency": 441.0,
+					"cipher": {
+						"text": "SFBEZ",
+						"shift": 1,
+						"answer": "READY"
+					},
+					"interference": {
+						"options": [
+							"Off",
+							"On"
+						],
+						"answer": "On"
+					},
+					"title": "Hangar Radio Check",
+					"science": "Radios only hear each other when they are tuned to the same frequency.",
+					"hint": "Drag the slider into the target band. Then decode the word with a shift of one.",
+					"mistake": "Locked onto the wrong frequency.",
+					"emergency": {
+						"id": "signal_loss",
+						"warning": "The signal was lost. Try the backup frequency."
+					}
+				},
+				"director": {
+					"pattern": "priority",
+					"seconds_total": 45,
+					"events": [
+						{
+							"id": "fuel_smell",
+							"label": "Fuel smell near the tank bay",
+							"kind": "life",
+							"rank": 1,
+							"seconds": 45,
+							"needs": "engineer"
+						},
+						{
+							"id": "camera_glitch",
+							"label": "Hangar camera glitch",
+							"kind": "mission",
+							"rank": 2,
+							"seconds": 45,
+							"needs": "comms"
+						},
+						{
+							"id": "sensor_off",
+							"label": "Science sensor offline",
+							"kind": "science",
+							"rank": 3,
+							"seconds": 45,
+							"needs": "physicist"
+						}
+					],
+					"title": "Three Alerts at Once",
+					"science": "Life safety always comes first. Science and cameras wait their turn.",
+					"hint": "Click the alert that protects people first. Then assign the right specialist.",
+					"mistake": "Answered a lower priority alert first.",
+					"emergency": {
+						"id": "late_triage",
+						"warning": "The life-safety alert waited too long. Reorder and respond again.",
+						"fail_flag": "alert_expired"
+					}
+				}
+			}
+		},
+		{
+			"id": "countdown",
+			"title": "Countdown",
+			"intro": "countdown_intro",
+			"ending": "countdown_end",
+			"duty_text": "Finish your station duty for the launch.",
+			"optional": {
+				"text": "Look at the pad camera feed.",
+				"station": "Pad Camera",
+				"fact": "The pad is cleared of people long before the countdown ends."
+			},
+			"learn": [
+				"A HOLD call is part of doing the job well.",
+				"Everyone reports from their own station."
+			],
+			"team": [
+				{
+					"id": "mira_vale",
+					"note": "Every station called it clearly."
+				},
+				{
+					"id": "yuki_tanaka",
+					"note": "The net stayed clear."
+				},
+				{
+					"id": "leo_marchetti",
+					"note": "Crew vitals looked calm."
+				}
+			],
+			"talks": {
+				"mira_vale": "countdown_talk_mira_vale",
+				"samira_shah": "countdown_talk_samira_shah",
+				"alex_rivera": "countdown_talk_alex_rivera",
+				"ingrid_solheim": "countdown_talk_ingrid_solheim",
+				"dev_malhotra": "countdown_talk_dev_malhotra",
+				"amara_okonkwo": "countdown_talk_amara_okonkwo",
+				"leo_marchetti": "countdown_talk_leo_marchetti",
+				"yuki_tanaka": "countdown_talk_yuki_tanaka"
+			},
+			"room": {
+				"name": "Launch Control and Pad Gallery",
+				"bg": "#2b2140",
+				"world": [
+					1280,
+					640
+				],
+				"start": [
+					80,
+					400
+				],
+				"walls": [
+					[
+						0,
+						0,
+						1280,
+						16
+					],
+					[
+						0,
+						624,
+						1280,
+						16
+					],
+					[
+						0,
+						0,
+						16,
+						640
+					],
+					[
+						1264,
+						0,
+						16,
+						640
+					],
+					[
+						600,
+						150,
+						24,
+						220
+					]
+				],
+				"stations": [
+					{
+						"id": "briefing",
+						"label": "Briefing Table",
+						"kind": "briefing",
+						"pos": [
+							150,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "duty",
+						"label": "Duty Station",
+						"kind": "duty",
+						"pos": [
+							1080,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_1",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							420,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_2",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							760,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_3",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							960,
+							470
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "optional",
+						"label": "Pad Camera",
+						"kind": "optional",
+						"pos": [
+							330,
+							500
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "finish",
+						"label": "Close Shift",
+						"kind": "finish",
+						"pos": [
+							1120,
+							560
+						],
+						"size": [
+							72,
+							72
+						]
+					}
+				]
+			},
+			"emergency_script": [
+				{
+					"speaker": "mira_vale",
+					"text": "Alert. {warning}"
+				},
+				{
+					"speaker": "yuki_tanaka",
+					"text": "Stay on the net. We fix it and call again."
+				},
+				{
+					"speaker": "mira_vale",
+					"text": "Recovery is open. Do the critical step again. The shift is not over."
+				}
+			],
+			"tasks": {
+				"astronaut": {
+					"pattern": "switches",
+					"steps": [
+						{
+							"id": "battery",
+							"label": "Battery bus"
+						},
+						{
+							"id": "avionics",
+							"label": "Avionics"
+						},
+						{
+							"id": "fans",
+							"label": "Cabin fans"
+						},
+						{
+							"id": "comms",
+							"label": "Radio link"
+						},
+						{
+							"id": "abort",
+							"label": "Abort arm"
+						},
+						{
+							"id": "ignite",
+							"label": "Ignition arm"
+						}
+					],
+					"order": [
+						"battery",
+						"avionics",
+						"fans",
+						"comms",
+						"abort",
+						"ignite"
+					],
+					"abort": {
+						"rule": "Abort only if a reading is outside its limits.",
+						"readings": [
+							{
+								"id": "cabin_p",
+								"label": "Cabin pressure",
+								"value": 101,
+								"unit": "kPa",
+								"lo": 95,
+								"hi": 105,
+								"ok": true
+							},
+							{
+								"id": "fuel_t",
+								"label": "Fuel line temperature",
+								"value": 12,
+								"unit": "C",
+								"lo": -5,
+								"hi": 25,
+								"ok": true
+							},
+							{
+								"id": "hatch",
+								"label": "Hatch seal",
+								"value": 99,
+								"unit": "%",
+								"lo": 98,
+								"hi": 100,
+								"ok": true
+							}
+						],
+						"should_abort": false
+					},
+					"title": "Launch Switchboard",
+					"science": "Abort rules are agreed on before launch, so nobody has to guess in the moment.",
+					"hint": "Flip switches in the checklist order. Compare each reading to its limits before you arm ignition.",
+					"mistake": "Flipped a switch out of order or aborted without cause.",
+					"emergency": {
+						"id": "wrong_switch",
+						"warning": "A switch was flipped out of order. Reset the board and start again."
+					}
+				},
+				"engineer": {
+					"pattern": "inspect",
+					"rule": "Flag every hold-down clamp below 60 N m.",
+					"steps": [
+						{
+							"id": "b1",
+							"label": "Clamp 1",
+							"value": 64,
+							"unit": "N m",
+							"lo": 60,
+							"hi": 90,
+							"ok": true
+						},
+						{
+							"id": "b2",
+							"label": "Clamp 2",
+							"value": 66,
+							"unit": "N m",
+							"lo": 60,
+							"hi": 90,
+							"ok": true
+						},
+						{
+							"id": "b3",
+							"label": "Clamp 3",
+							"value": 63,
+							"unit": "N m",
+							"lo": 60,
+							"hi": 90,
+							"ok": true
+						},
+						{
+							"id": "b4",
+							"label": "Clamp 4",
+							"value": 38,
+							"unit": "N m",
+							"lo": 60,
+							"hi": 90,
+							"ok": false
+						},
+						{
+							"id": "b5",
+							"label": "Clamp 5",
+							"value": 65,
+							"unit": "N m",
+							"lo": 60,
+							"hi": 90,
+							"ok": true
+						},
+						{
+							"id": "b6",
+							"label": "Clamp 6",
+							"value": 62,
+							"unit": "N m",
+							"lo": 60,
+							"hi": 90,
+							"ok": true
+						}
+					],
+					"must_flag": [
+						"b4"
+					],
+					"title": "Hold-Down Inspection",
+					"science": "A rocket is held on the pad by clamps that must all be tight. One loose clamp matters.",
+					"hint": "Read each clamp against the 60 N m minimum and flag the weak one.",
+					"mistake": "Missed or wrongly flagged a clamp.",
+					"emergency": {
+						"id": "loose_clamp",
+						"warning": "A loose clamp was missed. Walk the pad and inspect again."
+					}
+				},
+				"physicist": {
+					"pattern": "measure",
+					"given": {
+						"thrust_N": 7600000,
+						"mass_kg": 549000,
+						"g": 9.81
+					},
+					"parts": [
+						{
+							"id": "weight",
+							"prompt": "Weight on Earth (mass x g)",
+							"answer": 5385690.0,
+							"tolerance": 107713.8,
+							"unit": "N"
+						},
+						{
+							"id": "twr",
+							"prompt": "Thrust to weight ratio",
+							"answer": 1.41,
+							"tolerance": 0.03,
+							"unit": ""
+						}
+					],
+					"verdict": {
+						"prompt": "Go if thrust is at least 1.3 times weight. Go or no-go?",
+						"options": [
+							"Go",
+							"No-go"
+						],
+						"answer": "Go"
+					},
+					"title": "Thrust to Weight Check",
+					"science": "To lift off, thrust must be bigger than weight. The ratio tells you how strongly the rocket climbs.",
+					"hint": "Weight is mass times 9.81. Then divide thrust by weight.",
+					"mistake": "Gave a wrong weight or ratio.",
+					"emergency": {
+						"id": "bad_twr",
+						"warning": "The ratio calls do not match the log. Redo the weight and ratio."
+					}
+				},
+				"mathematician": {
+					"pattern": "figure",
+					"given": {
+						"window_opens": "06:40",
+						"clock_now": "05:55"
+					},
+					"parts": [
+						{
+							"id": "minutes",
+							"prompt": "Minutes until the window opens",
+							"answer": 45,
+							"tolerance": 0,
+							"unit": "min"
+						},
+						{
+							"id": "seconds",
+							"prompt": "The same wait in seconds",
+							"answer": 2700,
+							"tolerance": 0,
+							"unit": "s"
+						}
+					],
+					"table": {
+						"prompt": "Which window gives the earliest safe launch?",
+						"columns": [
+							"Opens",
+							"Weather"
+						],
+						"rows": [
+							{
+								"id": "w1",
+								"cells": [
+									"06:40",
+									"Clear"
+								]
+							},
+							{
+								"id": "w2",
+								"cells": [
+									"06:10",
+									"Storm cell"
+								]
+							},
+							{
+								"id": "w3",
+								"cells": [
+									"07:25",
+									"Clear"
+								]
+							}
+						],
+						"answer": "w1"
+					},
+					"title": "Launch Window Offset",
+					"science": "A launch window is the short time when the planets line up well. Missing it can mean a long wait.",
+					"hint": "Subtract the clock time from the window time. Skip windows with bad weather.",
+					"mistake": "Miscounted the minutes to the window.",
+					"emergency": {
+						"id": "clock_error",
+						"warning": "The countdown offset is wrong. Fix the arithmetic."
+					}
+				},
+				"biologist": {
+					"pattern": "procedure",
+					"steps": [
+						{
+							"id": "check",
+							"label": "Check the locker seal"
+						},
+						{
+							"id": "wipe",
+							"label": "Wipe the shelf"
+						},
+						{
+							"id": "load",
+							"label": "Load the sample box"
+						},
+						{
+							"id": "latch",
+							"label": "Close the latch"
+						},
+						{
+							"id": "tag",
+							"label": "Tag the locker"
+						}
+					],
+					"order": [
+						"check",
+						"wipe",
+						"load",
+						"latch",
+						"tag"
+					],
+					"question": "Which locker view shows a gap in the seal?",
+					"samples": [
+						{
+							"id": "s1",
+							"label": "Locker 1",
+							"view": "tight seal"
+						},
+						{
+							"id": "s2",
+							"label": "Locker 2",
+							"view": "tight seal"
+						},
+						{
+							"id": "s3",
+							"label": "Locker 3",
+							"view": "gap in seal"
+						},
+						{
+							"id": "s4",
+							"label": "Locker 4",
+							"view": "tight seal"
+						}
+					],
+					"answer": "s3",
+					"conclusions": [
+						{
+							"id": "c1",
+							"text": "Reseat locker 3 and check again.",
+							"ok": true
+						},
+						{
+							"id": "c2",
+							"text": "Leave it. Gaps close by themselves.",
+							"ok": false
+						}
+					],
+					"title": "Bio Locker Seal Sequence",
+					"science": "Sealed lockers keep samples from drifting around the cabin once gravity is gone.",
+					"hint": "Check the seal first, then work through the steps in order.",
+					"mistake": "Closed a locker without checking its seal.",
+					"emergency": {
+						"id": "leaky_locker",
+						"warning": "A locker did not seal. Reopen it and redo the sequence."
+					}
+				},
+				"medical": {
+					"pattern": "triage",
+					"scan_first": true,
+					"patients": [
+						{
+							"id": "p1",
+							"name": "Crew A",
+							"vitals": {
+								"heart_rate": 96,
+								"bp": "120/80"
+							},
+							"abnormal": false,
+							"note": "Excited about launch."
+						},
+						{
+							"id": "p2",
+							"name": "Crew B",
+							"vitals": {
+								"heart_rate": 72,
+								"bp": "118/78"
+							},
+							"abnormal": false,
+							"note": "Calm."
+						},
+						{
+							"id": "p3",
+							"name": "Crew C",
+							"vitals": {
+								"heart_rate": 74,
+								"bp": "165/105"
+							},
+							"abnormal": true,
+							"note": "Says they feel a pounding head."
+						}
+					],
+					"actions": [
+						{
+							"id": "breathe",
+							"label": "Slow breathing and watch closely",
+							"correct": true,
+							"effect": "Pressure eases and the crew member is cleared."
+						},
+						{
+							"id": "skip",
+							"label": "Skip the launch check",
+							"correct": false,
+							"effect": "A real problem could be missed."
+						},
+						{
+							"id": "sedate",
+							"label": "Give a strong sedative",
+							"correct": false,
+							"effect": "That is not needed and could cause new problems."
+						}
+					],
+					"correct_patient": "p3",
+					"correct_action": "breathe",
+					"title": "Launch Stress Vitals",
+					"science": "Excitement can speed the heart. A very high blood pressure is different and needs attention.",
+					"hint": "Scan all three crew members. Compare the numbers before you treat.",
+					"mistake": "Treated before scanning every crew member.",
+					"emergency": {
+						"id": "treated_early",
+						"warning": "Treatment began before the scan finished. Stabilize and scan again."
+					}
+				},
+				"comms": {
+					"pattern": "channels",
+					"rule": "Call GO when the reading is 4 of 5 or better. Call HOLD for anything lower.",
+					"channels": [
+						{
+							"id": "tower",
+							"label": "Tower",
+							"reading": "Clear voice 5 of 5",
+							"expected": "GO"
+						},
+						{
+							"id": "range",
+							"label": "Range Safety",
+							"reading": "Static bursts 2 of 5",
+							"expected": "HOLD"
+						},
+						{
+							"id": "pad",
+							"label": "Pad Team",
+							"reading": "Clear voice 5 of 5",
+							"expected": "GO"
+						},
+						{
+							"id": "track",
+							"label": "Tracking",
+							"reading": "Clear voice 4 of 5",
+							"expected": "GO"
+						}
+					],
+					"title": "Countdown Net Check",
+					"science": "A net check makes sure every station can hear every other station before anything starts.",
+					"hint": "Read each channel against the rule. Call GO or HOLD.",
+					"mistake": "Gave the wrong call on a channel.",
+					"emergency": {
+						"id": "bad_net_call",
+						"warning": "A bad channel was called GO. Poll the net again."
+					}
+				},
+				"director": {
+					"pattern": "decision",
+					"prompt": "The red item: the backup battery heater is cold. Everything else is green. What is your call?",
+					"choices": [
+						{
+							"id": "hold",
+							"text": "Poll the engineer, then hold 20 minutes to warm it.",
+							"result": "success_cost",
+							"consequence": "Launch slips a little. Everyone trusts the call.",
+							"flags": {
+								"launch_delay": true
+							},
+							"lasting": [
+								"launch_delay"
+							]
+						},
+						{
+							"id": "waive",
+							"text": "Waive it. The main battery is fine.",
+							"result": "fail",
+							"consequence": "A red item was waived without a plan."
+						},
+						{
+							"id": "scrub",
+							"text": "Cancel the launch for the day.",
+							"result": "fail",
+							"consequence": "Nothing shows the main system is at risk. The call was too cautious."
+						}
+					],
+					"title": "Go or No-Go Poll",
+					"science": "Mission control polls every station before launch. A red item needs a plan, not a shrug.",
+					"hint": "Look for the answer that fixes the red item and still keeps the schedule close.",
+					"mistake": "Chose a call that ignored the red item.",
+					"emergency": {
+						"id": "red_item_waived",
+						"warning": "A red item was waived with no plan. Reopen the poll."
+					}
+				}
+			}
+		},
+		{
+			"id": "transit",
+			"title": "Long Transit",
+			"intro": "transit_intro",
+			"ending": "transit_end",
+			"duty_text": "Finish your station duty for the transit shift.",
+			"optional": {
+				"text": "Check the star map on the wall.",
+				"station": "Star Map",
+				"fact": "On a long trip small corrections early save a lot of fuel later."
+			},
+			"learn": [
+				"Radio takes minutes to cross the gap to Earth.",
+				"Small hums and drifts tell big stories."
+			],
+			"team": [
+				{
+					"id": "mira_vale",
+					"note": "The ship stays on course."
+				},
+				{
+					"id": "amara_okonkwo",
+					"note": "The water loop is under control."
+				},
+				{
+					"id": "dev_malhotra",
+					"note": "The numbers add up."
+				}
+			],
+			"talks": {
+				"mira_vale": "transit_talk_mira_vale",
+				"samira_shah": "transit_talk_samira_shah",
+				"alex_rivera": "transit_talk_alex_rivera",
+				"ingrid_solheim": "transit_talk_ingrid_solheim",
+				"dev_malhotra": "transit_talk_dev_malhotra",
+				"amara_okonkwo": "transit_talk_amara_okonkwo",
+				"leo_marchetti": "transit_talk_leo_marchetti",
+				"yuki_tanaka": "transit_talk_yuki_tanaka"
+			},
+			"room": {
+				"name": "Spacecraft Corridor",
+				"bg": "#22313f",
+				"world": [
+					1280,
+					640
+				],
+				"start": [
+					80,
+					400
+				],
+				"walls": [
+					[
+						0,
+						0,
+						1280,
+						16
+					],
+					[
+						0,
+						624,
+						1280,
+						16
+					],
+					[
+						0,
+						0,
+						16,
+						640
+					],
+					[
+						1264,
+						0,
+						16,
+						640
+					],
+					[
+						600,
+						150,
+						24,
+						220
+					]
+				],
+				"stations": [
+					{
+						"id": "briefing",
+						"label": "Briefing Table",
+						"kind": "briefing",
+						"pos": [
+							150,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "duty",
+						"label": "Duty Station",
+						"kind": "duty",
+						"pos": [
+							1080,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_1",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							420,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_2",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							760,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_3",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							960,
+							470
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "optional",
+						"label": "Star Map",
+						"kind": "optional",
+						"pos": [
+							330,
+							500
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "finish",
+						"label": "Close Shift",
+						"kind": "finish",
+						"pos": [
+							1120,
+							560
+						],
+						"size": [
+							72,
+							72
+						]
+					}
+				]
+			},
+			"emergency_script": [
+				{
+					"speaker": "mira_vale",
+					"text": "Alert. {warning}"
+				},
+				{
+					"speaker": "samira_shah",
+					"text": "No panic. We have time. Do it again."
+				},
+				{
+					"speaker": "mira_vale",
+					"text": "Recovery is open. Do the critical step again. The shift is not over."
+				}
+			],
+			"tasks": {
+				"astronaut": {
+					"pattern": "burn",
+					"parts": [
+						{
+							"id": "heading",
+							"prompt": "Heading change in degrees (target 42, now 37)",
+							"answer": 5,
+							"tolerance": 0.5,
+							"unit": "deg"
+						}
+					],
+					"timing": {
+						"zone": [
+							0.45,
+							0.55
+						],
+						"speed": 0.8
+					},
+					"given": {
+						"current_heading": 37,
+						"target_heading": 42
+					},
+					"title": "Mid-Course Burn",
+					"science": "A small burn at the right moment can change a long path a lot.",
+					"hint": "Subtract the current heading from the target. Then stop the timing bar in the green zone.",
+					"mistake": "Burned outside the planned timing.",
+					"emergency": {
+						"id": "bad_burn",
+						"warning": "The burn missed the window. Wait for the next one and try again."
+					}
+				},
+				"engineer": {
+					"pattern": "repair",
+					"symptom": "The cabin fan hums loudly and the air feels stale. Power is steady.",
+					"rows": [
+						{
+							"id": "scrubber_fan",
+							"component": "Scrubber fan bearing",
+							"clue": "Loud hum and low air flow"
+						},
+						{
+							"id": "battery",
+							"component": "Battery pack",
+							"clue": "Lights dim and power dips"
+						},
+						{
+							"id": "radio",
+							"component": "Radio amplifier",
+							"clue": "Static on every channel"
+						},
+						{
+							"id": "pump",
+							"component": "Water pump",
+							"clue": "Gurgling and low pressure"
+						}
+					],
+					"answer": "scrubber_fan",
+					"title": "Find the Failed Part",
+					"science": "A repair starts with the symptoms. Match each clue to the part it points to.",
+					"hint": "Read the clues in the manual and pick the part that matches the hum.",
+					"mistake": "Replaced a part that was not broken.",
+					"emergency": {
+						"id": "wrong_part",
+						"warning": "The wrong part was pulled. Put it back and read the manual again."
+					}
+				},
+				"physicist": {
+					"pattern": "measure",
+					"given": {
+						"mass_kg": 2,
+						"spring_n_per_m": 50
+					},
+					"parts": [
+						{
+							"id": "period",
+							"prompt": "Oscillation period T = 2 pi sqrt(m / k)",
+							"answer": 1.26,
+							"tolerance": 0.05,
+							"unit": "s"
+						},
+						{
+							"id": "freq",
+							"prompt": "Frequency (1 divided by T)",
+							"answer": 0.8,
+							"tolerance": 0.04,
+							"unit": "Hz"
+						}
+					],
+					"title": "Weighing Without Weight",
+					"science": "In microgravity nothing weighs anything, so mass is found by how fast it wobbles on a spring.",
+					"hint": "Use T = 2 pi sqrt(m / k). Then flip it to get frequency.",
+					"mistake": "Entered a period outside tolerance.",
+					"emergency": {
+						"id": "bad_period",
+						"warning": "The period does not match the sensor. Recheck the square root."
+					}
+				},
+				"mathematician": {
+					"pattern": "figure",
+					"given": {
+						"start_mass_kg": 20000,
+						"delta_v_m_s": 1500,
+						"exhaust_m_s": 3200
+					},
+					"parts": [
+						{
+							"id": "fuel",
+							"prompt": "Fuel mass = m0 x (1 - e^(-dv / ve))",
+							"answer": 7484.32,
+							"tolerance": 149.69,
+							"unit": "kg"
+						}
+					],
+					"title": "The Rocket Equation",
+					"science": "More speed change needs much more fuel. That is why every kilogram counts in space.",
+					"hint": "Compute dv divided by exhaust speed, then use the exponential. Round sensibly.",
+					"mistake": "Used the wrong fuel formula.",
+					"emergency": {
+						"id": "fuel_short",
+						"warning": "The fuel estimate is too low. Recompute with the full formula."
+					}
+				},
+				"biologist": {
+					"pattern": "procedure",
+					"steps": [
+						{
+							"id": "sterilize",
+							"label": "Sterilize gloves and tools"
+						},
+						{
+							"id": "label",
+							"label": "Label the dish"
+						},
+						{
+							"id": "swab",
+							"label": "Swab the water loop"
+						},
+						{
+							"id": "focus",
+							"label": "Focus the microscope"
+						},
+						{
+							"id": "record",
+							"label": "Record the result"
+						}
+					],
+					"order": [
+						"sterilize",
+						"label",
+						"swab",
+						"focus",
+						"record"
+					],
+					"question": "Which dish matches ID card W-2: chains?",
+					"samples": [
+						{
+							"id": "s1",
+							"label": "Dish 1",
+							"view": "round cells"
+						},
+						{
+							"id": "s2",
+							"label": "Dish 2",
+							"view": "single rods"
+						},
+						{
+							"id": "s3",
+							"label": "Dish 3",
+							"view": "chains"
+						},
+						{
+							"id": "s4",
+							"label": "Dish 4",
+							"view": "clear, no growth"
+						}
+					],
+					"answer": "s3",
+					"conclusions": [
+						{
+							"id": "c1",
+							"text": "A known water microbe. Add extra filtering.",
+							"ok": true
+						},
+						{
+							"id": "c2",
+							"text": "Nothing here. Skip the filter.",
+							"ok": false
+						}
+					],
+					"title": "Life Support Swab",
+					"science": "Water loops grow microbes over time. Regular swabs catch problems early.",
+					"hint": "Sterilize first, then swab, then focus. Match the pattern on the ID card.",
+					"mistake": "Handled the swab before sterilizing.",
+					"emergency": {
+						"id": "contamination",
+						"warning": "The dish was contaminated. Re-sterilize and swab again.",
+						"fail_flag": "contamination_noted"
+					}
+				},
+				"medical": {
+					"pattern": "triage",
+					"scan_first": true,
+					"patients": [
+						{
+							"id": "p1",
+							"name": "Crew A",
+							"vitals": {
+								"co2_percent": 0.05,
+								"headache": "none"
+							},
+							"abnormal": false,
+							"note": "Fine."
+						},
+						{
+							"id": "p2",
+							"name": "Crew B",
+							"vitals": {
+								"co2_percent": 0.4,
+								"headache": "strong"
+							},
+							"abnormal": true,
+							"note": "Slept badly. Headache all morning."
+						},
+						{
+							"id": "p3",
+							"name": "Crew C",
+							"vitals": {
+								"co2_percent": 0.05,
+								"headache": "none"
+							},
+							"abnormal": false,
+							"note": "Fine."
+						}
+					],
+					"actions": [
+						{
+							"id": "air",
+							"label": "Move to fresh air flow and check the scrubber",
+							"correct": true,
+							"effect": "The headache fades as the air clears."
+						},
+						{
+							"id": "pills",
+							"label": "Painkillers only",
+							"correct": false,
+							"effect": "The cause is still in the air."
+						},
+						{
+							"id": "sleep",
+							"label": "Sleep it off in the same bunk",
+							"correct": false,
+							"effect": "The air is the same, so the headache returns."
+						}
+					],
+					"correct_patient": "p2",
+					"correct_action": "air",
+					"title": "Sleep and CO2 Headache",
+					"science": "Too much carbon dioxide causes headaches. Fresh air flow is the fix, not just a pill.",
+					"hint": "Scan the crew and compare the CO2 numbers before choosing a treatment.",
+					"mistake": "Treated before scanning every crew member.",
+					"emergency": {
+						"id": "treated_early",
+						"warning": "Treatment began before the scan finished. Stabilize and scan again."
+					}
+				},
+				"comms": {
+					"pattern": "link",
+					"parts": [
+						{
+							"id": "seconds",
+							"prompt": "One-way delay for 120,000,000 km (seconds)",
+							"answer": 400.28,
+							"tolerance": 5,
+							"unit": "s"
+						},
+						{
+							"id": "minutes",
+							"prompt": "The same delay in minutes",
+							"answer": 6.67,
+							"tolerance": 0.1,
+							"unit": "min"
+						}
+					],
+					"budget_chars": 120,
+					"messages": [
+						{
+							"id": "m1",
+							"text": "Cabin air fine. Burn done. All crew healthy. Next check in 24 h.",
+							"chars": 64,
+							"ok": true
+						},
+						{
+							"id": "m2",
+							"text": "Everything is okay and we have lots of good news to share about the burn and the cabin air and the crew and the meals and the weather in the corridor today.",
+							"chars": 156,
+							"ok": false
+						},
+						{
+							"id": "m3",
+							"text": "ok",
+							"chars": 2,
+							"ok": false
+						}
+					],
+					"title": "Signal Delay and Character Budget",
+					"science": "Radio waves travel at the speed of light. Far away, even light takes minutes.",
+					"hint": "Divide the distance by 299,792 km per second. Pick the message that fits the budget and says what Earth needs.",
+					"mistake": "Chose a message that was too long or too vague.",
+					"emergency": {
+						"id": "bad_message",
+						"warning": "The message did not fit or did not say enough. Draft it again."
+					}
+				},
+				"director": {
+					"pattern": "priority",
+					"seconds_total": 45,
+					"events": [
+						{
+							"id": "co2_alarm",
+							"label": "CO2 alarm in the lab",
+							"kind": "life",
+							"rank": 1,
+							"seconds": 45,
+							"needs": "medical"
+						},
+						{
+							"id": "antenna",
+							"label": "Antenna pointing drift",
+							"kind": "mission",
+							"rank": 2,
+							"seconds": 45,
+							"needs": "comms"
+						},
+						{
+							"id": "plant_light",
+							"label": "Plant light timer stuck",
+							"kind": "science",
+							"rank": 3,
+							"seconds": 45,
+							"needs": "biologist"
+						}
+					],
+					"title": "Corridor Alerts",
+					"science": "On a long trip the air matters first. Experiments can wait.",
+					"hint": "Click the alert that protects people. Then assign the specialist.",
+					"mistake": "Answered a lower priority alert first.",
+					"emergency": {
+						"id": "late_triage",
+						"warning": "The life-safety alert waited too long. Reorder and respond again.",
+						"fail_flag": "alert_expired"
+					}
+				}
+			}
+		},
+		{
+			"id": "red_horizon",
+			"title": "Red Horizon",
+			"intro": "red_horizon_intro",
+			"ending": "red_horizon_end",
+			"duty_text": "Finish your station duty on the surface.",
+			"optional": {
+				"text": "Read the surface weather sign.",
+				"station": "Weather Sign",
+				"fact": "Mars has thin air. Dust storms can last for weeks."
+			},
+			"learn": [
+				"Mars pulls less than Earth, but landing still needs care.",
+				"Equipment goes down before people rest."
+			],
+			"team": [
+				{
+					"id": "mira_vale",
+					"note": "Boots, wheels, and dishes are down."
+				},
+				{
+					"id": "ingrid_solheim",
+					"note": "The landing numbers held."
+				},
+				{
+					"id": "samira_shah",
+					"note": "The mast is up."
+				}
+			],
+			"talks": {
+				"mira_vale": "red_horizon_talk_mira_vale",
+				"samira_shah": "red_horizon_talk_samira_shah",
+				"alex_rivera": "red_horizon_talk_alex_rivera",
+				"ingrid_solheim": "red_horizon_talk_ingrid_solheim",
+				"dev_malhotra": "red_horizon_talk_dev_malhotra",
+				"amara_okonkwo": "red_horizon_talk_amara_okonkwo",
+				"leo_marchetti": "red_horizon_talk_leo_marchetti",
+				"yuki_tanaka": "red_horizon_talk_yuki_tanaka"
+			},
+			"room": {
+				"name": "Mars Surface",
+				"bg": "#4a2a20",
+				"world": [
+					1280,
+					640
+				],
+				"start": [
+					80,
+					400
+				],
+				"walls": [
+					[
+						0,
+						0,
+						1280,
+						16
+					],
+					[
+						0,
+						624,
+						1280,
+						16
+					],
+					[
+						0,
+						0,
+						16,
+						640
+					],
+					[
+						1264,
+						0,
+						16,
+						640
+					],
+					[
+						600,
+						150,
+						24,
+						220
+					]
+				],
+				"stations": [
+					{
+						"id": "briefing",
+						"label": "Briefing Table",
+						"kind": "briefing",
+						"pos": [
+							150,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "duty",
+						"label": "Duty Station",
+						"kind": "duty",
+						"pos": [
+							1080,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_1",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							420,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_2",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							760,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_3",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							960,
+							470
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "optional",
+						"label": "Weather Sign",
+						"kind": "optional",
+						"pos": [
+							330,
+							500
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "finish",
+						"label": "Close Shift",
+						"kind": "finish",
+						"pos": [
+							1120,
+							560
+						],
+						"size": [
+							72,
+							72
+						]
+					}
+				]
+			},
+			"emergency_script": [
+				{
+					"speaker": "mira_vale",
+					"text": "Alert. {warning}"
+				},
+				{
+					"speaker": "samira_shah",
+					"text": "Eyes up. Redo it and keep the dust out."
+				},
+				{
+					"speaker": "mira_vale",
+					"text": "Recovery is open. Do the critical step again. The shift is not over."
+				}
+			],
+			"tasks": {
+				"astronaut": {
+					"pattern": "route",
+					"cols": 9,
+					"rows": 6,
+					"start": [
+						0,
+						5
+					],
+					"goal": [
+						8,
+						0
+					],
+					"hazards": [
+						[
+							1,
+							3
+						],
+						[
+							2,
+							2
+						],
+						[
+							3,
+							4
+						],
+						[
+							4,
+							4
+						],
+						[
+							5,
+							2
+						],
+						[
+							6,
+							1
+						],
+						[
+							6,
+							3
+						],
+						[
+							7,
+							4
+						]
+					],
+					"waypoints": [
+						[
+							4,
+							2
+						]
+					],
+					"title": "Deploy the Weather Mast",
+					"science": "On Mars the rocks and craters decide your route. A good walk touches every stop once.",
+					"hint": "Walk from the lander to the mast site, then on to the goal. Avoid the craters.",
+					"mistake": "Stepped onto a hazard tile.",
+					"emergency": {
+						"id": "hazard_contact",
+						"warning": "You stepped into a crater edge. Back out and plot the walk again."
+					}
+				},
+				"engineer": {
+					"pattern": "inspect",
+					"rule": "Flag every line outside 480 to 520 N.",
+					"steps": [
+						{
+							"id": "w1",
+							"label": "Winch line 1",
+							"value": 500,
+							"unit": "N",
+							"lo": 480,
+							"hi": 520,
+							"ok": true
+						},
+						{
+							"id": "w2",
+							"label": "Winch line 2",
+							"value": 497,
+							"unit": "N",
+							"lo": 480,
+							"hi": 520,
+							"ok": true
+						},
+						{
+							"id": "w3",
+							"label": "Winch line 3",
+							"value": 441,
+							"unit": "N",
+							"lo": 480,
+							"hi": 520,
+							"ok": false
+						},
+						{
+							"id": "w4",
+							"label": "Winch line 4",
+							"value": 503,
+							"unit": "N",
+							"lo": 480,
+							"hi": 520,
+							"ok": true
+						},
+						{
+							"id": "w5",
+							"label": "Winch line 5",
+							"value": 524,
+							"unit": "N",
+							"lo": 480,
+							"hi": 520,
+							"ok": false
+						}
+					],
+					"must_flag": [
+						"w3",
+						"w5"
+					],
+					"title": "Mast Winch Calibration",
+					"science": "A mast stands up straight only when all of its cables pull evenly.",
+					"hint": "Compare each reading to the range. Flag every line that is off.",
+					"mistake": "Missed or wrongly flagged a winch line.",
+					"emergency": {
+						"id": "loose_clamp",
+						"warning": "A bad cable reading was missed. Check the mast again."
+					}
+				},
+				"physicist": {
+					"pattern": "measure",
+					"given": {
+						"g_mars": 3.71,
+						"height_m": 80,
+						"touchdown_m_s": 2
+					},
+					"parts": [
+						{
+							"id": "v",
+							"prompt": "Free fall speed from 80 m (v = sqrt(2 g h))",
+							"answer": 24.36,
+							"tolerance": 0.5,
+							"unit": "m/s"
+						},
+						{
+							"id": "cancel",
+							"prompt": "Speed the engines must remove to land at 2 m/s",
+							"answer": 22.36,
+							"tolerance": 0.5,
+							"unit": "m/s"
+						}
+					],
+					"bar": {
+						"zone": [
+							0.4,
+							0.6
+						],
+						"speed": 1.0
+					},
+					"title": "Descent Check",
+					"science": "Mars pulls less than Earth. A fall still gets fast, so landing needs engines or chutes.",
+					"hint": "Use v = sqrt(2 x 3.71 x 80). Then subtract 2.",
+					"mistake": "Entered a descent speed outside tolerance.",
+					"emergency": {
+						"id": "bad_velocity",
+						"warning": "The descent speed does not match the radar. Recompute."
+					}
+				},
+				"mathematician": {
+					"pattern": "figure",
+					"given": {
+						"distance_km": 12,
+						"minutes": 8,
+						"ellipse_km": 6
+					},
+					"parts": [
+						{
+							"id": "speed",
+							"prompt": "Lander ground speed (km per minute)",
+							"answer": 1.5,
+							"tolerance": 0.05,
+							"unit": "km/min"
+						},
+						{
+							"id": "cross",
+							"prompt": "Minutes to cross the 6 km landing ellipse",
+							"answer": 4.0,
+							"tolerance": 0.1,
+							"unit": "min"
+						}
+					],
+					"table": {
+						"prompt": "Pick the landing site with the smallest ellipse.",
+						"columns": [
+							"Site",
+							"Ellipse km"
+						],
+						"rows": [
+							{
+								"id": "a",
+								"cells": [
+									"Site A",
+									"10"
+								]
+							},
+							{
+								"id": "b",
+								"cells": [
+									"Site B",
+									"6"
+								]
+							},
+							{
+								"id": "c",
+								"cells": [
+									"Site C",
+									"8"
+								]
+							}
+						],
+						"answer": "b"
+					},
+					"title": "Landing Ellipse Timing",
+					"science": "A landing ellipse is the area where the lander might touch down. Smaller is safer.",
+					"hint": "Speed is distance divided by time. Then time to cross is length divided by speed.",
+					"mistake": "Computed the crossing time wrongly.",
+					"emergency": {
+						"id": "clock_error",
+						"warning": "The timing is wrong. Fix the arithmetic."
+					}
+				},
+				"biologist": {
+					"pattern": "procedure",
+					"steps": [
+						{
+							"id": "sterilize",
+							"label": "Sterilize the scoop"
+						},
+						{
+							"id": "label",
+							"label": "Label the bag"
+						},
+						{
+							"id": "scoop",
+							"label": "Scoop the regolith"
+						},
+						{
+							"id": "focus",
+							"label": "Focus the microscope"
+						},
+						{
+							"id": "record",
+							"label": "Record the result"
+						}
+					],
+					"order": [
+						"sterilize",
+						"label",
+						"scoop",
+						"focus",
+						"record"
+					],
+					"question": "Which view matches ID card R-3: mineral grains?",
+					"samples": [
+						{
+							"id": "s1",
+							"label": "View 1",
+							"view": "round cells"
+						},
+						{
+							"id": "s2",
+							"label": "View 2",
+							"view": "mineral grains"
+						},
+						{
+							"id": "s3",
+							"label": "View 3",
+							"view": "chains"
+						},
+						{
+							"id": "s4",
+							"label": "View 4",
+							"view": "paired rods"
+						}
+					],
+					"answer": "s2",
+					"conclusions": [
+						{
+							"id": "c1",
+							"text": "Mineral grains and dust. No cells seen.",
+							"ok": true
+						},
+						{
+							"id": "c2",
+							"text": "Living cells are growing in the soil.",
+							"ok": false
+						}
+					],
+					"title": "Regolith Sample",
+					"science": "Regolith is the loose dust and rock on Mars. A careful sample keeps Earth germs out of the answer.",
+					"hint": "Sterilize the scoop first. Compare the view to the ID card.",
+					"mistake": "Handled the scoop before sterilizing.",
+					"emergency": {
+						"id": "contamination",
+						"warning": "The scoop was not sterile. Clean it and collect again.",
+						"fail_flag": "contamination_noted"
+					}
+				},
+				"medical": {
+					"pattern": "triage",
+					"scan_first": true,
+					"patients": [
+						{
+							"id": "p1",
+							"name": "Crew A",
+							"vitals": {
+								"cough": "none",
+								"cabin_pressure_kpa": 101,
+								"spo2": 98
+							},
+							"abnormal": false,
+							"note": "Fine."
+						},
+						{
+							"id": "p2",
+							"name": "Crew B",
+							"vitals": {
+								"cough": "dry",
+								"cabin_pressure_kpa": 101,
+								"spo2": 97
+							},
+							"abnormal": true,
+							"note": "Itchy eyes and a dry cough after the dust."
+						},
+						{
+							"id": "p3",
+							"name": "Crew C",
+							"vitals": {
+								"cough": "none",
+								"cabin_pressure_kpa": 101,
+								"spo2": 98
+							},
+							"abnormal": false,
+							"note": "Fine."
+						}
+					],
+					"actions": [
+						{
+							"id": "rinse",
+							"label": "Rinse eyes, wear a mask, no evacuation",
+							"correct": true,
+							"effect": "The irritation settles. Cabin pressure never moved."
+						},
+						{
+							"id": "evac",
+							"label": "Call a decompression emergency",
+							"correct": false,
+							"effect": "Pressure was normal, so the alarm was not needed."
+						},
+						{
+							"id": "ignore",
+							"label": "Do nothing",
+							"correct": false,
+							"effect": "The dust keeps irritating the eyes."
+						}
+					],
+					"correct_patient": "p2",
+					"correct_action": "rinse",
+					"title": "Dust or Decompression",
+					"science": "Check the pressure reading before you decide. Dust and decompression feel different on a gauge.",
+					"hint": "Scan everyone, read cabin pressure, then pick the calm treatment.",
+					"mistake": "Treated before scanning every crew member.",
+					"emergency": {
+						"id": "treated_early",
+						"warning": "Treatment began before the scan finished. Stabilize and scan again."
+					}
+				},
+				"comms": {
+					"pattern": "tune",
+					"frequency": {
+						"min": 380.0,
+						"max": 420.0,
+						"step": 0.5,
+						"target": 401.0,
+						"tolerance": 0.5,
+						"unit": "MHz"
+					},
+					"backup_frequency": 403.5,
+					"cipher": {
+						"text": "ODQGHG",
+						"shift": 3,
+						"answer": "LANDED"
+					},
+					"interference": {
+						"options": [
+							"Off",
+							"Low-pass filter",
+							"Notch filter"
+						],
+						"answer": "Low-pass filter"
+					},
+					"title": "Dust Storm Radio",
+					"science": "Dust and weather add noise. A filter removes the part of the signal you do not want.",
+					"hint": "Tune to the target band, pick the filter that clears the hiss, then decode with a shift of three.",
+					"mistake": "Locked onto the wrong frequency.",
+					"emergency": {
+						"id": "signal_loss",
+						"warning": "The signal was lost in the noise. Try the backup frequency."
+					}
+				},
+				"director": {
+					"pattern": "decision",
+					"prompt": "All descent checks are green. There is a dust haze advisory, but it is under the limit. Commit or wave off?",
+					"choices": [
+						{
+							"id": "commit",
+							"text": "Commit to the landing. The checks are green.",
+							"result": "success",
+							"consequence": "Touchdown is smooth and on schedule."
+						},
+						{
+							"id": "waveoff",
+							"text": "Wave off and go around once more.",
+							"result": "success_cost",
+							"consequence": "Safe, but it costs fuel and a lot of time.",
+							"flags": {
+								"fuel_used": true
+							},
+							"lasting": []
+						},
+						{
+							"id": "skip",
+							"text": "Commit and skip the final check to save time.",
+							"result": "fail",
+							"consequence": "A skipped check is a risk nobody agreed to."
+						}
+					],
+					"title": "Landing Commit",
+					"science": "Commit means you have the data to go. Wave-off means you do not. Good leaders can tell the difference.",
+					"hint": "Read the checks. Choose the call that matches the data.",
+					"mistake": "Chose a call that skipped a required check.",
+					"emergency": {
+						"id": "check_skipped",
+						"warning": "A final check was skipped. Rerun the commit review."
+					}
+				}
+			}
+		},
+		{
+			"id": "new_beginnings",
+			"title": "New Beginnings",
+			"intro": "new_beginnings_intro",
+			"ending": "new_beginnings_end",
+			"duty_text": "Finish your station duty at the outpost.",
+			"optional": {
+				"text": "Read the outpost log board.",
+				"station": "Log Board",
+				"fact": "Good scientists write down what they saw, not what they hoped."
+			},
+			"learn": [
+				"A strange signal is data first.",
+				"Do not claim more than the evidence shows."
+			],
+			"team": [
+				{
+					"id": "mira_vale",
+					"note": "We logged what we saw and nothing more."
+				},
+				{
+					"id": "yuki_tanaka",
+					"note": "The raw data is on its way to Earth."
+				},
+				{
+					"id": "amara_okonkwo",
+					"note": "The rover sample is a mineral, not a cell."
+				}
+			],
+			"talks": {
+				"mira_vale": "new_beginnings_talk_mira_vale",
+				"samira_shah": "new_beginnings_talk_samira_shah",
+				"alex_rivera": "new_beginnings_talk_alex_rivera",
+				"ingrid_solheim": "new_beginnings_talk_ingrid_solheim",
+				"dev_malhotra": "new_beginnings_talk_dev_malhotra",
+				"amara_okonkwo": "new_beginnings_talk_amara_okonkwo",
+				"leo_marchetti": "new_beginnings_talk_leo_marchetti",
+				"yuki_tanaka": "new_beginnings_talk_yuki_tanaka"
+			},
+			"room": {
+				"name": "Outpost Site",
+				"bg": "#2a2f3a",
+				"world": [
+					1280,
+					640
+				],
+				"start": [
+					80,
+					400
+				],
+				"walls": [
+					[
+						0,
+						0,
+						1280,
+						16
+					],
+					[
+						0,
+						624,
+						1280,
+						16
+					],
+					[
+						0,
+						0,
+						16,
+						640
+					],
+					[
+						1264,
+						0,
+						16,
+						640
+					],
+					[
+						600,
+						150,
+						24,
+						220
+					]
+				],
+				"stations": [
+					{
+						"id": "briefing",
+						"label": "Briefing Table",
+						"kind": "briefing",
+						"pos": [
+							150,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "duty",
+						"label": "Duty Station",
+						"kind": "duty",
+						"pos": [
+							1080,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_1",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							420,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_2",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							760,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_3",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							960,
+							470
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "optional",
+						"label": "Log Board",
+						"kind": "optional",
+						"pos": [
+							330,
+							500
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "finish",
+						"label": "Close Shift",
+						"kind": "finish",
+						"pos": [
+							1120,
+							560
+						],
+						"size": [
+							72,
+							72
+						]
+					}
+				]
+			},
+			"emergency_script": [
+				{
+					"speaker": "mira_vale",
+					"text": "Alert. {warning}"
+				},
+				{
+					"speaker": "yuki_tanaka",
+					"text": "We are not in a hurry. Let us do it right."
+				},
+				{
+					"speaker": "mira_vale",
+					"text": "Recovery is open. Do the critical step again. The shift is not over."
+				}
+			],
+			"tasks": {
+				"astronaut": {
+					"pattern": "route",
+					"cols": 10,
+					"rows": 6,
+					"start": [
+						0,
+						5
+					],
+					"goal": [
+						9,
+						0
+					],
+					"hazards": [
+						[
+							1,
+							2
+						],
+						[
+							2,
+							4
+						],
+						[
+							3,
+							1
+						],
+						[
+							4,
+							4
+						],
+						[
+							5,
+							0
+						],
+						[
+							6,
+							2
+						],
+						[
+							6,
+							4
+						],
+						[
+							7,
+							3
+						],
+						[
+							8,
+							1
+						]
+					],
+					"waypoints": [
+						[
+							5,
+							3
+						]
+					],
+					"ping": [
+						9,
+						0
+					],
+					"title": "Survey to the Rover Ping",
+					"science": "Surveys cover ground in a plan so nothing is missed. A ping tells the rover where to find you.",
+					"hint": "Pass the survey marker, then follow the ping to the rover. Stay off the hazards.",
+					"mistake": "Stepped onto a hazard tile.",
+					"emergency": {
+						"id": "hazard_contact",
+						"warning": "You stepped onto a hazard. Back out and plot the survey again."
+					}
+				},
+				"engineer": {
+					"pattern": "repair",
+					"symptom": "The outpost lights flicker every time the heater switches on.",
+					"rows": [
+						{
+							"id": "j3",
+							"component": "Loose connector J3",
+							"clue": "Flicker only when a big load switches on"
+						},
+						{
+							"id": "heater",
+							"component": "Heater element",
+							"clue": "No heat at all"
+						},
+						{
+							"id": "panel",
+							"component": "Dusty solar panel",
+							"clue": "Slow dimming over the day"
+						},
+						{
+							"id": "bulb",
+							"component": "One bad bulb",
+							"clue": "One light flickers, others steady"
+						}
+					],
+					"answer": "j3",
+					"title": "Trace the Flicker",
+					"science": "An intermittent fault comes and goes. Look for what changes at the moment it happens.",
+					"hint": "The flicker starts when the heater turns on. Which part reacts to a sudden load?",
+					"mistake": "Replaced a part that was not broken.",
+					"emergency": {
+						"id": "wrong_part",
+						"warning": "The wrong part was swapped. Restore it and read the clues again."
+					}
+				},
+				"physicist": {
+					"pattern": "measure",
+					"given": {
+						"p_max_w": 400,
+						"angle_deg": 35
+					},
+					"parts": [
+						{
+							"id": "power",
+							"prompt": "Panel power (P = Pmax x cos angle)",
+							"answer": 327.66,
+							"tolerance": 5,
+							"unit": "W"
+						},
+						{
+							"id": "best",
+							"prompt": "Panel angle for full power",
+							"answer": 0,
+							"tolerance": 1,
+							"unit": "deg"
+						}
+					],
+					"title": "Solar Panel Angle",
+					"science": "A panel gets the most power when it faces the sun straight on. Tilt it away and power drops.",
+					"hint": "Use cosine of the angle. The best angle is the one where cosine is 1.",
+					"mistake": "Entered a power outside tolerance.",
+					"emergency": {
+						"id": "bad_power",
+						"warning": "The power reading does not match the meter. Recheck the cosine."
+					}
+				},
+				"mathematician": {
+					"pattern": "figure",
+					"given": {
+						"loads_w": {
+							"heater": 150,
+							"lights": 40,
+							"comms": 60,
+							"rover_charger": 120
+						},
+						"supply_w": 420
+					},
+					"parts": [
+						{
+							"id": "total",
+							"prompt": "Total load (W)",
+							"answer": 370,
+							"tolerance": 0,
+							"unit": "W"
+						},
+						{
+							"id": "margin",
+							"prompt": "Spare power (W)",
+							"answer": 50,
+							"tolerance": 0,
+							"unit": "W"
+						}
+					],
+					"table": {
+						"prompt": "A dust storm cuts supply to 300 W. Which load do you switch off to fit?",
+						"columns": [
+							"Load",
+							"Watts"
+						],
+						"rows": [
+							{
+								"id": "heater",
+								"cells": [
+									"Heater",
+									"150"
+								]
+							},
+							{
+								"id": "lights",
+								"cells": [
+									"Lights",
+									"40"
+								]
+							},
+							{
+								"id": "comms",
+								"cells": [
+									"Comms",
+									"60"
+								]
+							},
+							{
+								"id": "rover",
+								"cells": [
+									"Rover charger",
+									"120"
+								]
+							}
+						],
+						"answer": "rover"
+					},
+					"title": "Outpost Power Budget",
+					"science": "A power budget is a promise: total use must stay below total supply.",
+					"hint": "Add every load, then subtract from the supply. Under the storm limit, drop the load that frees enough power.",
+					"mistake": "Added the loads incorrectly.",
+					"emergency": {
+						"id": "clock_error",
+						"warning": "The budget does not add up. Fix the arithmetic."
+					}
+				},
+				"biologist": {
+					"pattern": "procedure",
+					"steps": [
+						{
+							"id": "sterilize",
+							"label": "Sterilize the tongs"
+						},
+						{
+							"id": "label",
+							"label": "Label the container"
+						},
+						{
+							"id": "collect",
+							"label": "Collect the rover sample"
+						},
+						{
+							"id": "focus",
+							"label": "Focus the microscope"
+						},
+						{
+							"id": "record",
+							"label": "Record the result"
+						}
+					],
+					"order": [
+						"sterilize",
+						"label",
+						"collect",
+						"focus",
+						"record"
+					],
+					"question": "Which view matches ID card X-7: smooth crystals?",
+					"samples": [
+						{
+							"id": "s1",
+							"label": "View 1",
+							"view": "round cells"
+						},
+						{
+							"id": "s2",
+							"label": "View 2",
+							"view": "chains"
+						},
+						{
+							"id": "s3",
+							"label": "View 3",
+							"view": "smooth crystals"
+						},
+						{
+							"id": "s4",
+							"label": "View 4",
+							"view": "paired rods"
+						}
+					],
+					"answer": "s3",
+					"conclusions": [
+						{
+							"id": "c1",
+							"text": "Abiotic. These are mineral crystals, not living cells.",
+							"ok": true
+						},
+						{
+							"id": "c2",
+							"text": "Living cells found. Announce it right away.",
+							"ok": false
+						}
+					],
+					"title": "Rover Sample",
+					"science": "Abiotic means not alive. A careful scientist rules out the boring explanations first.",
+					"hint": "Sterilize first. Then match the view to the ID card and read the result with care.",
+					"mistake": "Handled the sample before sterilizing.",
+					"emergency": {
+						"id": "contamination",
+						"warning": "The tongs were not sterile. Clean them and collect again.",
+						"fail_flag": "contamination_noted"
+					}
+				},
+				"medical": {
+					"pattern": "triage",
+					"scan_first": true,
+					"patients": [
+						{
+							"id": "p1",
+							"name": "Crew A",
+							"vitals": {
+								"sleep_hours": 7,
+								"alarm_response": "fast"
+							},
+							"abnormal": false,
+							"note": "Rested."
+						},
+						{
+							"id": "p2",
+							"name": "Crew B",
+							"vitals": {
+								"sleep_hours": 3,
+								"alarm_response": "ignored the last alarm"
+							},
+							"abnormal": true,
+							"note": "Tired and slow to react."
+						},
+						{
+							"id": "p3",
+							"name": "Crew C",
+							"vitals": {
+								"sleep_hours": 5,
+								"alarm_response": "normal"
+							},
+							"abnormal": false,
+							"note": "A little tired."
+						}
+					],
+					"actions": [
+						{
+							"id": "rest",
+							"label": "Mandatory rest and swap the shift",
+							"correct": true,
+							"effect": "A fresh crew member takes over. Safety restored."
+						},
+						{
+							"id": "finish",
+							"label": "Let them finish the shift",
+							"correct": false,
+							"effect": "A tired mind misses the next alarm."
+						},
+						{
+							"id": "coffee",
+							"label": "Strong coffee only",
+							"correct": false,
+							"effect": "Coffee hides tiredness but does not fix it."
+						}
+					],
+					"correct_patient": "p2",
+					"correct_action": "rest",
+					"title": "Crew Fatigue",
+					"science": "A tired brain misses alarms. Rest is part of safety, not a luxury.",
+					"hint": "Scan everyone, then pick the plan that protects the crew.",
+					"mistake": "Treated before scanning every crew member.",
+					"emergency": {
+						"id": "treated_early",
+						"warning": "Treatment began before the scan finished. Stabilize and scan again."
+					}
+				},
+				"comms": {
+					"pattern": "link",
+					"parts": [
+						{
+							"id": "seconds",
+							"prompt": "One-way delay for 225,000,000 km (seconds)",
+							"answer": 750.52,
+							"tolerance": 8,
+							"unit": "s"
+						},
+						{
+							"id": "minutes",
+							"prompt": "The same delay in minutes",
+							"answer": 12.51,
+							"tolerance": 0.2,
+							"unit": "min"
+						}
+					],
+					"budget_chars": 140,
+					"messages": [
+						{
+							"id": "log",
+							"text": "Logged: UNKNOWN SIGNAL, origin unconfirmed. Raw data sent to Earth labs for review.",
+							"chars": 83,
+							"ok": true
+						},
+						{
+							"id": "press",
+							"text": "Tell the news about the strange signal right now before anyone checks it.",
+							"chars": 73,
+							"ok": false,
+							"flags": {
+								"signal_leaked": true
+							},
+							"lasting": [
+								"signal_leaked"
+							],
+							"consequence": "The news spreads fast. Earth asks the outpost for a statement."
+						},
+						{
+							"id": "alien",
+							"text": "Tell everyone we heard a message from an alien civilization.",
+							"chars": 60,
+							"ok": false,
+							"flags": {
+								"jumped_to_aliens": true
+							},
+							"lasting": [
+								"jumped_to_aliens"
+							],
+							"consequence": "The claim is not backed by data. Colleagues ask for evidence."
+						}
+					],
+					"decode": {
+						"text": "XNLSFQ QTLLJI",
+						"shift": 5,
+						"answer": "SIGNAL LOGGED",
+						"flag_full": "signal_logged_full",
+						"flag_partial": "signal_logged_partial"
+					},
+					"title": "Log the Strange Signal",
+					"science": "A signal is data first. Scientists log it, check it, and ask others to check it too.",
+					"hint": "Decode the pulses. Then choose the message that records what you know and nothing more.",
+					"mistake": "Sent a message that claimed too much.",
+					"emergency": {
+						"id": "bad_message",
+						"warning": "The message claimed more than the data shows. Draft it again."
+					}
+				},
+				"director": {
+					"pattern": "decision",
+					"prompt": "A strange signal was logged. A reporter is already asking. How do you classify it?",
+					"choices": [
+						{
+							"id": "classify",
+							"text": "Classify it UNKNOWN SIGNAL, origin unconfirmed, and send the data to Earth labs.",
+							"result": "success",
+							"consequence": "The team keeps its cool and the data goes to experts."
+						},
+						{
+							"id": "press",
+							"text": "Release a press statement tonight so people hear it first.",
+							"result": "success_cost",
+							"consequence": "The story spreads before it is checked. Earth asks for follow-up for months.",
+							"flags": {
+								"signal_leaked": true
+							},
+							"lasting": [
+								"signal_leaked"
+							]
+						},
+						{
+							"id": "alien",
+							"text": "Announce that the signal came from an alien civilization.",
+							"result": "fail",
+							"consequence": "The claim cannot be backed by data. Experts ask you to take it back.",
+							"flags": {
+								"jumped_to_aliens": true
+							},
+							"lasting": [
+								"jumped_to_aliens"
+							]
+						}
+					],
+					"title": "Signal or Press Release",
+					"science": "Good science separates what we know from what we hope. Classify the signal, do not guess its source.",
+					"hint": "Pick the choice that records the facts and shares the data with experts.",
+					"mistake": "Chose a classification that claimed too much.",
+					"emergency": {
+						"id": "claim_too_big",
+						"warning": "The claim ran ahead of the data. Reopen the classification."
+					}
+				}
+			}
+		}
+	]
+}

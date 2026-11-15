@@ -1,0 +1,32 @@
+{
+	"rules": {
+		"budget": 240,
+		"dv_needed": 1500,
+		"required_science": 8,
+		"max_sims": 3
+	},
+	"vehicle": [
+		{"id": "skyrider", "name": "Skyrider II", "cost": 60, "capacity": 900, "reliability": 0.92, "note": "Light, cheaper, a bit riskier."},
+		{"id": "atlas", "name": "Atlas Broomstick", "cost": 110, "capacity": 1800, "reliability": 0.97, "note": "Strong and safe, but eats the budget."}
+	],
+	"propulsion": [
+		{"id": "solid", "name": "Solid kick stage", "cost": 20, "mass": 120, "dv": 800, "note": "Cheap, one burn only."},
+		{"id": "liquid", "name": "Liquid engine", "cost": 40, "mass": 220, "dv": 2200, "note": "Costs more, reaches deep space."}
+	],
+	"power": [
+		{"id": "solar_s", "name": "Solar array S", "cost": 15, "mass": 60, "power": 900, "note": "Small and cheap."},
+		{"id": "solar_l", "name": "Solar array L", "cost": 30, "mass": 140, "power": 2000, "note": "Runs everything at once."},
+		{"id": "rtg", "name": "RTG core", "cost": 55, "mass": 90, "power": 600, "note": "Works in dim light, very pricey."}
+	],
+	"comms": [
+		{"id": "low", "name": "Low-gain antenna", "cost": 10, "mass": 20, "power": 60, "band": 1, "note": "Cheap, but drops most data."},
+		{"id": "high", "name": "High-gain dish", "cost": 25, "mass": 60, "power": 140, "band": 3, "note": "Returns the full data set."}
+	],
+	"instruments": [
+		{"id": "camera", "name": "Color camera", "cost": 20, "mass": 40, "power": 120, "science": 2},
+		{"id": "spectrometer", "name": "IR spectrometer", "cost": 35, "mass": 80, "power": 250, "science": 3},
+		{"id": "radar", "name": "Ground radar", "cost": 45, "mass": 150, "power": 300, "science": 3},
+		{"id": "weather", "name": "Weather pod", "cost": 25, "mass": 70, "power": 150, "science": 2},
+		{"id": "dust", "name": "Dust analyzer", "cost": 30, "mass": 90, "power": 180, "science": 3}
+	]
+}

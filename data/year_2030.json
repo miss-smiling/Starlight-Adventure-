@@ -1,0 +1,671 @@
+{
+	"year": 2030,
+	"title": "Listening Year",
+	"campaign": "The Signal Protocol",
+	"tech": {
+		"id": "deep_listening_2030",
+		"title": "Deep Listening Array",
+		"summary": "A giant array listens for faint signals.",
+		"effect": "Signal tasks follow a strict verification protocol."
+	},
+	"missions": [
+		{
+			"id": "first_light",
+			"title": "First Light",
+			"intro": "first_light_intro",
+			"ending": "first_light_end",
+			"duty_text": "Finish your station duty at the array.",
+			"optional": {
+				"text": "Read the protocol card.",
+				"station": "Protocol Card",
+				"fact": "The protocol card says: verify first, answer later, and tell everyone together."
+			},
+			"learn": [
+				"Patterns can be natural or made. Check carefully.",
+				"A reply is a long promise, so follow protocol."
+			],
+			"team": [
+				{
+					"id": "mira_vale",
+					"note": "We followed protocol."
+				},
+				{
+					"id": "yuki_tanaka",
+					"note": "Everything is logged."
+				},
+				{
+					"id": "dev_malhotra",
+					"note": "The pattern is clean."
+				}
+			],
+			"talks": {
+				"mira_vale": "first_light_talk_mira_vale",
+				"samira_shah": "first_light_talk_samira_shah",
+				"alex_rivera": "first_light_talk_alex_rivera",
+				"ingrid_solheim": "first_light_talk_ingrid_solheim",
+				"dev_malhotra": "first_light_talk_dev_malhotra",
+				"amara_okonkwo": "first_light_talk_amara_okonkwo",
+				"leo_marchetti": "first_light_talk_leo_marchetti",
+				"yuki_tanaka": "first_light_talk_yuki_tanaka"
+			},
+			"room": {
+				"name": "Deep Listening Array",
+				"bg": "#1a2238",
+				"world": [
+					1280,
+					640
+				],
+				"start": [
+					80,
+					400
+				],
+				"walls": [
+					[
+						0,
+						0,
+						1280,
+						16
+					],
+					[
+						0,
+						624,
+						1280,
+						16
+					],
+					[
+						0,
+						0,
+						16,
+						640
+					],
+					[
+						1264,
+						0,
+						16,
+						640
+					],
+					[
+						600,
+						150,
+						24,
+						220
+					]
+				],
+				"stations": [
+					{
+						"id": "briefing",
+						"label": "Briefing Table",
+						"kind": "briefing",
+						"pos": [
+							150,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "duty",
+						"label": "Duty Station",
+						"kind": "duty",
+						"pos": [
+							1080,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_1",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							420,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_2",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							760,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_3",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							960,
+							470
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "optional",
+						"label": "Protocol Card",
+						"kind": "optional",
+						"pos": [
+							330,
+							500
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "finish",
+						"label": "Close Shift",
+						"kind": "finish",
+						"pos": [
+							1120,
+							560
+						],
+						"size": [
+							72,
+							72
+						]
+					}
+				]
+			},
+			"emergency_script": [
+				{
+					"speaker": "mira_vale",
+					"text": "Alert. {warning}"
+				},
+				{
+					"speaker": "yuki_tanaka",
+					"text": "Stop the reply. Follow the protocol again."
+				},
+				{
+					"speaker": "mira_vale",
+					"text": "Recovery is open. Do the critical step again. The shift is not over."
+				}
+			],
+			"tasks": {
+				"astronaut": {
+					"pattern": "switches",
+					"steps": [
+						{
+							"id": "power",
+							"label": "Array power"
+						},
+						{
+							"id": "pointing",
+							"label": "Pointing motors"
+						},
+						{
+							"id": "receiver",
+							"label": "Receiver"
+						},
+						{
+							"id": "recorder",
+							"label": "Recorder"
+						},
+						{
+							"id": "logger",
+							"label": "Protocol logger"
+						}
+					],
+					"order": [
+						"power",
+						"pointing",
+						"receiver",
+						"recorder",
+						"logger"
+					],
+					"abort": {
+						"rule": "Pause the array if wind or temperature leaves its range.",
+						"readings": [
+							{
+								"id": "wind",
+								"label": "Dish wind speed",
+								"value": 14,
+								"unit": "km/h",
+								"lo": 0,
+								"hi": 40,
+								"ok": true
+							},
+							{
+								"id": "temp",
+								"label": "Receiver temperature",
+								"value": -12,
+								"unit": "C",
+								"lo": -40,
+								"hi": 10,
+								"ok": true
+							}
+						],
+						"should_abort": false
+					},
+					"title": "Wake the Array",
+					"science": "Big dishes need careful, ordered startups.",
+					"hint": "Flip switches in order. Check each reading.",
+					"mistake": "Flipped a switch out of order.",
+					"emergency": {
+						"id": "wrong_switch",
+						"warning": "A switch was flipped out of order. Reset and begin again."
+					}
+				},
+				"engineer": {
+					"pattern": "build",
+					"parts": [
+						{
+							"id": "mount",
+							"label": "Dish mount"
+						},
+						{
+							"id": "feed",
+							"label": "Feed horn"
+						},
+						{
+							"id": "amp",
+							"label": "Low-noise amplifier"
+						},
+						{
+							"id": "cooler",
+							"label": "Cooler"
+						},
+						{
+							"id": "cable",
+							"label": "Signal cable"
+						}
+					],
+					"order": [
+						"mount",
+						"feed",
+						"amp",
+						"cooler",
+						"cable"
+					],
+					"gauges": [
+						{
+							"id": "noise",
+							"label": "Receiver noise",
+							"value": 24,
+							"unit": "K",
+							"lo": 5,
+							"hi": 40,
+							"ok": true
+						},
+						{
+							"id": "gain",
+							"label": "Amp gain",
+							"value": 38,
+							"unit": "dB",
+							"lo": 30,
+							"hi": 45,
+							"ok": true
+						},
+						{
+							"id": "temp",
+							"label": "Amp temperature",
+							"value": 71,
+							"unit": "K",
+							"lo": 10,
+							"hi": 30,
+							"ok": false
+						}
+					],
+					"bad_gauge": "temp",
+					"malfunction": "The feed horn goes before the amplifier or the signal has no path.",
+					"title": "Feed Assembly",
+					"science": "Cooling the amplifier makes the receiver much quieter.",
+					"hint": "Install from the dish outward. Flag the gauge out of range.",
+					"mistake": "Installed a part out of order.",
+					"emergency": {
+						"id": "misaligned_stack",
+						"warning": "The feed is misaligned. Rebuild in order."
+					}
+				},
+				"physicist": {
+					"pattern": "measure",
+					"given": {
+						"pulses": 10,
+						"seconds": 7.4
+					},
+					"parts": [
+						{
+							"id": "period",
+							"prompt": "Pulse period = seconds / pulses",
+							"answer": 0.74,
+							"tolerance": 0.02,
+							"unit": "s"
+						}
+					],
+					"verdict": {
+						"prompt": "The burst counts change in a pattern. Natural pulsars repeat evenly. What do you report?",
+						"options": [
+							"Natural source",
+							"Possibly artificial, needs verification"
+						],
+						"answer": "Possibly artificial, needs verification"
+					},
+					"title": "Compare to Natural Sources",
+					"science": "Natural sources repeat in simple ways. A pattern that changes on purpose needs careful checking.",
+					"hint": "Compute the period. Then report only what the data supports.",
+					"mistake": "Reported more than the data supports.",
+					"emergency": {
+						"id": "claim_too_big",
+						"warning": "The report claimed too much. Rewrite it."
+					}
+				},
+				"mathematician": {
+					"pattern": "figure",
+					"given": {
+						"sequence": [
+							2,
+							3,
+							5,
+							7,
+							11
+						]
+					},
+					"parts": [
+						{
+							"id": "next",
+							"prompt": "Next number in the sequence",
+							"answer": 13,
+							"tolerance": 0,
+							"unit": ""
+						},
+						{
+							"id": "sum",
+							"prompt": "Sum of the first five numbers",
+							"answer": 28,
+							"tolerance": 0,
+							"unit": ""
+						}
+					],
+					"table": {
+						"prompt": "Which message do you approve as a mathematical greeting?",
+						"columns": [
+							"Message",
+							"Pattern"
+						],
+						"rows": [
+							{
+								"id": "primes",
+								"cells": [
+									"Prime numbers",
+									"2 3 5 7 11 13"
+								]
+							},
+							{
+								"id": "noise",
+								"cells": [
+									"Random beeps",
+									"no pattern"
+								]
+							},
+							{
+								"id": "echo",
+								"cells": [
+									"Echo of the signal",
+									"copy only"
+								]
+							}
+						],
+						"answer": "primes"
+					},
+					"title": "Prime Greeting",
+					"science": "Prime numbers are a clear mathematical pattern that nature rarely makes by accident.",
+					"hint": "Find the next prime. Add the first five. Pick the clearest greeting.",
+					"mistake": "Missed the pattern.",
+					"emergency": {
+						"id": "clock_error",
+						"warning": "The numbers do not match. Recheck the sequence."
+					}
+				},
+				"biologist": {
+					"pattern": "procedure",
+					"steps": [
+						{
+							"id": "sterilize",
+							"label": "Sterilize the cooling loop port"
+						},
+						{
+							"id": "label",
+							"label": "Label the swab"
+						},
+						{
+							"id": "swab",
+							"label": "Swab the cooling loop"
+						},
+						{
+							"id": "focus",
+							"label": "Focus the microscope"
+						},
+						{
+							"id": "record",
+							"label": "Record the result"
+						}
+					],
+					"order": [
+						"sterilize",
+						"label",
+						"swab",
+						"focus",
+						"record"
+					],
+					"question": "Which view matches ID card F-2: clear, no growth?",
+					"samples": [
+						{
+							"id": "s1",
+							"label": "View 1",
+							"view": "round cells"
+						},
+						{
+							"id": "s2",
+							"label": "View 2",
+							"view": "clear, no growth"
+						},
+						{
+							"id": "s3",
+							"label": "View 3",
+							"view": "chains"
+						},
+						{
+							"id": "s4",
+							"label": "View 4",
+							"view": "paired rods"
+						}
+					],
+					"answer": "s2",
+					"conclusions": [
+						{
+							"id": "c1",
+							"text": "The loop is clean. The receiver can listen.",
+							"ok": true
+						},
+						{
+							"id": "c2",
+							"text": "Growth found. Shut the array down.",
+							"ok": false
+						}
+					],
+					"title": "Clean Listening Loop",
+					"science": "A clean cooling loop keeps instruments quiet and trustworthy.",
+					"hint": "Sterilize first. Then match the view.",
+					"mistake": "Handled the swab before sterilizing.",
+					"emergency": {
+						"id": "contamination",
+						"warning": "The port was contaminated. Re-sterilize and swab again.",
+						"fail_flag": "contamination_noted"
+					}
+				},
+				"medical": {
+					"pattern": "triage",
+					"scan_first": true,
+					"patients": [
+						{
+							"id": "p1",
+							"name": "Crew A",
+							"vitals": {
+								"sleep_hours": 7,
+								"focus": "sharp"
+							},
+							"abnormal": false,
+							"note": "Rested."
+						},
+						{
+							"id": "p2",
+							"name": "Crew B",
+							"vitals": {
+								"sleep_hours": 3,
+								"focus": "drifting"
+							},
+							"abnormal": true,
+							"note": "Up all night with the signal."
+						},
+						{
+							"id": "p3",
+							"name": "Crew C",
+							"vitals": {
+								"sleep_hours": 6,
+								"focus": "sharp"
+							},
+							"abnormal": false,
+							"note": "Fine."
+						}
+					],
+					"actions": [
+						{
+							"id": "rest",
+							"label": "Rest first, then rejoin the watch",
+							"correct": true,
+							"effect": "A rested mind makes safe calls."
+						},
+						{
+							"id": "push",
+							"label": "Keep going",
+							"correct": false,
+							"effect": "Tired people make mistakes in a long watch."
+						},
+						{
+							"id": "coffee",
+							"label": "Coffee only",
+							"correct": false,
+							"effect": "It hides the tiredness."
+						}
+					],
+					"correct_patient": "p2",
+					"correct_action": "rest",
+					"title": "Long Watch Fatigue",
+					"science": "Careful work needs rested minds.",
+					"hint": "Scan all three crew first.",
+					"mistake": "Treated before scanning every crew member.",
+					"emergency": {
+						"id": "treated_early",
+						"warning": "Treatment began before the scan finished. Stabilize and scan again."
+					}
+				},
+				"comms": {
+					"pattern": "link",
+					"parts": [
+						{
+							"id": "round_trip",
+							"prompt": "Round trip time for a source 4.2 light years away (years)",
+							"answer": 8.4,
+							"tolerance": 0.1,
+							"unit": "yr"
+						}
+					],
+					"budget_chars": 120,
+					"messages": [
+						{
+							"id": "greet",
+							"text": "Hold. After the committee confirms, send the approved prime greeting.",
+							"chars": 69,
+							"ok": true
+						},
+						{
+							"id": "now",
+							"text": "Reply right now before anyone else does.",
+							"chars": 40,
+							"ok": false,
+							"flags": {
+								"premature_hail": true
+							},
+							"lasting": [
+								"premature_hail"
+							],
+							"consequence": "The reply was sent before the committee checked. Earth asks for a review."
+						},
+						{
+							"id": "ignore",
+							"text": "Ignore the signal.",
+							"chars": 18,
+							"ok": false
+						}
+					],
+					"title": "The Protocol Reply",
+					"science": "Radio waves take years to cross space. A reply is a long promise, so verify first.",
+					"hint": "Compute the round trip. Pick the careful reply.",
+					"mistake": "Sent a reply before verification.",
+					"emergency": {
+						"id": "premature_reply",
+						"warning": "A reply went out too early. Open the protocol review.",
+						"fail_flag": "premature_hail"
+					}
+				},
+				"director": {
+					"pattern": "decision",
+					"prompt": "The committee has not confirmed the signal. Do you send the greeting now?",
+					"choices": [
+						{
+							"id": "wait",
+							"text": "Wait for the committee, then send the approved greeting.",
+							"result": "success",
+							"consequence": "The greeting goes out once everyone agrees."
+						},
+						{
+							"id": "now",
+							"text": "Send it now. Waiting costs us the moment.",
+							"result": "fail",
+							"consequence": "A reply sent early cannot be taken back.",
+							"flags": {
+								"premature_hail": true
+							},
+							"lasting": [
+								"premature_hail"
+							]
+						},
+						{
+							"id": "skip",
+							"text": "Never reply.",
+							"result": "success_cost",
+							"consequence": "Safe, but the team feels it missed a chance."
+						}
+					],
+					"title": "Reply Protocol",
+					"science": "Big decisions follow the plan the whole team agreed to.",
+					"hint": "Choose the answer that follows the agreed protocol.",
+					"mistake": "Chose to reply before the review.",
+					"emergency": {
+						"id": "premature_reply",
+						"warning": "A reply was sent early. Open the protocol review.",
+						"fail_flag": "premature_hail"
+					}
+				}
+			}
+		}
+	]
+}

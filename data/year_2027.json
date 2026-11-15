@@ -1,0 +1,591 @@
+{
+	"year": 2027,
+	"title": "Relay Year",
+	"campaign": "Moon Relay",
+	"tech": {
+		"id": "ai_assist_2027",
+		"title": "AI Assistant, Verified",
+		"summary": "A helper suggests answers. People check them.",
+		"effect": "AI suggestions appear on tasks. Always verify them."
+	},
+	"missions": [
+		{
+			"id": "shackleton_relay",
+			"title": "Shackleton Relay",
+			"intro": "shackleton_relay_intro",
+			"ending": "shackleton_relay_end",
+			"duty_text": "Finish your station duty at the relay.",
+			"optional": {
+				"text": "Read the crater rim map.",
+				"station": "Rim Map",
+				"fact": "Shackleton crater has sunlit rims and dark, very cold floors."
+			},
+			"learn": [
+				"AI helpers can be wrong, so check them.",
+				"Verifying is a skill, not a delay."
+			],
+			"team": [
+				{
+					"id": "mira_vale",
+					"note": "Checking the helper was the right call."
+				},
+				{
+					"id": "dev_malhotra",
+					"note": "A good sum beats a fast sum."
+				},
+				{
+					"id": "alex_rivera",
+					"note": "The relay is humming."
+				}
+			],
+			"talks": {
+				"mira_vale": "shackleton_relay_talk_mira_vale",
+				"samira_shah": "shackleton_relay_talk_samira_shah",
+				"alex_rivera": "shackleton_relay_talk_alex_rivera",
+				"ingrid_solheim": "shackleton_relay_talk_ingrid_solheim",
+				"dev_malhotra": "shackleton_relay_talk_dev_malhotra",
+				"amara_okonkwo": "shackleton_relay_talk_amara_okonkwo",
+				"leo_marchetti": "shackleton_relay_talk_leo_marchetti",
+				"yuki_tanaka": "shackleton_relay_talk_yuki_tanaka"
+			},
+			"room": {
+				"name": "Lunar Relay Station",
+				"bg": "#202430",
+				"world": [
+					1280,
+					640
+				],
+				"start": [
+					80,
+					400
+				],
+				"walls": [
+					[
+						0,
+						0,
+						1280,
+						16
+					],
+					[
+						0,
+						624,
+						1280,
+						16
+					],
+					[
+						0,
+						0,
+						16,
+						640
+					],
+					[
+						1264,
+						0,
+						16,
+						640
+					],
+					[
+						600,
+						150,
+						24,
+						220
+					]
+				],
+				"stations": [
+					{
+						"id": "briefing",
+						"label": "Briefing Table",
+						"kind": "briefing",
+						"pos": [
+							150,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "duty",
+						"label": "Duty Station",
+						"kind": "duty",
+						"pos": [
+							1080,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_1",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							420,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_2",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							760,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_3",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							960,
+							470
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "optional",
+						"label": "Rim Map",
+						"kind": "optional",
+						"pos": [
+							330,
+							500
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "finish",
+						"label": "Close Shift",
+						"kind": "finish",
+						"pos": [
+							1120,
+							560
+						],
+						"size": [
+							72,
+							72
+						]
+					}
+				]
+			},
+			"emergency_script": [
+				{
+					"speaker": "mira_vale",
+					"text": "Alert. {warning}"
+				},
+				{
+					"speaker": "dev_malhotra",
+					"text": "Check the claim, then check it again."
+				},
+				{
+					"speaker": "mira_vale",
+					"text": "Recovery is open. Do the critical step again. The shift is not over."
+				}
+			],
+			"tasks": {
+				"astronaut": {
+					"pattern": "route",
+					"cols": 8,
+					"rows": 6,
+					"start": [
+						0,
+						5
+					],
+					"goal": [
+						7,
+						0
+					],
+					"hazards": [
+						[
+							1,
+							2
+						],
+						[
+							2,
+							4
+						],
+						[
+							3,
+							3
+						],
+						[
+							4,
+							2
+						],
+						[
+							4,
+							3
+						],
+						[
+							5,
+							1
+						],
+						[
+							6,
+							3
+						]
+					],
+					"title": "Rim Walk to the Relay",
+					"science": "A computer can plan fast, but the person on the ground sees the real rocks.",
+					"hint": "Plot your own route. Check the AI suggestion against the hazard tiles before you accept it.",
+					"mistake": "Trusted a path that crossed a hazard.",
+					"emergency": {
+						"id": "hazard_contact",
+						"warning": "You stepped onto a hazard. Back out and plot the walk again."
+					},
+					"ai": {
+						"says": "Cut straight through tile 4,2. It is the shortest path.",
+						"answer": "reject",
+						"why": "Tile 4,2 is a hazard.",
+						"flag": "ai_rejected"
+					}
+				},
+				"engineer": {
+					"pattern": "repair",
+					"symptom": "The relay dish motor stutters in the lunar cold.",
+					"rows": [
+						{
+							"id": "heater_pad",
+							"component": "Motor heater pad",
+							"clue": "Stutters only when very cold"
+						},
+						{
+							"id": "battery",
+							"component": "Battery pack",
+							"clue": "Power dips everywhere"
+						},
+						{
+							"id": "feed",
+							"component": "Antenna feed",
+							"clue": "Weak signal, motor fine"
+						},
+						{
+							"id": "panel",
+							"component": "Solar panel",
+							"clue": "Slow charge, motor fine"
+						}
+					],
+					"answer": "heater_pad",
+					"title": "Cold Motor Repair",
+					"science": "Metal gets stiff in deep cold. Heaters keep moving parts working.",
+					"hint": "The fault shows up in the cold. Which part fights the cold?",
+					"mistake": "Followed a bad part suggestion.",
+					"emergency": {
+						"id": "wrong_part",
+						"warning": "The wrong part was pulled. Restore it and read the clues again."
+					},
+					"ai": {
+						"says": "Replace the battery pack. It is the most likely failure.",
+						"answer": "reject",
+						"why": "The clue points to the cold, not the power.",
+						"flag": "ai_rejected"
+					}
+				},
+				"physicist": {
+					"pattern": "measure",
+					"given": {
+						"mass_kg": 80,
+						"g_moon": 1.62
+					},
+					"parts": [
+						{
+							"id": "weight",
+							"prompt": "Weight of the 80 kg tool on the Moon (N)",
+							"answer": 129.6,
+							"tolerance": 2.59,
+							"unit": "N"
+						}
+					],
+					"title": "Weight on the Moon",
+					"science": "Mass stays the same everywhere. Weight changes with the pull of gravity.",
+					"hint": "Weight is mass times g. Use the Moon's g of 1.62.",
+					"mistake": "Used the wrong gravity value.",
+					"emergency": {
+						"id": "bad_weight",
+						"warning": "The weight does not match the scale. Recheck the gravity value."
+					},
+					"ai": {
+						"says": "Weight is about 785 N.",
+						"answer": "reject",
+						"why": "That uses Earth gravity, not the Moon's 1.62.",
+						"flag": "ai_rejected"
+					}
+				},
+				"mathematician": {
+					"pattern": "figure",
+					"given": {
+						"width_m": 2.5,
+						"height_m": 1.2,
+						"sun_w_per_m2": 1361,
+						"efficiency": 0.2
+					},
+					"parts": [
+						{
+							"id": "power",
+							"prompt": "Panel power = area x sunlight x efficiency (W)",
+							"answer": 816.6,
+							"tolerance": 16.33,
+							"unit": "W"
+						}
+					],
+					"title": "Panel Power Estimate",
+					"science": "Solar cells turn only part of the light into power. Efficiency tells how much.",
+					"hint": "Multiply area, sunlight, and efficiency.",
+					"mistake": "Left out efficiency.",
+					"emergency": {
+						"id": "clock_error",
+						"warning": "The power estimate is off. Fix the arithmetic."
+					},
+					"ai": {
+						"says": "About 4083 W.",
+						"answer": "reject",
+						"why": "That forgot the efficiency factor.",
+						"flag": "ai_rejected"
+					}
+				},
+				"biologist": {
+					"pattern": "procedure",
+					"steps": [
+						{
+							"id": "sterilize",
+							"label": "Sterilize gloves and tools"
+						},
+						{
+							"id": "label",
+							"label": "Label the swab"
+						},
+						{
+							"id": "swab",
+							"label": "Swab the wall panel"
+						},
+						{
+							"id": "focus",
+							"label": "Focus the microscope"
+						},
+						{
+							"id": "record",
+							"label": "Record the result"
+						}
+					],
+					"order": [
+						"sterilize",
+						"label",
+						"swab",
+						"focus",
+						"record"
+					],
+					"question": "Which view matches ID card M-4: single rods?",
+					"samples": [
+						{
+							"id": "s1",
+							"label": "View 1",
+							"view": "round cells"
+						},
+						{
+							"id": "s2",
+							"label": "View 2",
+							"view": "single rods"
+						},
+						{
+							"id": "s3",
+							"label": "View 3",
+							"view": "chains"
+						},
+						{
+							"id": "s4",
+							"label": "View 4",
+							"view": "clear, no growth"
+						}
+					],
+					"answer": "s2",
+					"conclusions": [
+						{
+							"id": "c1",
+							"text": "Common habitat microbe. Wipe the panel again.",
+							"ok": true
+						},
+						{
+							"id": "c2",
+							"text": "Nothing to do. Skip cleaning.",
+							"ok": false
+						}
+					],
+					"title": "Habitat Wall Swab",
+					"science": "Closed habitats grow microbes on every surface. Clean checks keep them small.",
+					"hint": "Sterilize first. Do not skip it, even if a helper says it saves time.",
+					"mistake": "Skipped or rushed sterilizing.",
+					"emergency": {
+						"id": "contamination",
+						"warning": "The swab was contaminated. Re-sterilize and sample again.",
+						"fail_flag": "contamination_noted"
+					},
+					"ai": {
+						"says": "Skip sterilizing this once to save time.",
+						"answer": "reject",
+						"why": "Skipping it can spoil the result.",
+						"flag": "ai_rejected"
+					}
+				},
+				"medical": {
+					"pattern": "triage",
+					"scan_first": true,
+					"patients": [
+						{
+							"id": "p1",
+							"name": "Crew A",
+							"vitals": {
+								"dose_msv": 0.04
+							},
+							"abnormal": false,
+							"note": "Normal day."
+						},
+						{
+							"id": "p2",
+							"name": "Crew B",
+							"vitals": {
+								"dose_msv": 0.9
+							},
+							"abnormal": true,
+							"note": "Worked near the dish during a solar burst."
+						},
+						{
+							"id": "p3",
+							"name": "Crew C",
+							"vitals": {
+								"dose_msv": 0.05
+							},
+							"abnormal": false,
+							"note": "Normal day."
+						}
+					],
+					"actions": [
+						{
+							"id": "shelter",
+							"label": "Move to the shielded room and recheck later",
+							"correct": true,
+							"effect": "The dose stays low after shielding."
+						},
+						{
+							"id": "ignore",
+							"label": "Ignore it",
+							"correct": false,
+							"effect": "Extra dose adds up over time."
+						},
+						{
+							"id": "sedate",
+							"label": "Give a strong sedative",
+							"correct": false,
+							"effect": "That is unrelated to radiation."
+						}
+					],
+					"correct_patient": "p2",
+					"correct_action": "shelter",
+					"title": "Radiation Badge Check",
+					"science": "Space has radiation. Badges add up the dose so crews can step into shielding in time.",
+					"hint": "Scan all three badges first. Then choose the safe step.",
+					"mistake": "Treated before scanning every crew member.",
+					"emergency": {
+						"id": "treated_early",
+						"warning": "Treatment began before the scan finished. Stabilize and scan again."
+					},
+					"ai": {
+						"says": "Dose is normal. No action needed.",
+						"answer": "reject",
+						"why": "One badge is far above the others.",
+						"flag": "ai_rejected"
+					}
+				},
+				"comms": {
+					"pattern": "link",
+					"parts": [
+						{
+							"id": "seconds",
+							"prompt": "One-way delay Earth to Moon (384,400 km), seconds",
+							"answer": 1.28,
+							"tolerance": 0.05,
+							"unit": "s"
+						}
+					],
+					"budget_chars": 100,
+					"messages": [
+						{
+							"id": "m1",
+							"text": "Relay up. Dish heater fixed. Signal strong. Next check in 6 h.",
+							"chars": 62,
+							"ok": true
+						},
+						{
+							"id": "m2",
+							"text": "ok",
+							"chars": 2,
+							"ok": false
+						}
+					],
+					"title": "Moon to Earth Delay",
+					"science": "Even the Moon is more than a second away by radio.",
+					"hint": "Divide the distance by 299,792 km per second.",
+					"mistake": "Used a wrong delay.",
+					"emergency": {
+						"id": "bad_message",
+						"warning": "The message was too vague. Draft it again."
+					},
+					"ai": {
+						"says": "The delay is about 13 seconds.",
+						"answer": "reject",
+						"why": "384,400 km is about 1.3 light seconds.",
+						"flag": "ai_rejected"
+					}
+				},
+				"director": {
+					"pattern": "decision",
+					"prompt": "The AI recommends skipping the pre-landing check to save a day. What do you do?",
+					"choices": [
+						{
+							"id": "verify",
+							"text": "Run the pre-landing check, then decide.",
+							"result": "success",
+							"consequence": "The check finds a loose strap. Everyone is glad you looked."
+						},
+						{
+							"id": "accept",
+							"text": "Accept the AI recommendation.",
+							"result": "fail",
+							"consequence": "A skipped check is a risk nobody signed off."
+						}
+					],
+					"title": "Verify Before You Trust",
+					"science": "AI is a helper. A human checks the answer before acting.",
+					"hint": "Pick the answer that checks the claim before using it.",
+					"mistake": "Accepted a recommendation without checking.",
+					"emergency": {
+						"id": "check_skipped",
+						"warning": "A required check was skipped. Rerun the review."
+					},
+					"ai": {
+						"says": "Skip the pre-landing check to save a day.",
+						"answer": "reject",
+						"why": "A required check cannot be skipped by a helper.",
+						"flag": "ai_rejected"
+					}
+				}
+			}
+		}
+	]
+}

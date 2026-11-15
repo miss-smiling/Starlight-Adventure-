@@ -1,0 +1,58 @@
+[
+	{
+		"id": "mira_vale",
+		"name": "Mira Vale",
+		"profession": "director",
+		"color": "#f2f2f2",
+		"bio": "Flight Director. Calm voice of mission control."
+	},
+	{
+		"id": "samira_shah",
+		"name": "Samira Shah",
+		"profession": "astronaut",
+		"color": "#7ec8ff",
+		"bio": "Commander. Flew every simulator twice."
+	},
+	{
+		"id": "alex_rivera",
+		"name": "Alex Rivera",
+		"profession": "engineer",
+		"color": "#ffb347",
+		"bio": "Flight Engineer. Can hear a loose bolt."
+	},
+	{
+		"id": "ingrid_solheim",
+		"name": "Dr. Ingrid Solheim",
+		"profession": "physicist",
+		"color": "#b39bff",
+		"bio": "Physicist. Loves a good graph."
+	},
+	{
+		"id": "dev_malhotra",
+		"name": "Dev Malhotra",
+		"profession": "mathematician",
+		"color": "#6fe0c1",
+		"bio": "Mission Mathematician. Checks every sum twice."
+	},
+	{
+		"id": "amara_okonkwo",
+		"name": "Dr. Amara Okonkwo",
+		"profession": "biologist",
+		"color": "#8de36f",
+		"bio": "Biologist. Never forgets her gloves."
+	},
+	{
+		"id": "leo_marchetti",
+		"name": "Dr. Leo Marchetti",
+		"profession": "medical",
+		"color": "#ff7b8a",
+		"bio": "Flight Surgeon. Always has a snack ready."
+	},
+	{
+		"id": "yuki_tanaka",
+		"name": "Yuki Tanaka",
+		"profession": "comms",
+		"color": "#ffd95e",
+		"bio": "Communications Lead. Lives on headset."
+	}
+]

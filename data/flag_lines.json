@@ -1,0 +1,54 @@
+{
+	"careful_start": {
+		"speaker": "mira_vale",
+		"text": "In 2026 you chose to check twice. That habit is still on this team."
+	},
+	"fast_start": {
+		"speaker": "mira_vale",
+		"text": "You moved fast in 2026. This year we also move smart."
+	},
+	"assisted_once": {
+		"speaker": "samira_shah",
+		"text": "We helped each other more than once. That is how trust grows."
+	},
+	"contamination_noted": {
+		"speaker": "amara_okonkwo",
+		"text": "That early contaminated sample taught us to sterilize twice."
+	},
+	"launch_delay": {
+		"speaker": "leo_marchetti",
+		"text": "The launch delay kept everyone calm and rested."
+	},
+	"signal_leaked": {
+		"speaker": "yuki_tanaka",
+		"text": "Reporters still ask about the 2026 signal. I say it is unconfirmed."
+	},
+	"jumped_to_aliens": {
+		"speaker": "mira_vale",
+		"text": "We once guessed too far. Now we prefer evidence."
+	},
+	"signal_logged_full": {
+		"speaker": "yuki_tanaka",
+		"text": "Every pulse of the 2026 signal is still in the log."
+	},
+	"signal_logged_partial": {
+		"speaker": "yuki_tanaka",
+		"text": "We only caught part of the 2026 signal. We still listen."
+	},
+	"ai_rejected": {
+		"speaker": "dev_malhotra",
+		"text": "You caught the helper's mistake in 2027. We still check."
+	},
+	"premature_hail": {
+		"speaker": "mira_vale",
+		"text": "We once replied too soon. We will not do that again."
+	},
+	"alert_expired": {
+		"speaker": "mira_vale",
+		"text": "An old alert once waited too long. We learned to triage fast."
+	},
+	"mission_retried": {
+		"speaker": "samira_shah",
+		"text": "You took a second go at a mission. Good teams do that."
+	}
+}

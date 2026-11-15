@@ -1,0 +1,620 @@
+{
+	"year": 2028,
+	"title": "Drive Year",
+	"campaign": "Propulsion Research",
+	"tech": {
+		"id": "ion_drive_2028",
+		"title": "Ember Drive",
+		"summary": "A new engine pushes softly for a very long time.",
+		"effect": "Propulsion tasks use real thrust and exhaust speed numbers."
+	},
+	"missions": [
+		{
+			"id": "ember_drive",
+			"title": "Ember Drive",
+			"intro": "ember_drive_intro",
+			"ending": "ember_drive_end",
+			"duty_text": "Finish your station duty in the hall.",
+			"optional": {
+				"text": "Study the thruster poster.",
+				"station": "Thruster Poster",
+				"fact": "Ion engines make small pushes that add up over months."
+			},
+			"learn": [
+				"Higher exhaust speed means less fuel for the same push.",
+				"Heat limits are safety limits."
+			],
+			"team": [
+				{
+					"id": "mira_vale",
+					"note": "A slow engine, a steady team."
+				},
+				{
+					"id": "ingrid_solheim",
+					"note": "The thrust numbers matched."
+				},
+				{
+					"id": "alex_rivera",
+					"note": "Cooling held steady."
+				}
+			],
+			"talks": {
+				"mira_vale": "ember_drive_talk_mira_vale",
+				"samira_shah": "ember_drive_talk_samira_shah",
+				"alex_rivera": "ember_drive_talk_alex_rivera",
+				"ingrid_solheim": "ember_drive_talk_ingrid_solheim",
+				"dev_malhotra": "ember_drive_talk_dev_malhotra",
+				"amara_okonkwo": "ember_drive_talk_amara_okonkwo",
+				"leo_marchetti": "ember_drive_talk_leo_marchetti",
+				"yuki_tanaka": "ember_drive_talk_yuki_tanaka"
+			},
+			"room": {
+				"name": "Propulsion Hall",
+				"bg": "#2e2430",
+				"world": [
+					1280,
+					640
+				],
+				"start": [
+					80,
+					400
+				],
+				"walls": [
+					[
+						0,
+						0,
+						1280,
+						16
+					],
+					[
+						0,
+						624,
+						1280,
+						16
+					],
+					[
+						0,
+						0,
+						16,
+						640
+					],
+					[
+						1264,
+						0,
+						16,
+						640
+					],
+					[
+						600,
+						150,
+						24,
+						220
+					]
+				],
+				"stations": [
+					{
+						"id": "briefing",
+						"label": "Briefing Table",
+						"kind": "briefing",
+						"pos": [
+							150,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "duty",
+						"label": "Duty Station",
+						"kind": "duty",
+						"pos": [
+							1080,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_1",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							420,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_2",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							760,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_3",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							960,
+							470
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "optional",
+						"label": "Thruster Poster",
+						"kind": "optional",
+						"pos": [
+							330,
+							500
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "finish",
+						"label": "Close Shift",
+						"kind": "finish",
+						"pos": [
+							1120,
+							560
+						],
+						"size": [
+							72,
+							72
+						]
+					}
+				]
+			},
+			"emergency_script": [
+				{
+					"speaker": "mira_vale",
+					"text": "Alert. {warning}"
+				},
+				{
+					"speaker": "ingrid_solheim",
+					"text": "Cool heads. Recompute and retry."
+				},
+				{
+					"speaker": "mira_vale",
+					"text": "Recovery is open. Do the critical step again. The shift is not over."
+				}
+			],
+			"tasks": {
+				"astronaut": {
+					"pattern": "burn",
+					"parts": [
+						{
+							"id": "time",
+							"prompt": "Burn time to add 12 m/s at 0.04 m/s per second (s)",
+							"answer": 300.0,
+							"tolerance": 5,
+							"unit": "s"
+						}
+					],
+					"timing": {
+						"zone": [
+							0.44,
+							0.56
+						],
+						"speed": 0.9
+					},
+					"given": {
+						"dv": 12,
+						"accel": 0.04
+					},
+					"title": "Gentle Burn",
+					"science": "Ion engines push softly for a long time. Time equals speed change divided by acceleration.",
+					"hint": "Divide the speed change by the acceleration. Then stop the bar in the zone.",
+					"mistake": "Burned outside the planned timing.",
+					"emergency": {
+						"id": "bad_burn",
+						"warning": "The burn missed the window. Wait and try again."
+					}
+				},
+				"engineer": {
+					"pattern": "build",
+					"parts": [
+						{
+							"id": "tank",
+							"label": "Gas tank"
+						},
+						{
+							"id": "chamber",
+							"label": "Gas chamber"
+						},
+						{
+							"id": "cathode",
+							"label": "Cathode"
+						},
+						{
+							"id": "grid",
+							"label": "Accel grid"
+						}
+					],
+					"order": [
+						"tank",
+						"chamber",
+						"cathode",
+						"grid"
+					],
+					"gauges": [
+						{
+							"id": "volt",
+							"label": "Grid voltage",
+							"value": 1100,
+							"unit": "V",
+							"lo": 1000,
+							"hi": 1300,
+							"ok": true
+						},
+						{
+							"id": "flow",
+							"label": "Gas flow",
+							"value": 0.003,
+							"unit": "kg/s",
+							"lo": 0.002,
+							"hi": 0.004,
+							"ok": true
+						},
+						{
+							"id": "temp",
+							"label": "Nozzle temperature",
+							"value": 118,
+							"unit": "C",
+							"lo": 20,
+							"hi": 95,
+							"ok": false
+						}
+					],
+					"bad_gauge": "temp",
+					"malfunction": "The grid goes on last or the cathode cannot reach the gas.",
+					"title": "Thruster Stack",
+					"science": "Ion thrusters ionize gas and then push it out fast with electric fields.",
+					"hint": "Install in order. Then flag the gauge that is out of range.",
+					"mistake": "Installed a part out of order.",
+					"emergency": {
+						"id": "misaligned_stack",
+						"warning": "The thruster stack is misaligned. Rebuild in order."
+					},
+					"heat": {
+						"prompt": "Set the coolant temperature setpoint (C). Target 80, never above 95.",
+						"answer": 80,
+						"tolerance": 5,
+						"max_temp": 95
+					}
+				},
+				"physicist": {
+					"pattern": "measure",
+					"given": {
+						"mdot_kg_s": 0.003,
+						"ve_m_s": 30000,
+						"ship_mass_kg": 1800
+					},
+					"parts": [
+						{
+							"id": "thrust",
+							"prompt": "Thrust = mass flow x exhaust speed (N)",
+							"answer": 90.0,
+							"tolerance": 2,
+							"unit": "N"
+						},
+						{
+							"id": "accel",
+							"prompt": "Acceleration = thrust / mass (m/s2)",
+							"answer": 0.05,
+							"tolerance": 0.01,
+							"unit": "m/s2"
+						}
+					],
+					"title": "Thrust From Exhaust",
+					"science": "Throwing a tiny amount of mass very fast makes a small, steady push.",
+					"hint": "Thrust first, then divide by the ship mass.",
+					"mistake": "Entered a thrust outside tolerance.",
+					"emergency": {
+						"id": "bad_thrust",
+						"warning": "The thrust does not match the test stand. Recompute."
+					}
+				},
+				"mathematician": {
+					"pattern": "figure",
+					"given": {
+						"isp_s": 3000,
+						"g0": 9.80665,
+						"m0": 2000,
+						"mf": 1500
+					},
+					"parts": [
+						{
+							"id": "ve",
+							"prompt": "Exhaust speed = Isp x g0 (m/s)",
+							"answer": 29419.95,
+							"tolerance": 588.4,
+							"unit": "m/s"
+						},
+						{
+							"id": "dv",
+							"prompt": "Delta-v = ve x ln(m0 / mf) (m/s)",
+							"answer": 8463.59,
+							"tolerance": 253.91,
+							"unit": "m/s"
+						}
+					],
+					"table": {
+						"prompt": "Which engine gets the most speed from the same fuel?",
+						"columns": [
+							"Engine",
+							"Isp (s)"
+						],
+						"rows": [
+							{
+								"id": "a",
+								"cells": [
+									"Chem",
+									"450"
+								]
+							},
+							{
+								"id": "b",
+								"cells": [
+									"Ion",
+									"3000"
+								]
+							},
+							{
+								"id": "c",
+								"cells": [
+									"Cold gas",
+									"70"
+								]
+							}
+						],
+						"answer": "b"
+					},
+					"title": "Specific Impulse",
+					"science": "Higher Isp means more push from each kilogram of fuel.",
+					"hint": "Multiply Isp by g0. Then use the log of the mass ratio.",
+					"mistake": "Used the wrong delta-v formula.",
+					"emergency": {
+						"id": "fuel_short",
+						"warning": "The delta-v estimate is off. Recompute."
+					}
+				},
+				"biologist": {
+					"pattern": "procedure",
+					"steps": [
+						{
+							"id": "sterilize",
+							"label": "Sterilize gloves and tools"
+						},
+						{
+							"id": "label",
+							"label": "Label the vial"
+						},
+						{
+							"id": "swab",
+							"label": "Swab the coolant loop"
+						},
+						{
+							"id": "focus",
+							"label": "Focus the microscope"
+						},
+						{
+							"id": "record",
+							"label": "Record the result"
+						}
+					],
+					"order": [
+						"sterilize",
+						"label",
+						"swab",
+						"focus",
+						"record"
+					],
+					"question": "Which view matches ID card E-5: round cells?",
+					"samples": [
+						{
+							"id": "s1",
+							"label": "View 1",
+							"view": "round cells"
+						},
+						{
+							"id": "s2",
+							"label": "View 2",
+							"view": "chains"
+						},
+						{
+							"id": "s3",
+							"label": "View 3",
+							"view": "paired rods"
+						},
+						{
+							"id": "s4",
+							"label": "View 4",
+							"view": "clear, no growth"
+						}
+					],
+					"answer": "s1",
+					"conclusions": [
+						{
+							"id": "c1",
+							"text": "Mild film in the loop. Flush the coolant.",
+							"ok": true
+						},
+						{
+							"id": "c2",
+							"text": "Nothing here. Leave it.",
+							"ok": false
+						}
+					],
+					"title": "Coolant Loop Swab",
+					"science": "Microbes can grow in warm water loops and block flow.",
+					"hint": "Sterilize first, then swab, then match the view.",
+					"mistake": "Handled the swab before sterilizing.",
+					"emergency": {
+						"id": "contamination",
+						"warning": "The vial was contaminated. Re-sterilize and sample again.",
+						"fail_flag": "contamination_noted"
+					}
+				},
+				"medical": {
+					"pattern": "triage",
+					"scan_first": true,
+					"patients": [
+						{
+							"id": "p1",
+							"name": "Crew A",
+							"vitals": {
+								"g_load": 1.1,
+								"dizzy": "no"
+							},
+							"abnormal": false,
+							"note": "Fine."
+						},
+						{
+							"id": "p2",
+							"name": "Crew B",
+							"vitals": {
+								"g_load": 4.0,
+								"dizzy": "yes"
+							},
+							"abnormal": true,
+							"note": "Stood up too fast after a hard burn."
+						},
+						{
+							"id": "p3",
+							"name": "Crew C",
+							"vitals": {
+								"g_load": 1.0,
+								"dizzy": "no"
+							},
+							"abnormal": false,
+							"note": "Fine."
+						}
+					],
+					"actions": [
+						{
+							"id": "sit",
+							"label": "Sit down, sip water, stand slowly",
+							"correct": true,
+							"effect": "The dizziness passes."
+						},
+						{
+							"id": "run",
+							"label": "Go for a quick run",
+							"correct": false,
+							"effect": "That makes it worse."
+						},
+						{
+							"id": "skip",
+							"label": "Ignore it",
+							"correct": false,
+							"effect": "A fall in a tight cabin is a real risk."
+						}
+					],
+					"correct_patient": "p2",
+					"correct_action": "sit",
+					"title": "Dizzy After the Burn",
+					"science": "Acceleration pushes blood around the body. Slow changes keep the head clear.",
+					"hint": "Scan all three crew first. Then pick the gentle step.",
+					"mistake": "Treated before scanning every crew member.",
+					"emergency": {
+						"id": "treated_early",
+						"warning": "Treatment began before the scan finished. Stabilize and scan again."
+					}
+				},
+				"comms": {
+					"pattern": "tune",
+					"frequency": {
+						"min": 2.0,
+						"max": 4.0,
+						"step": 0.05,
+						"target": 3.25,
+						"tolerance": 0.05,
+						"unit": "GHz"
+					},
+					"backup_frequency": 3.4,
+					"cipher": {
+						"text": "XLVYWX",
+						"shift": 4,
+						"answer": "THRUST"
+					},
+					"interference": {
+						"options": [
+							"Off",
+							"Low-pass filter",
+							"Notch filter"
+						],
+						"answer": "Notch filter"
+					},
+					"title": "Burn Telemetry Link",
+					"science": "A notch filter removes one narrow band of noise, such as an engine whine.",
+					"hint": "Tune to the target band, choose the notch filter, then decode with a shift of four.",
+					"mistake": "Locked onto the wrong frequency.",
+					"emergency": {
+						"id": "signal_loss",
+						"warning": "Telemetry dropped. Switch to the backup frequency."
+					}
+				},
+				"director": {
+					"pattern": "priority",
+					"seconds_total": 45,
+					"events": [
+						{
+							"id": "coolant",
+							"label": "Coolant temperature climbing",
+							"kind": "life",
+							"rank": 1,
+							"seconds": 45,
+							"needs": "engineer"
+						},
+						{
+							"id": "logger",
+							"label": "Data logger almost full",
+							"kind": "mission",
+							"rank": 2,
+							"seconds": 45,
+							"needs": "mathematician"
+						},
+						{
+							"id": "tour",
+							"label": "Visitor tour waiting",
+							"kind": "science",
+							"rank": 3,
+							"seconds": 45,
+							"needs": "comms"
+						}
+					],
+					"title": "Burn Alerts",
+					"science": "Hardware that can hurt people or the ship comes first.",
+					"hint": "Order the alerts by safety first, then assign.",
+					"mistake": "Answered a lower priority alert first.",
+					"emergency": {
+						"id": "late_triage",
+						"warning": "The safety alert waited too long. Reorder and respond again.",
+						"fail_flag": "alert_expired"
+					}
+				}
+			}
+		}
+	]
+}

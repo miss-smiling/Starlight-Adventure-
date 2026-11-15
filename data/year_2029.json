@@ -1,0 +1,638 @@
+{
+	"year": 2029,
+	"title": "Sensor Year",
+	"campaign": "Living Habitat",
+	"tech": {
+		"id": "biosensors_2029",
+		"title": "Living Sensors",
+		"summary": "Sensors made from living cells watch the habitat.",
+		"effect": "Wearable and wall sensors show live readings."
+	},
+	"missions": [
+		{
+			"id": "living_sensors",
+			"title": "Living Sensors",
+			"intro": "living_sensors_intro",
+			"ending": "living_sensors_end",
+			"duty_text": "Finish your station duty in the dome.",
+			"optional": {
+				"text": "Read the plant growth board.",
+				"station": "Growth Board",
+				"fact": "Plants and sensors share the dome air. Both need steady readings."
+			},
+			"learn": [
+				"A reading is only as good as its calibration.",
+				"Odd numbers deserve a second check."
+			],
+			"team": [
+				{
+					"id": "mira_vale",
+					"note": "The dome is watching itself."
+				},
+				{
+					"id": "amara_okonkwo",
+					"note": "The living sensors are glowing."
+				},
+				{
+					"id": "leo_marchetti",
+					"note": "Wearables and hands agreed."
+				}
+			],
+			"talks": {
+				"mira_vale": "living_sensors_talk_mira_vale",
+				"samira_shah": "living_sensors_talk_samira_shah",
+				"alex_rivera": "living_sensors_talk_alex_rivera",
+				"ingrid_solheim": "living_sensors_talk_ingrid_solheim",
+				"dev_malhotra": "living_sensors_talk_dev_malhotra",
+				"amara_okonkwo": "living_sensors_talk_amara_okonkwo",
+				"leo_marchetti": "living_sensors_talk_leo_marchetti",
+				"yuki_tanaka": "living_sensors_talk_yuki_tanaka"
+			},
+			"room": {
+				"name": "Habitat Garden Dome",
+				"bg": "#1f3a2c",
+				"world": [
+					1280,
+					640
+				],
+				"start": [
+					80,
+					400
+				],
+				"walls": [
+					[
+						0,
+						0,
+						1280,
+						16
+					],
+					[
+						0,
+						624,
+						1280,
+						16
+					],
+					[
+						0,
+						0,
+						16,
+						640
+					],
+					[
+						1264,
+						0,
+						16,
+						640
+					],
+					[
+						600,
+						150,
+						24,
+						220
+					]
+				],
+				"stations": [
+					{
+						"id": "briefing",
+						"label": "Briefing Table",
+						"kind": "briefing",
+						"pos": [
+							150,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "duty",
+						"label": "Duty Station",
+						"kind": "duty",
+						"pos": [
+							1080,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_1",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							420,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_2",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							760,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_3",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							960,
+							470
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "optional",
+						"label": "Growth Board",
+						"kind": "optional",
+						"pos": [
+							330,
+							500
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "finish",
+						"label": "Close Shift",
+						"kind": "finish",
+						"pos": [
+							1120,
+							560
+						],
+						"size": [
+							72,
+							72
+						]
+					}
+				]
+			},
+			"emergency_script": [
+				{
+					"speaker": "mira_vale",
+					"text": "Alert. {warning}"
+				},
+				{
+					"speaker": "amara_okonkwo",
+					"text": "Calm hands. Retry the step."
+				},
+				{
+					"speaker": "mira_vale",
+					"text": "Recovery is open. Do the critical step again. The shift is not over."
+				}
+			],
+			"tasks": {
+				"astronaut": {
+					"pattern": "route",
+					"cols": 8,
+					"rows": 6,
+					"start": [
+						0,
+						5
+					],
+					"goal": [
+						7,
+						0
+					],
+					"hazards": [
+						[
+							1,
+							3
+						],
+						[
+							2,
+							1
+						],
+						[
+							3,
+							4
+						],
+						[
+							4,
+							1
+						],
+						[
+							5,
+							3
+						],
+						[
+							6,
+							2
+						],
+						[
+							6,
+							4
+						]
+					],
+					"waypoints": [
+						[
+							2,
+							3
+						],
+						[
+							5,
+							2
+						]
+					],
+					"title": "Place the Sensor Nodes",
+					"science": "Sensors only help if they sit where the air actually moves.",
+					"hint": "Visit both node sites in order, then reach the goal.",
+					"mistake": "Stepped onto a hazard tile.",
+					"emergency": {
+						"id": "hazard_contact",
+						"warning": "You stepped onto a hazard. Back out and plot again."
+					}
+				},
+				"engineer": {
+					"pattern": "inspect",
+					"rule": "Flag every node outside 3.0 to 3.6 V.",
+					"steps": [
+						{
+							"id": "n1",
+							"label": "Node 1 supply",
+							"value": 3.3,
+							"unit": "V",
+							"lo": 3.0,
+							"hi": 3.6,
+							"ok": true
+						},
+						{
+							"id": "n2",
+							"label": "Node 2 supply",
+							"value": 3.4,
+							"unit": "V",
+							"lo": 3.0,
+							"hi": 3.6,
+							"ok": true
+						},
+						{
+							"id": "n3",
+							"label": "Node 3 supply",
+							"value": 2.4,
+							"unit": "V",
+							"lo": 3.0,
+							"hi": 3.6,
+							"ok": false
+						},
+						{
+							"id": "n4",
+							"label": "Node 4 supply",
+							"value": 3.5,
+							"unit": "V",
+							"lo": 3.0,
+							"hi": 3.6,
+							"ok": true
+						}
+					],
+					"must_flag": [
+						"n3"
+					],
+					"title": "Sensor Mount Inspection",
+					"science": "Small sensors need steady power to give honest readings.",
+					"hint": "Read each node against the range and flag the weak one.",
+					"mistake": "Missed or wrongly flagged a node.",
+					"emergency": {
+						"id": "loose_clamp",
+						"warning": "A weak node was missed. Inspect again."
+					}
+				},
+				"physicist": {
+					"pattern": "measure",
+					"given": {
+						"sensor_v": 1.95,
+						"v_per_percent": 0.1,
+						"safe_min": 19.5,
+						"safe_max": 23.5
+					},
+					"parts": [
+						{
+							"id": "o2",
+							"prompt": "Oxygen percent = voltage / 0.1",
+							"answer": 19.5,
+							"tolerance": 0.2,
+							"unit": "%"
+						}
+					],
+					"verdict": {
+						"prompt": "Is the air in the safe range of 19.5 to 23.5 percent?",
+						"options": [
+							"Safe",
+							"Not safe"
+						],
+						"answer": "Safe"
+					},
+					"title": "Oxygen Sensor Reading",
+					"science": "A sensor turns a physical thing into a voltage. You convert it back with a scale.",
+					"hint": "Divide the voltage by 0.1 volts per percent. Then compare to the safe range.",
+					"mistake": "Entered an oxygen value outside tolerance.",
+					"emergency": {
+						"id": "bad_reading",
+						"warning": "The reading does not match the scale. Recompute."
+					}
+				},
+				"mathematician": {
+					"pattern": "figure",
+					"given": {
+						"points": [
+							[
+								1.0,
+								10
+							],
+							[
+								3.0,
+								30
+							]
+						],
+						"reading_v": 2.4
+					},
+					"parts": [
+						{
+							"id": "ppm",
+							"prompt": "Gas level at 2.4 V (ppm)",
+							"answer": 24.0,
+							"tolerance": 0.5,
+							"unit": "ppm"
+						}
+					],
+					"table": {
+						"prompt": "Which sensor has the smallest error?",
+						"columns": [
+							"Sensor",
+							"Error ppm"
+						],
+						"rows": [
+							{
+								"id": "a",
+								"cells": [
+									"A",
+									"3.1"
+								]
+							},
+							{
+								"id": "b",
+								"cells": [
+									"B",
+									"0.8"
+								]
+							},
+							{
+								"id": "c",
+								"cells": [
+									"C",
+									"1.9"
+								]
+							}
+						],
+						"answer": "b"
+					},
+					"title": "Two-Point Calibration",
+					"science": "A straight line through two known points lets you read in between.",
+					"hint": "Find the slope, then step from the first point to the reading.",
+					"mistake": "Misread the calibration line.",
+					"emergency": {
+						"id": "clock_error",
+						"warning": "The calibration is off. Fix the arithmetic."
+					}
+				},
+				"biologist": {
+					"pattern": "procedure",
+					"steps": [
+						{
+							"id": "sterilize",
+							"label": "Sterilize the culture plate"
+						},
+						{
+							"id": "label",
+							"label": "Label the plate"
+						},
+						{
+							"id": "swab",
+							"label": "Seed the sensor culture"
+						},
+						{
+							"id": "focus",
+							"label": "Focus the microscope"
+						},
+						{
+							"id": "record",
+							"label": "Record the result"
+						}
+					],
+					"order": [
+						"sterilize",
+						"label",
+						"swab",
+						"focus",
+						"record"
+					],
+					"question": "Which view matches ID card B-9: chains?",
+					"samples": [
+						{
+							"id": "s1",
+							"label": "View 1",
+							"view": "chains"
+						},
+						{
+							"id": "s2",
+							"label": "View 2",
+							"view": "round cells"
+						},
+						{
+							"id": "s3",
+							"label": "View 3",
+							"view": "paired rods"
+						},
+						{
+							"id": "s4",
+							"label": "View 4",
+							"view": "clear, no growth"
+						}
+					],
+					"answer": "s1",
+					"conclusions": [
+						{
+							"id": "c1",
+							"text": "Glowing culture means the sensor reads correctly.",
+							"ok": true
+						},
+						{
+							"id": "c2",
+							"text": "No glow means all is well.",
+							"ok": false
+						}
+					],
+					"title": "Living Sensor Culture",
+					"science": "Some sensors use harmless living cells that glow when they sense something.",
+					"hint": "Sterilize, seed, focus, and match.",
+					"mistake": "Handled the plate before sterilizing.",
+					"emergency": {
+						"id": "contamination",
+						"warning": "The plate was contaminated. Re-sterilize and seed again.",
+						"fail_flag": "contamination_noted"
+					}
+				},
+				"medical": {
+					"pattern": "triage",
+					"scan_first": true,
+					"patients": [
+						{
+							"id": "p1",
+							"name": "Crew A",
+							"vitals": {
+								"rest_hr": 62,
+								"skin_c": 33.1
+							},
+							"abnormal": false,
+							"note": "Normal."
+						},
+						{
+							"id": "p2",
+							"name": "Crew B",
+							"vitals": {
+								"rest_hr": 112,
+								"skin_c": 33.4
+							},
+							"abnormal": true,
+							"note": "Watch says a very high heart rate at rest."
+						},
+						{
+							"id": "p3",
+							"name": "Crew C",
+							"vitals": {
+								"rest_hr": 66,
+								"skin_c": 33.0
+							},
+							"abnormal": false,
+							"note": "Normal."
+						}
+					],
+					"actions": [
+						{
+							"id": "recheck",
+							"label": "Recheck by hand, then rest",
+							"correct": true,
+							"effect": "The hand check confirms it. A short rest helps."
+						},
+						{
+							"id": "trust",
+							"label": "Trust the watch and do nothing",
+							"correct": false,
+							"effect": "A real problem could be missed."
+						},
+						{
+							"id": "panic",
+							"label": "Call an emergency",
+							"correct": false,
+							"effect": "A hand check first would have been calmer."
+						}
+					],
+					"correct_patient": "p2",
+					"correct_action": "recheck",
+					"title": "Wearable Readings",
+					"science": "Wearables are helpful but not perfect. Check by hand when a number looks odd.",
+					"hint": "Scan all three crew. Compare, then recheck the odd one.",
+					"mistake": "Treated before scanning every crew member.",
+					"emergency": {
+						"id": "treated_early",
+						"warning": "Treatment began before the scan finished. Stabilize and scan again."
+					}
+				},
+				"comms": {
+					"pattern": "channels",
+					"rule": "Call GO when the reading is 4 of 5 or better. Call HOLD for lower.",
+					"channels": [
+						{
+							"id": "air",
+							"label": "Air sensors",
+							"reading": "Steady stream 5 of 5",
+							"expected": "GO"
+						},
+						{
+							"id": "water",
+							"label": "Water sensors",
+							"reading": "Gaps 2 of 5",
+							"expected": "HOLD"
+						},
+						{
+							"id": "soil",
+							"label": "Soil sensors",
+							"reading": "Steady stream 4 of 5",
+							"expected": "GO"
+						},
+						{
+							"id": "light",
+							"label": "Light sensors",
+							"reading": "Steady stream 5 of 5",
+							"expected": "GO"
+						}
+					],
+					"title": "Sensor Network Poll",
+					"science": "A network is only as good as its weakest link.",
+					"hint": "Read each channel against the rule.",
+					"mistake": "Gave the wrong call on a channel.",
+					"emergency": {
+						"id": "bad_net_call",
+						"warning": "A weak channel was called GO. Poll again."
+					}
+				},
+				"director": {
+					"pattern": "priority",
+					"seconds_total": 45,
+					"events": [
+						{
+							"id": "o2_dip",
+							"label": "Oxygen dip in the dome",
+							"kind": "life",
+							"rank": 1,
+							"seconds": 45,
+							"needs": "medical"
+						},
+						{
+							"id": "node_off",
+							"label": "Sensor node offline",
+							"kind": "mission",
+							"rank": 2,
+							"seconds": 45,
+							"needs": "engineer"
+						},
+						{
+							"id": "plant_data",
+							"label": "Plant growth data upload",
+							"kind": "science",
+							"rank": 3,
+							"seconds": 45,
+							"needs": "biologist"
+						}
+					],
+					"title": "Habitat Alerts",
+					"science": "Air for people always comes before data for science.",
+					"hint": "Order by safety, then assign.",
+					"mistake": "Answered a lower priority alert first.",
+					"emergency": {
+						"id": "late_triage",
+						"warning": "The air alert waited too long. Reorder and respond again.",
+						"fail_flag": "alert_expired"
+					}
+				}
+			}
+		}
+	]
+}

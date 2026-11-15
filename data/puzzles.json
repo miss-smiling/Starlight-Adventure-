@@ -1,0 +1,35 @@
+{
+	"_how_to": "Each profession picks two puzzle games. 'cross' runs after the briefing, 'final' is the last sign-off. 'type' picks the module: quiz | matiks | sudoku | pinpoint | crossclimb | tango. Edit grids, ladders and answers freely - every module has a built-in fallback if data is missing.",
+	"astronaut": {
+		"cross": {"type": "tango", "label": "Suit power balance", "grid": ["110.0", "1.1.1", "01.11", "1.1.0", ".11.1"]},
+		"final": {"type": "matiks", "label": "fuel-burn arithmetic"}
+	},
+	"engineer": {
+		"cross": {"type": "tango", "label": "Power grid balance", "grid": ["110.0", "1.1.1", "01.11", "1.1.0", ".11.1"]},
+		"final": {"type": "matiks", "label": "wiring math", "count": 5}
+	},
+	"physicist": {
+		"cross": {"type": "matiks", "label": "vector quick-math", "count": 6},
+		"final": {"type": "sudoku", "label": "Quantum grid", "puzzle": ["2...", "...1", ".1..", "..3."]}
+	},
+	"mathematician": {
+		"cross": {"type": "sudoku", "label": "Trajectory grid", "puzzle": ["1...", "..2.", ".3..", "...4"]},
+		"final": {"type": "matiks", "label": "mixed drills", "count": 6}
+	},
+	"biologist": {
+		"cross": {"type": "pinpoint", "rounds": [{"answer": "SPORE BLOOM", "choices": ["SPORE BLOOM", "ROOT ROT", "LEAF WILT", "SOIL DRY"], "clues": ["The bay humidity spiked overnight.", "Fine dust floats near the vents.", "The growth lamps ran hot.", "Spores spread in warm wet air."]}]},
+		"final": {"type": "sudoku", "label": "Specimen grid", "puzzle": ["..1.", "1...", "...2", ".3.."]}
+	},
+	"medical": {
+		"cross": {"type": "pinpoint", "rounds": [{"answer": "HYPOTHERMIA", "choices": ["HYPOTHERMIA", "HYPERTENSION", "DEHYDRATION", "FATIGUE"], "clues": ["Core temperature is falling.", "Skin is pale and shivering.", "It worsens in cold bays.", "Warming and dry layers treat it."]}]},
+		"final": {"type": "crossclimb", "theme": "recovery", "ladder": ["COLD", "BOLD", "BOLT", "BOUT", "POUT", "POUR"]}
+	},
+	"comms": {
+		"cross": {"type": "crossclimb", "theme": "cipher", "ladder": ["SCAN", "SCAR", "SOAR", "ROAR", "ROAM", "FOAM"]},
+		"final": {"type": "matiks", "label": "frequency math", "count": 5}
+	},
+	"director": {
+		"cross": {"type": "pinpoint", "rounds": [{"answer": "POWER SURGE", "choices": ["POWER SURGE", "AIR LEAK", "CREW ILLNESS", "COMMS BLACKOUT"], "clues": ["Voltage readings spiked.", "Panels report overload.", "It started in the grid.", "Breakers tripped in sequence."]}, {"answer": "AIR LEAK", "choices": ["POWER SURGE", "AIR LEAK", "FIRE", "FLOOD"], "clues": ["Pressure is dropping.", "Hiss reported in the corridor.", "A seal has failed.", "Patch kit is needed."]}]},
+		"final": {"type": "crossclimb", "theme": "approval chain", "ladder": ["HOLD", "BOLD", "BOLT", "BOUT", "POUT", "PORT"]}
+	}
+}

@@ -1,0 +1,2287 @@
+{
+    "genesis_intro":  {
+                          "lines":  [
+                                        {
+                                            "speaker":  "mira_vale",
+                                            "text":  "Welcome to the Assembly Hangar, {callsign}. Today we build the first crew ship for Mars. This year you are our {profession_name}."
+                                        },
+                                        {
+                                            "speaker":  "mira_vale",
+                                            "text":  "Everyone here checks their own work, then checks a neighbor\u0027s. That is how a small team stays safe."
+                                        },
+                                        {
+                                            "choices":  [
+                                                            {
+                                                                "text":  "I like to check every step twice.",
+                                                                "flag":  "careful_start",
+                                                                "value":  true,
+                                                                "lasting":  true,
+                                                                "goto":  "genesis_intro_care"
+                                                            },
+                                                            {
+                                                                "text":  "I am ready to move fast.",
+                                                                "flag":  "fast_start",
+                                                                "value":  true,
+                                                                "lasting":  true,
+                                                                "goto":  "genesis_intro_go"
+                                                            },
+                                                            {
+                                                                "text":  "Understood."
+                                                            }
+                                                        ]
+                                        }
+                                    ]
+                      },
+    "genesis_intro_care":  {
+                               "lines":  [
+                                             {
+                                                 "speaker":  "mira_vale",
+                                                 "text":  "Good. Slow is smooth, and smooth is fast."
+                                             },
+                                             {
+                                                 "choices":  [
+                                                                 {
+                                                                     "text":  "Good to know."
+                                                                 },
+                                                                 {
+                                                                     "text":  "I\u0027ll keep that in mind."
+                                                                 },
+                                                                 {
+                                                                     "text":  "Makes sense to me."
+                                                                 }
+                                                             ]
+                                             }
+                                         ],
+                               "next":  "genesis_intro_lights"
+                           },
+    "genesis_intro_go":  {
+                             "lines":  [
+                                           {
+                                               "speaker":  "mira_vale",
+                                               "text":  "I love the energy. Just keep your checklist in the other hand."
+                                           },
+                                           {
+                                               "choices":  [
+                                                               {
+                                                                   "text":  "On it."
+                                                               },
+                                                               {
+                                                                   "text":  "Copy that."
+                                                               },
+                                                               {
+                                                                   "text":  "Thanks for the update."
+                                                               }
+                                                           ]
+                                           }
+                                       ],
+                             "next":  "genesis_intro_lights"
+                         },
+    "genesis_intro_lights":  {
+                                 "lines":  [
+                                               {
+                                                   "speaker":  "mira_vale",
+                                                   "text":  "The station lights are green. Find your Duty Station, then talk with two teammates before we close the shift."
+                                               },
+                                               {
+                                                   "choices":  [
+                                                                   {
+                                                                       "text":  "Sounds like a plan."
+                                                                   },
+                                                                   {
+                                                                       "text":  "Understood."
+                                                                   },
+                                                                   {
+                                                                       "text":  "Good to know."
+                                                                   }
+                                                               ]
+                                               }
+                                           ]
+                             },
+    "genesis_end":  {
+                        "lines":  [
+                                      {
+                                          "speaker":  "mira_vale",
+                                          "text":  "The test stack is up and checked. Well done, {profession_name}."
+                                      },
+                                      {
+                                          "speaker":  "samira_shah",
+                                          "text":  "That capsule looks ready for a trip. Thank you for building it right."
+                                      },
+                                      {
+                                          "choices":  [
+                                                          {
+                                                              "text":  "I\u0027ll keep that in mind."
+                                                          },
+                                                          {
+                                                              "text":  "Makes sense to me."
+                                                          },
+                                                          {
+                                                              "text":  "On it."
+                                                          }
+                                                      ]
+                                      }
+                                  ]
+                    },
+    "countdown_intro":  {
+                            "lines":  [
+                                          {
+                                              "speaker":  "mira_vale",
+                                              "text":  "Launch day, {callsign}. The pad gallery is quiet, and the world is watching a clock."
+                                          },
+                                          {
+                                              "speaker":  "samira_shah",
+                                              "text":  "I have flown the simulator a hundred times. It never smelled this much like coffee and metal."
+                                          },
+                                          {
+                                              "speaker":  "mira_vale",
+                                              "text":  "Every station calls GO or HOLD today. A HOLD is never a failure. It is a team doing its job."
+                                          },
+                                          {
+                                              "choices":  [
+                                                              {
+                                                                  "text":  "Copy that."
+                                                              },
+                                                              {
+                                                                  "text":  "Thanks for the update."
+                                                              },
+                                                              {
+                                                                  "text":  "Sounds like a plan."
+                                                              }
+                                                          ]
+                                          }
+                                      ]
+                        },
+    "countdown_end":  {
+                          "lines":  [
+                                        {
+                                            "speaker":  "mira_vale",
+                                            "text":  "Pathfinder is away. Great shift, {profession_name}."
+                                        },
+                                        {
+                                            "speaker":  "samira_shah",
+                                            "text":  "I felt the shake in my chest. It was worth every checklist."
+                                        },
+                                        {
+                                            "choices":  [
+                                                            {
+                                                                "text":  "Understood."
+                                                            },
+                                                            {
+                                                                "text":  "Good to know."
+                                                            },
+                                                            {
+                                                                "text":  "I\u0027ll keep that in mind."
+                                                            }
+                                                        ]
+                                        }
+                                    ]
+                      },
+    "transit_intro":  {
+                          "lines":  [
+                                        {
+                                            "speaker":  "mira_vale",
+                                            "text":  "Day 90 of the trip, {callsign}. The corridor is the quietest place on the ship, so every noise matters."
+                                        },
+                                        {
+                                            "speaker":  "alex_rivera",
+                                            "text":  "Little hums tell big stories. Keep your ears open."
+                                        },
+                                        {
+                                            "speaker":  "mira_vale",
+                                            "text":  "Radio now takes minutes to cross the gap to Earth. Plan before you speak."
+                                        },
+                                        {
+                                            "choices":  [
+                                                            {
+                                                                "text":  "Makes sense to me."
+                                                            },
+                                                            {
+                                                                "text":  "On it."
+                                                            },
+                                                            {
+                                                                "text":  "Copy that."
+                                                            }
+                                                        ]
+                                        }
+                                    ]
+                      },
+    "transit_end":  {
+                        "lines":  [
+                                      {
+                                          "speaker":  "mira_vale",
+                                          "text":  "Pathfinder stays on course. Good work."
+                                      },
+                                      {
+                                          "speaker":  "yuki_tanaka",
+                                          "text":  "Earth got our update. Their answer will take a while."
+                                      },
+                                      {
+                                          "choices":  [
+                                                          {
+                                                              "text":  "Thanks for the update."
+                                                          },
+                                                          {
+                                                              "text":  "Sounds like a plan."
+                                                          },
+                                                          {
+                                                              "text":  "Understood."
+                                                          }
+                                                      ]
+                                      }
+                                  ]
+                    },
+    "red_horizon_intro":  {
+                              "lines":  [
+                                            {
+                                                "speaker":  "mira_vale",
+                                                "text":  "Mars below us, {callsign}. Landing day."
+                                            },
+                                            {
+                                                "speaker":  "samira_shah",
+                                                "text":  "The sky is butterscotch. I did not expect that."
+                                            },
+                                            {
+                                                "speaker":  "mira_vale",
+                                                "text":  "We deploy equipment first, then we rest. In that order."
+                                            },
+                                            {
+                                                "choices":  [
+                                                                {
+                                                                    "text":  "Good to know."
+                                                                },
+                                                                {
+                                                                    "text":  "I\u0027ll keep that in mind."
+                                                                },
+                                                                {
+                                                                    "text":  "Makes sense to me."
+                                                                }
+                                                            ]
+                                            }
+                                        ]
+                          },
+    "red_horizon_end":  {
+                            "lines":  [
+                                          {
+                                              "speaker":  "mira_vale",
+                                              "text":  "Boots, wheels, and dishes are down. Good shift, {profession_name}."
+                                          },
+                                          {
+                                              "speaker":  "amara_okonkwo",
+                                              "text":  "The first soil test shows rocks and dust. Nothing alive, and plenty to learn."
+                                          },
+                                          {
+                                              "choices":  [
+                                                              {
+                                                                  "text":  "On it."
+                                                              },
+                                                              {
+                                                                  "text":  "Copy that."
+                                                              },
+                                                              {
+                                                                  "text":  "Thanks for the update."
+                                                              }
+                                                          ]
+                                          }
+                                      ]
+                        },
+    "new_beginnings_intro":  {
+                                 "lines":  [
+                                               {
+                                                   "speaker":  "mira_vale",
+                                                   "text":  "The outpost lights are on, {callsign}. Today is a new beginning."
+                                               },
+                                               {
+                                                   "speaker":  "yuki_tanaka",
+                                                   "text":  "I caught a strange pattern on the dish last night. Probably a glitch, but I logged it."
+                                               },
+                                               {
+                                                   "speaker":  "mira_vale",
+                                                   "text":  "We follow the data and nothing more. Log it, check it, and decide with care."
+                                               },
+                                               {
+                                                   "choices":  [
+                                                                   {
+                                                                       "text":  "Sounds like a plan."
+                                                                   },
+                                                                   {
+                                                                       "text":  "Understood."
+                                                                   },
+                                                                   {
+                                                                       "text":  "Good to know."
+                                                                   }
+                                                               ]
+                                               }
+                                           ]
+                             },
+    "new_beginnings_end":  {
+                               "lines":  [
+                                             {
+                                                 "speaker":  "mira_vale",
+                                                 "text":  "Signal status: UNKNOWN SIGNAL, ORIGIN UNCONFIRMED. We keep listening, and we do not guess."
+                                             },
+                                             {
+                                                 "speaker":  "samira_shah",
+                                                 "text":  "Mars has plenty of room for surprises. We stay curious, and we stay careful."
+                                             },
+                                             {
+                                                 "choices":  [
+                                                                 {
+                                                                     "text":  "I\u0027ll keep that in mind."
+                                                                 },
+                                                                 {
+                                                                     "text":  "Makes sense to me."
+                                                                 },
+                                                                 {
+                                                                     "text":  "On it."
+                                                                 }
+                                                             ]
+                                             }
+                                         ]
+                           },
+    "shackleton_relay_intro":  {
+                                   "lines":  [
+                                                 {
+                                                     "speaker":  "mira_vale",
+                                                     "text":  "2027, {callsign}. We are building a relay station on the rim of Shackleton crater on the Moon."
+                                                 },
+                                                 {
+                                                     "speaker":  "dev_malhotra",
+                                                     "text":  "The new AI helper drafts plans fast. It is not always right."
+                                                 },
+                                                 {
+                                                     "speaker":  "mira_vale",
+                                                     "text":  "Use it like a colleague, not a boss. Check every answer before you act."
+                                                 },
+                                                 {
+                                                     "choices":  [
+                                                                     {
+                                                                         "text":  "Copy that."
+                                                                     },
+                                                                     {
+                                                                         "text":  "Thanks for the update."
+                                                                     },
+                                                                     {
+                                                                         "text":  "Sounds like a plan."
+                                                                     }
+                                                                 ]
+                                                 }
+                                             ]
+                               },
+    "shackleton_relay_end":  {
+                                 "lines":  [
+                                               {
+                                                   "speaker":  "mira_vale",
+                                                   "text":  "Verification is a skill, and today it showed. Good work, {profession_name}."
+                                               },
+                                               {
+                                                   "speaker":  "dev_malhotra",
+                                                   "text":  "A good sum beats a fast sum."
+                                               },
+                                               {
+                                                   "choices":  [
+                                                                   {
+                                                                       "text":  "Understood."
+                                                                   },
+                                                                   {
+                                                                       "text":  "Good to know."
+                                                                   },
+                                                                   {
+                                                                       "text":  "I\u0027ll keep that in mind."
+                                                                   }
+                                                               ]
+                                               }
+                                           ]
+                             },
+    "ember_drive_intro":  {
+                              "lines":  [
+                                            {
+                                                "speaker":  "mira_vale",
+                                                "text":  "2028, {callsign}. The Ember Drive is a slow engine with a long reach."
+                                            },
+                                            {
+                                                "speaker":  "ingrid_solheim",
+                                                "text":  "It pushes about as hard as a sheet of paper on your hand. For months, that adds up."
+                                            },
+                                            {
+                                                "speaker":  "mira_vale",
+                                                "text":  "Mind the heat limits. They are safety limits."
+                                            },
+                                            {
+                                                "choices":  [
+                                                                {
+                                                                    "text":  "Makes sense to me."
+                                                                },
+                                                                {
+                                                                    "text":  "On it."
+                                                                },
+                                                                {
+                                                                    "text":  "Copy that."
+                                                                }
+                                                            ]
+                                            }
+                                        ]
+                          },
+    "ember_drive_end":  {
+                            "lines":  [
+                                          {
+                                              "speaker":  "mira_vale",
+                                              "text":  "The drive ran clean. Good work, {profession_name}."
+                                          },
+                                          {
+                                              "speaker":  "alex_rivera",
+                                              "text":  "Slow, steady, and cool. My favorite kind of engine."
+                                          },
+                                          {
+                                              "choices":  [
+                                                              {
+                                                                  "text":  "Thanks for the update."
+                                                              },
+                                                              {
+                                                                  "text":  "Sounds like a plan."
+                                                              },
+                                                              {
+                                                                  "text":  "Understood."
+                                                              }
+                                                          ]
+                                          }
+                                      ]
+                        },
+    "living_sensors_intro":  {
+                                 "lines":  [
+                                               {
+                                                   "speaker":  "mira_vale",
+                                                   "text":  "2029, {callsign}. The dome garden is wired with sensors, and some are alive."
+                                               },
+                                               {
+                                                   "speaker":  "amara_okonkwo",
+                                                   "text":  "A glow means the sensor is working. I love that."
+                                               },
+                                               {
+                                                   "speaker":  "mira_vale",
+                                                   "text":  "A reading is only as good as its calibration. Check odd numbers twice."
+                                               },
+                                               {
+                                                   "choices":  [
+                                                                   {
+                                                                       "text":  "Good to know."
+                                                                   },
+                                                                   {
+                                                                       "text":  "I\u0027ll keep that in mind."
+                                                                   },
+                                                                   {
+                                                                       "text":  "Makes sense to me."
+                                                                   }
+                                                               ]
+                                               }
+                                           ]
+                             },
+    "living_sensors_end":  {
+                               "lines":  [
+                                             {
+                                                 "speaker":  "mira_vale",
+                                                 "text":  "The dome is watching itself, and we are watching the dome. Good work, {profession_name}."
+                                             },
+                                             {
+                                                 "speaker":  "leo_marchetti",
+                                                 "text":  "Watches and hands agreed. That is how I like it."
+                                             },
+                                             {
+                                                 "choices":  [
+                                                                 {
+                                                                     "text":  "On it."
+                                                                 },
+                                                                 {
+                                                                     "text":  "Copy that."
+                                                                 },
+                                                                 {
+                                                                     "text":  "Thanks for the update."
+                                                                 }
+                                                             ]
+                                             }
+                                         ]
+                           },
+    "first_light_intro":  {
+                              "lines":  [
+                                            {
+                                                "speaker":  "mira_vale",
+                                                "text":  "2030, {callsign}. The array has heard a structured signal. Protocol comes first."
+                                            },
+                                            {
+                                                "speaker":  "yuki_tanaka",
+                                                "text":  "It repeats in a pattern that changes on purpose. I cannot explain it with a natural source."
+                                            },
+                                            {
+                                                "speaker":  "mira_vale",
+                                                "text":  "We verify, we agree as a team, and only then do we answer. No one replies alone."
+                                            },
+                                            {
+                                                "choices":  [
+                                                                {
+                                                                    "text":  "Sounds like a plan."
+                                                                },
+                                                                {
+                                                                    "text":  "Understood."
+                                                                },
+                                                                {
+                                                                    "text":  "Good to know."
+                                                                }
+                                                            ]
+                                            }
+                                        ]
+                          },
+    "first_light_end":  {
+                            "lines":  [
+                                          {
+                                              "speaker":  "mira_vale",
+                                              "text":  "The protocol held. Good work, {profession_name}."
+                                          },
+                                          {
+                                              "speaker":  "dev_malhotra",
+                                              "text":  "A prime greeting is on its way. The answer, if any, is years off."
+                                          },
+                                          {
+                                              "choices":  [
+                                                              {
+                                                                  "text":  "I\u0027ll keep that in mind."
+                                                              },
+                                                              {
+                                                                  "text":  "Makes sense to me."
+                                                              },
+                                                              {
+                                                                  "text":  "On it."
+                                                              }
+                                                          ]
+                                          }
+                                      ]
+                        },
+    "long_listen_intro":  {
+                              "lines":  [
+                                            {
+                                                "speaker":  "mira_vale",
+                                                "text":  "2031, {callsign}. The greeting is on its way. Light is slow, and we are patient."
+                                            },
+                                            {
+                                                "speaker":  "samira_shah",
+                                                "text":  "It feels strange to be done and not done at the same time."
+                                            },
+                                            {
+                                                "choices":  [
+                                                                {
+                                                                    "text":  "Copy that."
+                                                                },
+                                                                {
+                                                                    "text":  "Thanks for the update."
+                                                                },
+                                                                {
+                                                                    "text":  "Sounds like a plan."
+                                                                }
+                                                            ]
+                                            }
+                                        ]
+                          },
+    "long_listen_end":  {
+                            "lines":  [
+                                          {
+                                              "speaker":  "mira_vale",
+                                              "text":  "We keep the array, we keep the garden, and we keep listening. Thank you, {profession_name}."
+                                          },
+                                          {
+                                              "speaker":  "samira_shah",
+                                              "text":  "Whatever comes back, we were careful and kind. That is the part we control."
+                                          },
+                                          {
+                                              "choices":  [
+                                                              {
+                                                                  "text":  "Understood."
+                                                              },
+                                                              {
+                                                                  "text":  "Good to know."
+                                                              },
+                                                              {
+                                                                  "text":  "I\u0027ll keep that in mind."
+                                                              }
+                                                          ]
+                                          }
+                                      ]
+                        },
+    "genesis_talk_mira_vale":  {
+                                   "lines":  [
+                                                 {
+                                                     "speaker":  "mira_vale",
+                                                     "text":  "Check your own step, then check a neighbor\u0027s. That is the whole secret."
+                                                 },
+                                                 {
+                                                     "choices":  [
+                                                                     {
+                                                                         "text":  "Makes sense to me."
+                                                                     },
+                                                                     {
+                                                                         "text":  "On it."
+                                                                     },
+                                                                     {
+                                                                         "text":  "Copy that."
+                                                                     }
+                                                                 ]
+                                                 }
+                                             ]
+                               },
+    "genesis_talk_samira_shah":  {
+                                     "lines":  [
+                                                   {
+                                                       "speaker":  "samira_shah",
+                                                       "text":  "I will fly in this capsule one day. Build it like it matters."
+                                                   },
+                                                   {
+                                                       "choices":  [
+                                                                       {
+                                                                           "text":  "Thanks for the update."
+                                                                       },
+                                                                       {
+                                                                           "text":  "Sounds like a plan."
+                                                                       },
+                                                                       {
+                                                                           "text":  "Understood."
+                                                                       }
+                                                                   ]
+                                                   }
+                                               ]
+                                 },
+    "genesis_talk_alex_rivera":  {
+                                     "lines":  [
+                                                   {
+                                                       "speaker":  "alex_rivera",
+                                                       "text":  "Parts go in bottom to top. The stack remembers every shortcut."
+                                                   },
+                                                   {
+                                                       "choices":  [
+                                                                       {
+                                                                           "text":  "Good to know."
+                                                                       },
+                                                                       {
+                                                                           "text":  "I\u0027ll keep that in mind."
+                                                                       },
+                                                                       {
+                                                                           "text":  "Makes sense to me."
+                                                                       }
+                                                                   ]
+                                                   }
+                                               ]
+                                 },
+    "genesis_talk_ingrid_solheim":  {
+                                        "lines":  [
+                                                      {
+                                                          "speaker":  "ingrid_solheim",
+                                                          "text":  "Push times time gives you impulse. I will show you after lunch."
+                                                      },
+                                                      {
+                                                          "choices":  [
+                                                                          {
+                                                                              "text":  "On it."
+                                                                          },
+                                                                          {
+                                                                              "text":  "Copy that."
+                                                                          },
+                                                                          {
+                                                                              "text":  "Thanks for the update."
+                                                                          }
+                                                                      ]
+                                                      }
+                                                  ]
+                                    },
+    "genesis_talk_dev_malhotra":  {
+                                      "lines":  [
+                                                    {
+                                                        "speaker":  "dev_malhotra",
+                                                        "text":  "Always carry extra fuel. The plan is never the whole story."
+                                                    },
+                                                    {
+                                                        "choices":  [
+                                                                        {
+                                                                            "text":  "Sounds like a plan."
+                                                                        },
+                                                                        {
+                                                                            "text":  "Understood."
+                                                                        },
+                                                                        {
+                                                                            "text":  "Good to know."
+                                                                        }
+                                                                    ]
+                                                    }
+                                                ]
+                                  },
+    "genesis_talk_amara_okonkwo":  {
+                                       "lines":  [
+                                                     {
+                                                         "speaker":  "amara_okonkwo",
+                                                         "text":  "Gloves first, always. Germs love a rushed scientist."
+                                                     },
+                                                     {
+                                                         "choices":  [
+                                                                         {
+                                                                             "text":  "I\u0027ll keep that in mind."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Makes sense to me."
+                                                                         },
+                                                                         {
+                                                                             "text":  "On it."
+                                                                         }
+                                                                     ]
+                                                     }
+                                                 ]
+                                   },
+    "genesis_talk_leo_marchetti":  {
+                                       "lines":  [
+                                                     {
+                                                         "speaker":  "leo_marchetti",
+                                                         "text":  "If you feel off, say so. I would rather be bored than late."
+                                                     },
+                                                     {
+                                                         "choices":  [
+                                                                         {
+                                                                             "text":  "Copy that."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Thanks for the update."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Sounds like a plan."
+                                                                         }
+                                                                     ]
+                                                     }
+                                                 ]
+                                   },
+    "genesis_talk_yuki_tanaka":  {
+                                     "lines":  [
+                                                   {
+                                                       "speaker":  "yuki_tanaka",
+                                                       "text":  "Radio check is the first thing and the last thing."
+                                                   },
+                                                   {
+                                                       "choices":  [
+                                                                       {
+                                                                           "text":  "Understood."
+                                                                       },
+                                                                       {
+                                                                           "text":  "Good to know."
+                                                                       },
+                                                                       {
+                                                                           "text":  "I\u0027ll keep that in mind."
+                                                                       }
+                                                                   ]
+                                                   }
+                                               ]
+                                 },
+    "countdown_talk_mira_vale":  {
+                                     "lines":  [
+                                                   {
+                                                       "speaker":  "mira_vale",
+                                                       "text":  "A HOLD is not a failure. It is the team doing its job."
+                                                   },
+                                                   {
+                                                       "choices":  [
+                                                                       {
+                                                                           "text":  "Makes sense to me."
+                                                                       },
+                                                                       {
+                                                                           "text":  "On it."
+                                                                       },
+                                                                       {
+                                                                           "text":  "Copy that."
+                                                                       }
+                                                                   ]
+                                                   }
+                                               ]
+                                 },
+    "countdown_talk_samira_shah":  {
+                                       "lines":  [
+                                                     {
+                                                         "speaker":  "samira_shah",
+                                                         "text":  "My heart is doing a drum solo. That is normal, right?"
+                                                     },
+                                                     {
+                                                         "choices":  [
+                                                                         {
+                                                                             "text":  "Thanks for the update."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Sounds like a plan."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Understood."
+                                                                         }
+                                                                     ]
+                                                     }
+                                                 ]
+                                   },
+    "countdown_talk_alex_rivera":  {
+                                       "lines":  [
+                                                     {
+                                                         "speaker":  "alex_rivera",
+                                                         "text":  "Every clamp is tight or it is not. There is no almost."
+                                                     },
+                                                     {
+                                                         "choices":  [
+                                                                         {
+                                                                             "text":  "Good to know."
+                                                                         },
+                                                                         {
+                                                                             "text":  "I\u0027ll keep that in mind."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Makes sense to me."
+                                                                         }
+                                                                     ]
+                                                     }
+                                                 ]
+                                   },
+    "countdown_talk_ingrid_solheim":  {
+                                          "lines":  [
+                                                        {
+                                                            "speaker":  "ingrid_solheim",
+                                                            "text":  "The rocket needs more thrust than weight. We have it, and a little extra."
+                                                        },
+                                                        {
+                                                            "choices":  [
+                                                                            {
+                                                                                "text":  "On it."
+                                                                            },
+                                                                            {
+                                                                                "text":  "Copy that."
+                                                                            },
+                                                                            {
+                                                                                "text":  "Thanks for the update."
+                                                                            }
+                                                                        ]
+                                                        }
+                                                    ]
+                                      },
+    "countdown_talk_dev_malhotra":  {
+                                        "lines":  [
+                                                      {
+                                                          "speaker":  "dev_malhotra",
+                                                          "text":  "The window opens at 06:40. The weather decides if we use it."
+                                                      },
+                                                      {
+                                                          "choices":  [
+                                                                          {
+                                                                              "text":  "Sounds like a plan."
+                                                                          },
+                                                                          {
+                                                                              "text":  "Understood."
+                                                                          },
+                                                                          {
+                                                                              "text":  "Good to know."
+                                                                          }
+                                                                      ]
+                                                      }
+                                                  ]
+                                    },
+    "countdown_talk_amara_okonkwo":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "amara_okonkwo",
+                                                           "text":  "The sample lockers are sealed and tagged. They will ride quietly."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "I\u0027ll keep that in mind."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Makes sense to me."
+                                                                           },
+                                                                           {
+                                                                               "text":  "On it."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "countdown_talk_leo_marchetti":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "leo_marchetti",
+                                                           "text":  "Crew vitals look steady. Big feelings, small problems."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Copy that."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Thanks for the update."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Sounds like a plan."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "countdown_talk_yuki_tanaka":  {
+                                       "lines":  [
+                                                     {
+                                                         "speaker":  "yuki_tanaka",
+                                                         "text":  "Every channel is on the net. Say GO only if you mean it."
+                                                     },
+                                                     {
+                                                         "choices":  [
+                                                                         {
+                                                                             "text":  "Understood."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Good to know."
+                                                                         },
+                                                                         {
+                                                                             "text":  "I\u0027ll keep that in mind."
+                                                                         }
+                                                                     ]
+                                                     }
+                                                 ]
+                                   },
+    "transit_talk_mira_vale":  {
+                                   "lines":  [
+                                                 {
+                                                     "speaker":  "mira_vale",
+                                                     "text":  "Earth is minutes away by radio now. Think before you speak."
+                                                 },
+                                                 {
+                                                     "choices":  [
+                                                                     {
+                                                                         "text":  "Makes sense to me."
+                                                                     },
+                                                                     {
+                                                                         "text":  "On it."
+                                                                     },
+                                                                     {
+                                                                         "text":  "Copy that."
+                                                                     }
+                                                                 ]
+                                                 }
+                                             ]
+                               },
+    "transit_talk_samira_shah":  {
+                                     "lines":  [
+                                                   {
+                                                       "speaker":  "samira_shah",
+                                                       "text":  "I never get tired of the window. Same stars, bigger quiet."
+                                                   },
+                                                   {
+                                                       "choices":  [
+                                                                       {
+                                                                           "text":  "Thanks for the update."
+                                                                       },
+                                                                       {
+                                                                           "text":  "Sounds like a plan."
+                                                                       },
+                                                                       {
+                                                                           "text":  "Understood."
+                                                                       }
+                                                                   ]
+                                                   }
+                                               ]
+                                 },
+    "transit_talk_alex_rivera":  {
+                                     "lines":  [
+                                                   {
+                                                       "speaker":  "alex_rivera",
+                                                       "text":  "A new hum is a new story. I like to hear it early."
+                                                   },
+                                                   {
+                                                       "choices":  [
+                                                                       {
+                                                                           "text":  "Good to know."
+                                                                       },
+                                                                       {
+                                                                           "text":  "I\u0027ll keep that in mind."
+                                                                       },
+                                                                       {
+                                                                           "text":  "Makes sense to me."
+                                                                       }
+                                                                   ]
+                                                   }
+                                               ]
+                                 },
+    "transit_talk_ingrid_solheim":  {
+                                        "lines":  [
+                                                      {
+                                                          "speaker":  "ingrid_solheim",
+                                                          "text":  "A mass on a spring tells you its weight, even floating."
+                                                      },
+                                                      {
+                                                          "choices":  [
+                                                                          {
+                                                                              "text":  "On it."
+                                                                          },
+                                                                          {
+                                                                              "text":  "Copy that."
+                                                                          },
+                                                                          {
+                                                                              "text":  "Thanks for the update."
+                                                                          }
+                                                                      ]
+                                                      }
+                                                  ]
+                                    },
+    "transit_talk_dev_malhotra":  {
+                                      "lines":  [
+                                                    {
+                                                        "speaker":  "dev_malhotra",
+                                                        "text":  "More speed needs a lot more fuel. The rocket equation is stern."
+                                                    },
+                                                    {
+                                                        "choices":  [
+                                                                        {
+                                                                            "text":  "Sounds like a plan."
+                                                                        },
+                                                                        {
+                                                                            "text":  "Understood."
+                                                                        },
+                                                                        {
+                                                                            "text":  "Good to know."
+                                                                        }
+                                                                    ]
+                                                    }
+                                                ]
+                                  },
+    "transit_talk_amara_okonkwo":  {
+                                       "lines":  [
+                                                     {
+                                                         "speaker":  "amara_okonkwo",
+                                                         "text":  "The water loop grows microbes. Swabs keep them honest."
+                                                     },
+                                                     {
+                                                         "choices":  [
+                                                                         {
+                                                                             "text":  "I\u0027ll keep that in mind."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Makes sense to me."
+                                                                         },
+                                                                         {
+                                                                             "text":  "On it."
+                                                                         }
+                                                                     ]
+                                                     }
+                                                 ]
+                                   },
+    "transit_talk_leo_marchetti":  {
+                                       "lines":  [
+                                                     {
+                                                         "speaker":  "leo_marchetti",
+                                                         "text":  "Headache and stale air go together. Check the scrubber first."
+                                                     },
+                                                     {
+                                                         "choices":  [
+                                                                         {
+                                                                             "text":  "Copy that."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Thanks for the update."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Sounds like a plan."
+                                                                         }
+                                                                     ]
+                                                     }
+                                                 ]
+                                   },
+    "transit_talk_yuki_tanaka":  {
+                                     "lines":  [
+                                                   {
+                                                       "speaker":  "yuki_tanaka",
+                                                       "text":  "Keep messages short. Every letter costs us time."
+                                                   },
+                                                   {
+                                                       "choices":  [
+                                                                       {
+                                                                           "text":  "Understood."
+                                                                       },
+                                                                       {
+                                                                           "text":  "Good to know."
+                                                                       },
+                                                                       {
+                                                                           "text":  "I\u0027ll keep that in mind."
+                                                                       }
+                                                                   ]
+                                                   }
+                                               ]
+                                 },
+    "red_horizon_talk_mira_vale":  {
+                                       "lines":  [
+                                                     {
+                                                         "speaker":  "mira_vale",
+                                                         "text":  "Equipment first, rest second. In that order."
+                                                     },
+                                                     {
+                                                         "choices":  [
+                                                                         {
+                                                                             "text":  "Makes sense to me."
+                                                                         },
+                                                                         {
+                                                                             "text":  "On it."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Copy that."
+                                                                         }
+                                                                     ]
+                                                     }
+                                                 ]
+                                   },
+    "red_horizon_talk_samira_shah":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "samira_shah",
+                                                           "text":  "The sky is butterscotch. Nobody told me."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Thanks for the update."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Sounds like a plan."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Understood."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "red_horizon_talk_alex_rivera":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "alex_rivera",
+                                                           "text":  "Winch lines pull evenly or the mast leans. I check all five."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Good to know."
+                                                                           },
+                                                                           {
+                                                                               "text":  "I\u0027ll keep that in mind."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Makes sense to me."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "red_horizon_talk_ingrid_solheim":  {
+                                            "lines":  [
+                                                          {
+                                                              "speaker":  "ingrid_solheim",
+                                                              "text":  "Mars pulls less than Earth. Falling is slower but still not gentle."
+                                                          },
+                                                          {
+                                                              "choices":  [
+                                                                              {
+                                                                                  "text":  "On it."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Copy that."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Thanks for the update."
+                                                                              }
+                                                                          ]
+                                                          }
+                                                      ]
+                                        },
+    "red_horizon_talk_dev_malhotra":  {
+                                          "lines":  [
+                                                        {
+                                                            "speaker":  "dev_malhotra",
+                                                            "text":  "The landing ellipse is smaller than the field next to my old school."
+                                                        },
+                                                        {
+                                                            "choices":  [
+                                                                            {
+                                                                                "text":  "Sounds like a plan."
+                                                                            },
+                                                                            {
+                                                                                "text":  "Understood."
+                                                                            },
+                                                                            {
+                                                                                "text":  "Good to know."
+                                                                            }
+                                                                        ]
+                                                        }
+                                                    ]
+                                      },
+    "red_horizon_talk_amara_okonkwo":  {
+                                           "lines":  [
+                                                         {
+                                                             "speaker":  "amara_okonkwo",
+                                                             "text":  "I will sterilize the scoop twice. The soil deserves a fair test."
+                                                         },
+                                                         {
+                                                             "choices":  [
+                                                                             {
+                                                                                 "text":  "I\u0027ll keep that in mind."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "Makes sense to me."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "On it."
+                                                                             }
+                                                                         ]
+                                                         }
+                                                     ]
+                                       },
+    "red_horizon_talk_leo_marchetti":  {
+                                           "lines":  [
+                                                         {
+                                                             "speaker":  "leo_marchetti",
+                                                             "text":  "Dusty cough is not a decompression alarm. Check the gauge."
+                                                         },
+                                                         {
+                                                             "choices":  [
+                                                                             {
+                                                                                 "text":  "Copy that."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "Thanks for the update."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "Sounds like a plan."
+                                                                             }
+                                                                         ]
+                                                         }
+                                                     ]
+                                       },
+    "red_horizon_talk_yuki_tanaka":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "yuki_tanaka",
+                                                           "text":  "Dust makes the radio hiss. A filter is your friend."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Understood."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Good to know."
+                                                                           },
+                                                                           {
+                                                                               "text":  "I\u0027ll keep that in mind."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "new_beginnings_talk_mira_vale":  {
+                                          "lines":  [
+                                                        {
+                                                            "speaker":  "mira_vale",
+                                                            "text":  "We follow the data. Not the headlines, not the hopes."
+                                                        },
+                                                        {
+                                                            "choices":  [
+                                                                            {
+                                                                                "text":  "Makes sense to me."
+                                                                            },
+                                                                            {
+                                                                                "text":  "On it."
+                                                                            },
+                                                                            {
+                                                                                "text":  "Copy that."
+                                                                            }
+                                                                        ]
+                                                        }
+                                                    ]
+                                      },
+    "new_beginnings_talk_samira_shah":  {
+                                            "lines":  [
+                                                          {
+                                                              "speaker":  "samira_shah",
+                                                              "text":  "I am proud to stand on a place that looked so far away."
+                                                          },
+                                                          {
+                                                              "choices":  [
+                                                                              {
+                                                                                  "text":  "Thanks for the update."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Sounds like a plan."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Understood."
+                                                                              }
+                                                                          ]
+                                                          }
+                                                      ]
+                                        },
+    "new_beginnings_talk_alex_rivera":  {
+                                            "lines":  [
+                                                          {
+                                                              "speaker":  "alex_rivera",
+                                                              "text":  "Flickering lights are a connector until proven otherwise."
+                                                          },
+                                                          {
+                                                              "choices":  [
+                                                                              {
+                                                                                  "text":  "Good to know."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "I\u0027ll keep that in mind."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Makes sense to me."
+                                                                              }
+                                                                          ]
+                                                          }
+                                                      ]
+                                        },
+    "new_beginnings_talk_ingrid_solheim":  {
+                                               "lines":  [
+                                                             {
+                                                                 "speaker":  "ingrid_solheim",
+                                                                 "text":  "A solar panel loves the sun straight on. Tilt it and it sulks."
+                                                             },
+                                                             {
+                                                                 "choices":  [
+                                                                                 {
+                                                                                     "text":  "On it."
+                                                                                 },
+                                                                                 {
+                                                                                     "text":  "Copy that."
+                                                                                 },
+                                                                                 {
+                                                                                     "text":  "Thanks for the update."
+                                                                                 }
+                                                                             ]
+                                                             }
+                                                         ]
+                                           },
+    "new_beginnings_talk_dev_malhotra":  {
+                                             "lines":  [
+                                                           {
+                                                               "speaker":  "dev_malhotra",
+                                                               "text":  "Add every load, then check the supply. Margins keep us warm."
+                                                           },
+                                                           {
+                                                               "choices":  [
+                                                                               {
+                                                                                   "text":  "Sounds like a plan."
+                                                                               },
+                                                                               {
+                                                                                   "text":  "Understood."
+                                                                               },
+                                                                               {
+                                                                                   "text":  "Good to know."
+                                                                               }
+                                                                           ]
+                                                           }
+                                                       ]
+                                         },
+    "new_beginnings_talk_amara_okonkwo":  {
+                                              "lines":  [
+                                                            {
+                                                                "speaker":  "amara_okonkwo",
+                                                                "text":  "The rover sample is a crystal, not a creature. That is still wonderful."
+                                                            },
+                                                            {
+                                                                "choices":  [
+                                                                                {
+                                                                                    "text":  "I\u0027ll keep that in mind."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "Makes sense to me."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "On it."
+                                                                                }
+                                                                            ]
+                                                            }
+                                                        ]
+                                          },
+    "new_beginnings_talk_leo_marchetti":  {
+                                              "lines":  [
+                                                            {
+                                                                "speaker":  "leo_marchetti",
+                                                                "text":  "Tired crew miss alarms. Swap shifts before it is a problem."
+                                                            },
+                                                            {
+                                                                "choices":  [
+                                                                                {
+                                                                                    "text":  "Copy that."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "Thanks for the update."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "Sounds like a plan."
+                                                                                }
+                                                                            ]
+                                                            }
+                                                        ]
+                                          },
+    "new_beginnings_talk_yuki_tanaka":  {
+                                            "lines":  [
+                                                          {
+                                                              "speaker":  "yuki_tanaka",
+                                                              "text":  "The pulses were odd. I logged them exactly as I heard them."
+                                                          },
+                                                          {
+                                                              "choices":  [
+                                                                              {
+                                                                                  "text":  "Understood."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Good to know."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "I\u0027ll keep that in mind."
+                                                                              }
+                                                                          ]
+                                                          }
+                                                      ]
+                                        },
+    "shackleton_relay_talk_mira_vale":  {
+                                            "lines":  [
+                                                          {
+                                                              "speaker":  "mira_vale",
+                                                              "text":  "Use the helper like a colleague. Colleagues can be wrong."
+                                                          },
+                                                          {
+                                                              "choices":  [
+                                                                              {
+                                                                                  "text":  "Makes sense to me."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "On it."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Copy that."
+                                                                              }
+                                                                          ]
+                                                          }
+                                                      ]
+                                        },
+    "shackleton_relay_talk_samira_shah":  {
+                                              "lines":  [
+                                                            {
+                                                                "speaker":  "samira_shah",
+                                                                "text":  "The rim is bright and the floor is black. It is a strange place to walk."
+                                                            },
+                                                            {
+                                                                "choices":  [
+                                                                                {
+                                                                                    "text":  "Thanks for the update."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "Sounds like a plan."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "Understood."
+                                                                                }
+                                                                            ]
+                                                            }
+                                                        ]
+                                          },
+    "shackleton_relay_talk_alex_rivera":  {
+                                              "lines":  [
+                                                            {
+                                                                "speaker":  "alex_rivera",
+                                                                "text":  "Cold stiffens everything. A heater pad is a small hero."
+                                                            },
+                                                            {
+                                                                "choices":  [
+                                                                                {
+                                                                                    "text":  "Good to know."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "I\u0027ll keep that in mind."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "Makes sense to me."
+                                                                                }
+                                                                            ]
+                                                            }
+                                                        ]
+                                          },
+    "shackleton_relay_talk_ingrid_solheim":  {
+                                                 "lines":  [
+                                                               {
+                                                                   "speaker":  "ingrid_solheim",
+                                                                   "text":  "Mass stays the same on the Moon. Weight is the part that changes."
+                                                               },
+                                                               {
+                                                                   "choices":  [
+                                                                                   {
+                                                                                       "text":  "On it."
+                                                                                   },
+                                                                                   {
+                                                                                       "text":  "Copy that."
+                                                                                   },
+                                                                                   {
+                                                                                       "text":  "Thanks for the update."
+                                                                                   }
+                                                                               ]
+                                                               }
+                                                           ]
+                                             },
+    "shackleton_relay_talk_dev_malhotra":  {
+                                               "lines":  [
+                                                             {
+                                                                 "speaker":  "dev_malhotra",
+                                                                 "text":  "Efficiency is how much light becomes power. Ask the helper to show its work."
+                                                             },
+                                                             {
+                                                                 "choices":  [
+                                                                                 {
+                                                                                     "text":  "Sounds like a plan."
+                                                                                 },
+                                                                                 {
+                                                                                     "text":  "Understood."
+                                                                                 },
+                                                                                 {
+                                                                                     "text":  "Good to know."
+                                                                                 }
+                                                                             ]
+                                                             }
+                                                         ]
+                                           },
+    "shackleton_relay_talk_amara_okonkwo":  {
+                                                "lines":  [
+                                                              {
+                                                                  "speaker":  "amara_okonkwo",
+                                                                  "text":  "Closed habitats grow microbes on every wall. Swab on a schedule."
+                                                              },
+                                                              {
+                                                                  "choices":  [
+                                                                                  {
+                                                                                      "text":  "I\u0027ll keep that in mind."
+                                                                                  },
+                                                                                  {
+                                                                                      "text":  "Makes sense to me."
+                                                                                  },
+                                                                                  {
+                                                                                      "text":  "On it."
+                                                                                  }
+                                                                              ]
+                                                              }
+                                                          ]
+                                            },
+    "shackleton_relay_talk_leo_marchetti":  {
+                                                "lines":  [
+                                                              {
+                                                                  "speaker":  "leo_marchetti",
+                                                                  "text":  "Badges add up radiation. Step into the shielded room if one climbs."
+                                                              },
+                                                              {
+                                                                  "choices":  [
+                                                                                  {
+                                                                                      "text":  "Copy that."
+                                                                                  },
+                                                                                  {
+                                                                                      "text":  "Thanks for the update."
+                                                                                  },
+                                                                                  {
+                                                                                      "text":  "Sounds like a plan."
+                                                                                  }
+                                                                              ]
+                                                              }
+                                                          ]
+                                            },
+    "shackleton_relay_talk_yuki_tanaka":  {
+                                              "lines":  [
+                                                            {
+                                                                "speaker":  "yuki_tanaka",
+                                                                "text":  "The Moon is about a second away by radio. A short lag, but it counts."
+                                                            },
+                                                            {
+                                                                "choices":  [
+                                                                                {
+                                                                                    "text":  "Understood."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "Good to know."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "I\u0027ll keep that in mind."
+                                                                                }
+                                                                            ]
+                                                            }
+                                                        ]
+                                          },
+    "ember_drive_talk_mira_vale":  {
+                                       "lines":  [
+                                                     {
+                                                         "speaker":  "mira_vale",
+                                                         "text":  "A slow engine needs a patient team."
+                                                     },
+                                                     {
+                                                         "choices":  [
+                                                                         {
+                                                                             "text":  "Makes sense to me."
+                                                                         },
+                                                                         {
+                                                                             "text":  "On it."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Copy that."
+                                                                         }
+                                                                     ]
+                                                     }
+                                                 ]
+                                   },
+    "ember_drive_talk_samira_shah":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "samira_shah",
+                                                           "text":  "Gentle push for months. I like it."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Thanks for the update."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Sounds like a plan."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Understood."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "ember_drive_talk_alex_rivera":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "alex_rivera",
+                                                           "text":  "Cool the nozzle or it will cook the grid."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Good to know."
+                                                                           },
+                                                                           {
+                                                                               "text":  "I\u0027ll keep that in mind."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Makes sense to me."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "ember_drive_talk_ingrid_solheim":  {
+                                            "lines":  [
+                                                          {
+                                                              "speaker":  "ingrid_solheim",
+                                                              "text":  "Tiny mass, huge speed, steady push."
+                                                          },
+                                                          {
+                                                              "choices":  [
+                                                                              {
+                                                                                  "text":  "On it."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Copy that."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Thanks for the update."
+                                                                              }
+                                                                          ]
+                                                          }
+                                                      ]
+                                        },
+    "ember_drive_talk_dev_malhotra":  {
+                                          "lines":  [
+                                                        {
+                                                            "speaker":  "dev_malhotra",
+                                                            "text":  "High Isp means less fuel for the same push."
+                                                        },
+                                                        {
+                                                            "choices":  [
+                                                                            {
+                                                                                "text":  "Sounds like a plan."
+                                                                            },
+                                                                            {
+                                                                                "text":  "Understood."
+                                                                            },
+                                                                            {
+                                                                                "text":  "Good to know."
+                                                                            }
+                                                                        ]
+                                                        }
+                                                    ]
+                                      },
+    "ember_drive_talk_amara_okonkwo":  {
+                                           "lines":  [
+                                                         {
+                                                             "speaker":  "amara_okonkwo",
+                                                             "text":  "Warm water grows film. The coolant loop needs a swab."
+                                                         },
+                                                         {
+                                                             "choices":  [
+                                                                             {
+                                                                                 "text":  "I\u0027ll keep that in mind."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "Makes sense to me."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "On it."
+                                                                             }
+                                                                         ]
+                                                         }
+                                                     ]
+                                       },
+    "ember_drive_talk_leo_marchetti":  {
+                                           "lines":  [
+                                                         {
+                                                             "speaker":  "leo_marchetti",
+                                                             "text":  "Stand slowly after a burn. Your blood needs a moment."
+                                                         },
+                                                         {
+                                                             "choices":  [
+                                                                             {
+                                                                                 "text":  "Copy that."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "Thanks for the update."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "Sounds like a plan."
+                                                                             }
+                                                                         ]
+                                                         }
+                                                     ]
+                                       },
+    "ember_drive_talk_yuki_tanaka":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "yuki_tanaka",
+                                                           "text":  "A notch filter cuts out the engine whine."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Understood."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Good to know."
+                                                                           },
+                                                                           {
+                                                                               "text":  "I\u0027ll keep that in mind."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "living_sensors_talk_mira_vale":  {
+                                          "lines":  [
+                                                        {
+                                                            "speaker":  "mira_vale",
+                                                            "text":  "The dome watches itself, and we watch the dome."
+                                                        },
+                                                        {
+                                                            "choices":  [
+                                                                            {
+                                                                                "text":  "Makes sense to me."
+                                                                            },
+                                                                            {
+                                                                                "text":  "On it."
+                                                                            },
+                                                                            {
+                                                                                "text":  "Copy that."
+                                                                            }
+                                                                        ]
+                                                        }
+                                                    ]
+                                      },
+    "living_sensors_talk_samira_shah":  {
+                                            "lines":  [
+                                                          {
+                                                              "speaker":  "samira_shah",
+                                                              "text":  "Put the nodes where the air really moves."
+                                                          },
+                                                          {
+                                                              "choices":  [
+                                                                              {
+                                                                                  "text":  "Thanks for the update."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Sounds like a plan."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Understood."
+                                                                              }
+                                                                          ]
+                                                          }
+                                                      ]
+                                        },
+    "living_sensors_talk_alex_rivera":  {
+                                            "lines":  [
+                                                          {
+                                                              "speaker":  "alex_rivera",
+                                                              "text":  "A node with low voltage lies politely. Check every mount."
+                                                          },
+                                                          {
+                                                              "choices":  [
+                                                                              {
+                                                                                  "text":  "Good to know."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "I\u0027ll keep that in mind."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Makes sense to me."
+                                                                              }
+                                                                          ]
+                                                          }
+                                                      ]
+                                        },
+    "living_sensors_talk_ingrid_solheim":  {
+                                               "lines":  [
+                                                             {
+                                                                 "speaker":  "ingrid_solheim",
+                                                                 "text":  "Voltage in, percent out. Calibrate once, check often."
+                                                             },
+                                                             {
+                                                                 "choices":  [
+                                                                                 {
+                                                                                     "text":  "On it."
+                                                                                 },
+                                                                                 {
+                                                                                     "text":  "Copy that."
+                                                                                 },
+                                                                                 {
+                                                                                     "text":  "Thanks for the update."
+                                                                                 }
+                                                                             ]
+                                                             }
+                                                         ]
+                                           },
+    "living_sensors_talk_dev_malhotra":  {
+                                             "lines":  [
+                                                           {
+                                                               "speaker":  "dev_malhotra",
+                                                               "text":  "Two points make a line. A third point proves it."
+                                                           },
+                                                           {
+                                                               "choices":  [
+                                                                               {
+                                                                                   "text":  "Sounds like a plan."
+                                                                               },
+                                                                               {
+                                                                                   "text":  "Understood."
+                                                                               },
+                                                                               {
+                                                                                   "text":  "Good to know."
+                                                                               }
+                                                                           ]
+                                                           }
+                                                       ]
+                                         },
+    "living_sensors_talk_amara_okonkwo":  {
+                                              "lines":  [
+                                                            {
+                                                                "speaker":  "amara_okonkwo",
+                                                                "text":  "Some of our sensors are living cells that glow. Handle with care."
+                                                            },
+                                                            {
+                                                                "choices":  [
+                                                                                {
+                                                                                    "text":  "I\u0027ll keep that in mind."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "Makes sense to me."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "On it."
+                                                                                }
+                                                                            ]
+                                                            }
+                                                        ]
+                                          },
+    "living_sensors_talk_leo_marchetti":  {
+                                              "lines":  [
+                                                            {
+                                                                "speaker":  "leo_marchetti",
+                                                                "text":  "Watches can be wrong. Check by hand if a number looks odd."
+                                                            },
+                                                            {
+                                                                "choices":  [
+                                                                                {
+                                                                                    "text":  "Copy that."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "Thanks for the update."
+                                                                                },
+                                                                                {
+                                                                                    "text":  "Sounds like a plan."
+                                                                                }
+                                                                            ]
+                                                            }
+                                                        ]
+                                          },
+    "living_sensors_talk_yuki_tanaka":  {
+                                            "lines":  [
+                                                          {
+                                                              "speaker":  "yuki_tanaka",
+                                                              "text":  "Sensor streams are only as good as their weakest channel."
+                                                          },
+                                                          {
+                                                              "choices":  [
+                                                                              {
+                                                                                  "text":  "Understood."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Good to know."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "I\u0027ll keep that in mind."
+                                                                              }
+                                                                          ]
+                                                          }
+                                                      ]
+                                        },
+    "first_light_talk_mira_vale":  {
+                                       "lines":  [
+                                                     {
+                                                         "speaker":  "mira_vale",
+                                                         "text":  "Verify first. Answer later. Tell everyone together."
+                                                     },
+                                                     {
+                                                         "choices":  [
+                                                                         {
+                                                                             "text":  "Makes sense to me."
+                                                                         },
+                                                                         {
+                                                                             "text":  "On it."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Copy that."
+                                                                         }
+                                                                     ]
+                                                     }
+                                                 ]
+                                   },
+    "first_light_talk_samira_shah":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "samira_shah",
+                                                           "text":  "I just want to be sure we do this the careful way."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Thanks for the update."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Sounds like a plan."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Understood."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "first_light_talk_alex_rivera":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "alex_rivera",
+                                                           "text":  "A cold amplifier is a quiet amplifier. Quiet is good."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Good to know."
+                                                                           },
+                                                                           {
+                                                                               "text":  "I\u0027ll keep that in mind."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Makes sense to me."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "first_light_talk_ingrid_solheim":  {
+                                            "lines":  [
+                                                          {
+                                                              "speaker":  "ingrid_solheim",
+                                                              "text":  "Natural sources repeat. This one changes. That is worth checking, not shouting about."
+                                                          },
+                                                          {
+                                                              "choices":  [
+                                                                              {
+                                                                                  "text":  "On it."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Copy that."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Thanks for the update."
+                                                                              }
+                                                                          ]
+                                                          }
+                                                      ]
+                                        },
+    "first_light_talk_dev_malhotra":  {
+                                          "lines":  [
+                                                        {
+                                                            "speaker":  "dev_malhotra",
+                                                            "text":  "Prime numbers are a clean pattern. They are a good greeting."
+                                                        },
+                                                        {
+                                                            "choices":  [
+                                                                            {
+                                                                                "text":  "Sounds like a plan."
+                                                                            },
+                                                                            {
+                                                                                "text":  "Understood."
+                                                                            },
+                                                                            {
+                                                                                "text":  "Good to know."
+                                                                            }
+                                                                        ]
+                                                        }
+                                                    ]
+                                      },
+    "first_light_talk_amara_okonkwo":  {
+                                           "lines":  [
+                                                         {
+                                                             "speaker":  "amara_okonkwo",
+                                                             "text":  "I will keep the cooling loop clean. Dirty loops hiss."
+                                                         },
+                                                         {
+                                                             "choices":  [
+                                                                             {
+                                                                                 "text":  "I\u0027ll keep that in mind."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "Makes sense to me."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "On it."
+                                                                             }
+                                                                         ]
+                                                         }
+                                                     ]
+                                       },
+    "first_light_talk_leo_marchetti":  {
+                                           "lines":  [
+                                                         {
+                                                             "speaker":  "leo_marchetti",
+                                                             "text":  "Long watches wear people down. Rest before the big call."
+                                                         },
+                                                         {
+                                                             "choices":  [
+                                                                             {
+                                                                                 "text":  "Copy that."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "Thanks for the update."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "Sounds like a plan."
+                                                                             }
+                                                                         ]
+                                                         }
+                                                     ]
+                                       },
+    "first_light_talk_yuki_tanaka":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "yuki_tanaka",
+                                                           "text":  "Light from 4.2 years away needs 8.4 years for an answer. That is a long promise."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Understood."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Good to know."
+                                                                           },
+                                                                           {
+                                                                               "text":  "I\u0027ll keep that in mind."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "long_listen_talk_mira_vale":  {
+                                       "lines":  [
+                                                     {
+                                                         "speaker":  "mira_vale",
+                                                         "text":  "We did the careful thing. Now we wait."
+                                                     },
+                                                     {
+                                                         "choices":  [
+                                                                         {
+                                                                             "text":  "Makes sense to me."
+                                                                         },
+                                                                         {
+                                                                             "text":  "On it."
+                                                                         },
+                                                                         {
+                                                                             "text":  "Copy that."
+                                                                         }
+                                                                     ]
+                                                     }
+                                                 ]
+                                   },
+    "long_listen_talk_samira_shah":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "samira_shah",
+                                                           "text":  "I look up more than I used to."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Thanks for the update."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Sounds like a plan."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Understood."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "long_listen_talk_alex_rivera":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "alex_rivera",
+                                                           "text":  "Dishes line up like a choir. All must hum the same note."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Good to know."
+                                                                           },
+                                                                           {
+                                                                               "text":  "I\u0027ll keep that in mind."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Makes sense to me."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     },
+    "long_listen_talk_ingrid_solheim":  {
+                                            "lines":  [
+                                                          {
+                                                              "speaker":  "ingrid_solheim",
+                                                              "text":  "Light is slow when the distance is big."
+                                                          },
+                                                          {
+                                                              "choices":  [
+                                                                              {
+                                                                                  "text":  "On it."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Copy that."
+                                                                              },
+                                                                              {
+                                                                                  "text":  "Thanks for the update."
+                                                                              }
+                                                                          ]
+                                                          }
+                                                      ]
+                                        },
+    "long_listen_talk_dev_malhotra":  {
+                                          "lines":  [
+                                                        {
+                                                            "speaker":  "dev_malhotra",
+                                                            "text":  "Four dishes catch four times as much. It still might be silence."
+                                                        },
+                                                        {
+                                                            "choices":  [
+                                                                            {
+                                                                                "text":  "Sounds like a plan."
+                                                                            },
+                                                                            {
+                                                                                "text":  "Understood."
+                                                                            },
+                                                                            {
+                                                                                "text":  "Good to know."
+                                                                            }
+                                                                        ]
+                                                        }
+                                                    ]
+                                      },
+    "long_listen_talk_amara_okonkwo":  {
+                                           "lines":  [
+                                                         {
+                                                             "speaker":  "amara_okonkwo",
+                                                             "text":  "The dome garden is thriving. Life is a quiet thing."
+                                                         },
+                                                         {
+                                                             "choices":  [
+                                                                             {
+                                                                                 "text":  "I\u0027ll keep that in mind."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "Makes sense to me."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "On it."
+                                                                             }
+                                                                         ]
+                                                         }
+                                                     ]
+                                       },
+    "long_listen_talk_leo_marchetti":  {
+                                           "lines":  [
+                                                         {
+                                                             "speaker":  "leo_marchetti",
+                                                             "text":  "Waiting is hard. Walk, sleep, and talk it out."
+                                                         },
+                                                         {
+                                                             "choices":  [
+                                                                             {
+                                                                                 "text":  "Copy that."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "Thanks for the update."
+                                                                             },
+                                                                             {
+                                                                                 "text":  "Sounds like a plan."
+                                                                             }
+                                                                         ]
+                                                         }
+                                                     ]
+                                       },
+    "long_listen_talk_yuki_tanaka":  {
+                                         "lines":  [
+                                                       {
+                                                           "speaker":  "yuki_tanaka",
+                                                           "text":  "I listen every day. Even silence tells us something."
+                                                       },
+                                                       {
+                                                           "choices":  [
+                                                                           {
+                                                                               "text":  "Understood."
+                                                                           },
+                                                                           {
+                                                                               "text":  "Good to know."
+                                                                           },
+                                                                           {
+                                                                               "text":  "I\u0027ll keep that in mind."
+                                                                           }
+                                                                       ]
+                                                       }
+                                                   ]
+                                     }
+}

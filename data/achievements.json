@@ -1,0 +1,56 @@
+[
+	{
+		"id": "first_shift",
+		"title": "First Shift",
+		"text": "Finish your first mission.",
+		"hint": "Complete any mission."
+	},
+	{
+		"id": "clean_sheet",
+		"title": "Clean Sheet",
+		"text": "Finish a mission with no mistakes, no help, and no recovery.",
+		"hint": "Be careful and be clear."
+	},
+	{
+		"id": "steady_hands",
+		"title": "Steady Hands",
+		"text": "Recover from an emergency without help.",
+		"hint": "Fix it yourself after a problem."
+	},
+	{
+		"id": "classified",
+		"title": "Classified",
+		"text": "Log the strange signal as unknown and keep to the facts.",
+		"hint": "Do not guess in 2026."
+	},
+	{
+		"id": "frontier",
+		"title": "Frontier",
+		"text": "Finish the whole 2026 campaign.",
+		"hint": "Complete all five 2026 missions."
+	},
+	{
+		"id": "verified",
+		"title": "Verified",
+		"text": "Reject a wrong AI answer.",
+		"hint": "Check the helper before you trust it."
+	},
+	{
+		"id": "first_contact",
+		"title": "First Contact",
+		"text": "Follow protocol when the signal is heard.",
+		"hint": "Wait for the committee."
+	},
+	{
+		"id": "long_listen",
+		"title": "The Long Listen",
+		"text": "Finish the epilogue.",
+		"hint": "Be patient."
+	},
+	{
+		"id": "cross_train",
+		"title": "Cross Training",
+		"text": "Play three different professions.",
+		"hint": "Try a new role."
+	}
+]

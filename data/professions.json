@@ -1,0 +1,98 @@
+[
+	{
+		"id": "astronaut",
+		"name": "Astronaut",
+		"color": "#38c8ff",
+		"short": "Walks, flies, and flips the switches.",
+		"duty": "Plan routes, run launch switchboards, and time burns.",
+		"tools": [
+			"Route map",
+			"Switchboard",
+			"Burn timer"
+		]
+	},
+	{
+		"id": "engineer",
+		"name": "Engineer",
+		"color": "#ffa632",
+		"short": "Builds it and fixes it.",
+		"duty": "Assemble parts in order, inspect hardware, and find the failed part.",
+		"tools": [
+			"Assembly rack",
+			"Gauges",
+			"Repair manual"
+		]
+	},
+	{
+		"id": "physicist",
+		"name": "Physicist",
+		"color": "#2f8bff",
+		"short": "Turns forces into numbers.",
+		"duty": "Compute thrust, impulse, and motion from simple physics.",
+		"tools": [
+			"Calculator",
+			"Sensor log",
+			"Timing bar"
+		]
+	},
+	{
+		"id": "mathematician",
+		"name": "Mathematician",
+		"color": "#4de8ff",
+		"short": "Keeps the numbers honest.",
+		"duty": "Work out fuel, timing, and power budgets with reserves.",
+		"tools": [
+			"Calculator",
+			"Data tables",
+			"Budget sheet"
+		]
+	},
+	{
+		"id": "biologist",
+		"name": "Biologist",
+		"color": "#7ef2ff",
+		"short": "Keeps samples clean and living things safe.",
+		"duty": "Follow clean-handling steps and read microscope views.",
+		"tools": [
+			"Sterile kit",
+			"Microscope",
+			"ID cards"
+		]
+	},
+	{
+		"id": "medical",
+		"name": "Medical Officer",
+		"color": "#ff8a5c",
+		"short": "Looks after the crew.",
+		"duty": "Scan vitals, find the one who needs help, and choose the calm fix.",
+		"tools": [
+			"Scanner",
+			"Vitals board",
+			"Treatment kit"
+		]
+	},
+	{
+		"id": "comms",
+		"name": "Communications Lead",
+		"color": "#ffd166",
+		"short": "Keeps the voices of the mission connected.",
+		"duty": "Tune radios, decode messages, and write short, honest reports.",
+		"tools": [
+			"Radio dial",
+			"Cipher wheel",
+			"Message pad"
+		]
+	},
+	{
+		"id": "director",
+		"name": "Flight Director",
+		"color": "#f2f2f2",
+		"short": "Makes the call.",
+		"duty": "Prioritize alerts and decide go or no-go with the whole team.",
+		"tools": [
+			"Alert board",
+			"Roll call",
+			"Decision log"
+		]
+	}
+]

@@ -1,0 +1,399 @@
+{
+    "_how_to":  "Questions per profession. \u0027answer\u0027 is the index (0-3) of the correct choice. Replace any question freely - the quiz reads \u0027questions\u0027 in order and shows however many exist.",
+    "general":  {
+                    "questions":  [
+                                      {
+                                          "q":  "What does a space station mostly recycle for the crew?",
+                                          "choices":  [
+                                                          "Water",
+                                                          "Steel",
+                                                          "Concrete",
+                                                          "Glass"
+                                                      ],
+                                          "answer":  0
+                                      },
+                                      {
+                                          "q":  "Which instrument keeps a spacecraft pointed at its target?",
+                                          "choices":  [
+                                                          "Gyroscopes",
+                                                          "Solar panels",
+                                                          "Radio antenna",
+                                                          "Thrusters alone"
+                                                      ],
+                                          "answer":  0
+                                      },
+                                      {
+                                          "q":  "Why do missions carry backup systems?",
+                                          "choices":  [
+                                                          "They use more power",
+                                                          "Regulations forbid single systems",
+                                                          "Extra weight looks good",
+                                                          "Failures happen in space"
+                                                      ],
+                                          "answer":  3
+                                      },
+                                      {
+                                          "q":  "What is a light-year?",
+                                          "choices":  [
+                                                          "A unit of time on Mars",
+                                                          "A year with more sunlight",
+                                                          "A distance light travels in a year",
+                                                          "A very bright star"
+                                                      ],
+                                          "answer":  2
+                                      }
+                                  ]
+                },
+    "astronaut":  {
+                      "questions":  [
+                                        {
+                                            "q":  "Before an EVA, what do you check first?",
+                                            "choices":  [
+                                                            "Snack supply",
+                                                            "Suit pressure",
+                                                            "Hair length",
+                                                            "Boot color"
+                                                        ],
+                                            "answer":  1
+                                        },
+                                        {
+                                            "q":  "Tethers during a spacewalk exist to...",
+                                            "choices":  [
+                                                            "Dry the suit",
+                                                            "Measure distance",
+                                                            "Charge the radio",
+                                                            "Keep you from drifting away"
+                                                        ],
+                                            "answer":  3
+                                        },
+                                        {
+                                            "q":  "In microgravity, fluids...",
+                                            "choices":  [
+                                                            "Freeze instantly",
+                                                            "Boil at once",
+                                                            "Always fall down",
+                                                            "Form floating spheres"
+                                                        ],
+                                            "answer":  3
+                                        },
+                                        {
+                                            "q":  "Which is part of pre-launch suit-up?",
+                                            "choices":  [
+                                                            "Shoe polishing",
+                                                            "Leak checks",
+                                                            "Lawn mowing",
+                                                            "Car washing"
+                                                        ],
+                                            "answer":  1
+                                        }
+                                    ]
+                  },
+    "engineer":  {
+                     "questions":  [
+                                       {
+                                           "q":  "A circuit that has no complete loop is called...",
+                                           "choices":  [
+                                                           "Open",
+                                                           "Bright",
+                                                           "Heavy",
+                                                           "Fast"
+                                                       ],
+                                           "answer":  0
+                                       },
+                                       {
+                                           "q":  "What does a fuse do?",
+                                           "choices":  [
+                                                           "Breaks the circuit when current is too high",
+                                                           "Cools wires",
+                                                           "Speeds up current",
+                                                           "Stores power"
+                                                       ],
+                                           "answer":  0
+                                       },
+                                       {
+                                           "q":  "Torque on a bolt is measured to ensure...",
+                                           "choices":  [
+                                                           "It is magnetic",
+                                                           "It is expensive",
+                                                           "It is painted",
+                                                           "It is tight enough but not stripped"
+                                                       ],
+                                           "answer":  3
+                                       },
+                                       {
+                                           "q":  "Redundant systems are...",
+                                           "choices":  [
+                                                           "Fuel tanks",
+                                                           "Backup copies of a system",
+                                                           "Decorative panels",
+                                                           "Extra crew seats"
+                                                       ],
+                                           "answer":  1
+                                       }
+                                   ]
+                 },
+    "physicist":  {
+                      "questions":  [
+                                        {
+                                            "q":  "An orbit is essentially...",
+                                            "choices":  [
+                                                            "Falling around a planet",
+                                                            "Standing still in space",
+                                                            "Floating without forces",
+                                                            "A straight line"
+                                                        ],
+                                            "answer":  0
+                                        },
+                                        {
+                                            "q":  "Delta-v measures...",
+                                            "choices":  [
+                                                            "Distance to the Moon",
+                                                            "Fuel color",
+                                                            "Crew weight",
+                                                            "Change in velocity"
+                                                        ],
+                                            "answer":  3
+                                        },
+                                        {
+                                            "q":  "A vacuum has...",
+                                            "choices":  [
+                                                            "Lots of dust",
+                                                            "Loud noise",
+                                                            "No air",
+                                                            "Heavy gravity"
+                                                        ],
+                                            "answer":  2
+                                        },
+                                        {
+                                            "q":  "Which wave carries radio signals?",
+                                            "choices":  [
+                                                            "Seismic",
+                                                            "Electromagnetic",
+                                                            "Sound",
+                                                            "Water"
+                                                        ],
+                                            "answer":  1
+                                        }
+                                    ]
+                  },
+    "mathematician":  {
+                          "questions":  [
+                                            {
+                                                "q":  "15% of 200 is...",
+                                                "choices":  [
+                                                                "15",
+                                                                "30",
+                                                                "45",
+                                                                "60"
+                                                            ],
+                                                "answer":  1
+                                            },
+                                            {
+                                                "q":  "A trajectory is a...",
+                                                "choices":  [
+                                                                "Type of engine",
+                                                                "Crew schedule",
+                                                                "Radio band",
+                                                                "Path of motion"
+                                                            ],
+                                                "answer":  3
+                                            },
+                                            {
+                                                "q":  "Doubling a value twice gives...",
+                                                "choices":  [
+                                                                "The same",
+                                                                "Half",
+                                                                "4x the original",
+                                                                "2x the original"
+                                                            ],
+                                                "answer":  2
+                                            },
+                                            {
+                                                "q":  "Which is a prime number?",
+                                                "choices":  [
+                                                                "21",
+                                                                "9",
+                                                                "11",
+                                                                "15"
+                                                            ],
+                                                "answer":  2
+                                            }
+                                        ]
+                      },
+    "biologist":  {
+                      "questions":  [
+                                        {
+                                            "q":  "Photosynthesis needs...",
+                                            "choices":  [
+                                                            "Light and CO2",
+                                                            "Darkness",
+                                                            "Steel",
+                                                            "Radio waves"
+                                                        ],
+                                            "answer":  0
+                                        },
+                                        {
+                                            "q":  "A closed ecosystem must recycle...",
+                                            "choices":  [
+                                                            "Furniture",
+                                                            "Fuel only",
+                                                            "Crew",
+                                                            "Water and air"
+                                                        ],
+                                            "answer":  3
+                                        },
+                                        {
+                                            "q":  "Microgravity affects plant growth by...",
+                                            "choices":  [
+                                                            "Boiling water",
+                                                            "Nothing",
+                                                            "Confusing direction of roots",
+                                                            "Melting leaves"
+                                                        ],
+                                            "answer":  2
+                                        },
+                                        {
+                                            "q":  "Contamination in a lab is prevented by...",
+                                            "choices":  [
+                                                            "Bright paint",
+                                                            "Sealed protocols",
+                                                            "Open windows",
+                                                            "Loud music"
+                                                        ],
+                                            "answer":  1
+                                        }
+                                    ]
+                  },
+    "medical":  {
+                    "questions":  [
+                                      {
+                                          "q":  "First sign of hypoxia is...",
+                                          "choices":  [
+                                                          "Confusion",
+                                                          "Stronger hearing",
+                                                          "Better vision",
+                                                          "Faster hair growth"
+                                                      ],
+                                          "answer":  0
+                                      },
+                                      {
+                                          "q":  "Blood in microgravity pools...",
+                                          "choices":  [
+                                                          "Only in the feet",
+                                                          "Nowhere",
+                                                          "Outside the body",
+                                                          "Toward the upper body"
+                                                      ],
+                                          "answer":  3
+                                      },
+                                      {
+                                          "q":  "A tourniquet is used to...",
+                                          "choices":  [
+                                                          "Cool burns",
+                                                          "Set bones",
+                                                          "Stop severe bleeding",
+                                                          "Measure height"
+                                                      ],
+                                          "answer":  2
+                                      },
+                                      {
+                                          "q":  "Quarantine protects...",
+                                          "choices":  [
+                                                          "Nobody",
+                                                          "The whole crew from spread",
+                                                          "Only the sick person",
+                                                          "Equipment only"
+                                                      ],
+                                          "answer":  1
+                                      }
+                                  ]
+                },
+    "comms":  {
+                  "questions":  [
+                                    {
+                                        "q":  "A radio \u0027handshake\u0027 confirms...",
+                                        "choices":  [
+                                                        "Two-way contact",
+                                                        "Signal strength only",
+                                                        "Distance",
+                                                        "Weather"
+                                                    ],
+                                        "answer":  0
+                                    },
+                                    {
+                                        "q":  "Signal delay to Mars is roughly...",
+                                        "choices":  [
+                                                        "Seconds",
+                                                        "Instant",
+                                                        "Days",
+                                                        "Minutes"
+                                                    ],
+                                        "answer":  3
+                                    },
+                                    {
+                                        "q":  "Encryption protects...",
+                                        "choices":  [
+                                                        "Orbit speed",
+                                                        "Fuel levels",
+                                                        "Message secrecy",
+                                                        "Antenna color"
+                                                    ],
+                                        "answer":  2
+                                    },
+                                    {
+                                        "q":  "A repeater station...",
+                                        "choices":  [
+                                                        "Cools the ship",
+                                                        "Boosts and relays signals",
+                                                        "Blocks signals",
+                                                        "Stores fuel"
+                                                    ],
+                                        "answer":  1
+                                    }
+                                ]
+              },
+    "director":  {
+                     "questions":  [
+                                       {
+                                           "q":  "Mission control\u0027s first job during an anomaly is...",
+                                           "choices":  [
+                                                           "Assess and stabilize",
+                                                           "Blame someone",
+                                                           "Go home",
+                                                           "Ignore it"
+                                                       ],
+                                           "answer":  0
+                                       },
+                                       {
+                                           "q":  "A go/no-go poll decides...",
+                                           "choices":  [
+                                                           "Lunch menu",
+                                                           "Crew names",
+                                                           "Fuel color",
+                                                           "Whether to proceed"
+                                                       ],
+                                           "answer":  3
+                                       },
+                                       {
+                                           "q":  "Priority during a crisis is...",
+                                           "choices":  [
+                                                           "Budget",
+                                                           "Schedule",
+                                                           "Crew safety first",
+                                                           "Public image"
+                                                       ],
+                                           "answer":  2
+                                       },
+                                       {
+                                           "q":  "A decision log exists to...",
+                                           "choices":  [
+                                                           "Track snacks",
+                                                           "Record why choices were made",
+                                                           "Entertain crew",
+                                                           "Replace checklists"
+                                                       ],
+                                           "answer":  1
+                                       }
+                                   ]
+                 }
+}

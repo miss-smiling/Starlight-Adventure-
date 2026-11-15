@@ -1,0 +1,592 @@
+{
+	"year": 2031,
+	"title": "Beyond Year",
+	"campaign": "Beyond Humanity",
+	"tech": {
+		"id": "array_extension_2031",
+		"title": "Array Extension",
+		"summary": "More dishes, more patience.",
+		"effect": "The array grows. The reply is still on its way."
+	},
+	"missions": [
+		{
+			"id": "long_listen",
+			"title": "Beyond Humanity",
+			"intro": "long_listen_intro",
+			"ending": "long_listen_end",
+			"duty_text": "Finish your station duty at the overlook.",
+			"optional": {
+				"text": "Look through the telescope.",
+				"station": "Telescope",
+				"fact": "Light from the nearest stars left years before you looked up."
+			},
+			"learn": [
+				"Light takes years to cross space.",
+				"Patience is a team skill."
+			],
+			"team": [
+				{
+					"id": "mira_vale",
+					"note": "We are still listening."
+				},
+				{
+					"id": "ingrid_solheim",
+					"note": "Light is still on its way."
+				},
+				{
+					"id": "samira_shah",
+					"note": "It is a good view."
+				}
+			],
+			"talks": {
+				"mira_vale": "long_listen_talk_mira_vale",
+				"samira_shah": "long_listen_talk_samira_shah",
+				"alex_rivera": "long_listen_talk_alex_rivera",
+				"ingrid_solheim": "long_listen_talk_ingrid_solheim",
+				"dev_malhotra": "long_listen_talk_dev_malhotra",
+				"amara_okonkwo": "long_listen_talk_amara_okonkwo",
+				"leo_marchetti": "long_listen_talk_leo_marchetti",
+				"yuki_tanaka": "long_listen_talk_yuki_tanaka"
+			},
+			"room": {
+				"name": "Array Overlook",
+				"bg": "#14182b",
+				"world": [
+					1280,
+					640
+				],
+				"start": [
+					80,
+					400
+				],
+				"walls": [
+					[
+						0,
+						0,
+						1280,
+						16
+					],
+					[
+						0,
+						624,
+						1280,
+						16
+					],
+					[
+						0,
+						0,
+						16,
+						640
+					],
+					[
+						1264,
+						0,
+						16,
+						640
+					],
+					[
+						600,
+						150,
+						24,
+						220
+					]
+				],
+				"stations": [
+					{
+						"id": "briefing",
+						"label": "Briefing Table",
+						"kind": "briefing",
+						"pos": [
+							150,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "duty",
+						"label": "Duty Station",
+						"kind": "duty",
+						"pos": [
+							1080,
+							110
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_1",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							420,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_2",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							760,
+							320
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "npc_3",
+						"label": "Teammate",
+						"kind": "npc",
+						"pos": [
+							960,
+							470
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "optional",
+						"label": "Telescope",
+						"kind": "optional",
+						"pos": [
+							330,
+							500
+						],
+						"size": [
+							72,
+							72
+						]
+					},
+					{
+						"id": "finish",
+						"label": "Close Shift",
+						"kind": "finish",
+						"pos": [
+							1120,
+							560
+						],
+						"size": [
+							72,
+							72
+						]
+					}
+				]
+			},
+			"emergency_script": [
+				{
+					"speaker": "mira_vale",
+					"text": "Alert. {warning}"
+				},
+				{
+					"speaker": "samira_shah",
+					"text": "Easy. We are not in a rush. Retry."
+				},
+				{
+					"speaker": "mira_vale",
+					"text": "Recovery is open. Do the critical step again. The shift is not over."
+				}
+			],
+			"tasks": {
+				"astronaut": {
+					"pattern": "route",
+					"cols": 10,
+					"rows": 6,
+					"start": [
+						0,
+						5
+					],
+					"goal": [
+						9,
+						0
+					],
+					"hazards": [
+						[
+							1,
+							1
+						],
+						[
+							2,
+							3
+						],
+						[
+							3,
+							5
+						],
+						[
+							4,
+							1
+						],
+						[
+							5,
+							4
+						],
+						[
+							6,
+							0
+						],
+						[
+							7,
+							2
+						],
+						[
+							8,
+							4
+						]
+					],
+					"waypoints": [
+						[
+							4,
+							3
+						],
+						[
+							7,
+							3
+						]
+					],
+					"title": "Walk the Array Line",
+					"science": "A big array is a long walk. Take care and enjoy the view.",
+					"hint": "Visit both dish markers, then reach the goal.",
+					"mistake": "Stepped onto a hazard tile.",
+					"emergency": {
+						"id": "hazard_contact",
+						"warning": "You stepped onto a hazard. Back out and plot again."
+					}
+				},
+				"engineer": {
+					"pattern": "inspect",
+					"rule": "Flag every dish off by more than 0.1 degrees.",
+					"steps": [
+						{
+							"id": "d1",
+							"label": "Dish 1 alignment",
+							"value": 0.02,
+							"unit": "deg",
+							"lo": 0,
+							"hi": 0.1,
+							"ok": true
+						},
+						{
+							"id": "d2",
+							"label": "Dish 2 alignment",
+							"value": 0.04,
+							"unit": "deg",
+							"lo": 0,
+							"hi": 0.1,
+							"ok": true
+						},
+						{
+							"id": "d3",
+							"label": "Dish 3 alignment",
+							"value": 0.27,
+							"unit": "deg",
+							"lo": 0,
+							"hi": 0.1,
+							"ok": false
+						},
+						{
+							"id": "d4",
+							"label": "Dish 4 alignment",
+							"value": 0.06,
+							"unit": "deg",
+							"lo": 0,
+							"hi": 0.1,
+							"ok": true
+						}
+					],
+					"must_flag": [
+						"d3"
+					],
+					"title": "Dish Alignment",
+					"science": "Many dishes work as one only when they all point the same way.",
+					"hint": "Read each dish and flag the one that is off.",
+					"mistake": "Missed or wrongly flagged a dish.",
+					"emergency": {
+						"id": "loose_clamp",
+						"warning": "A dish was missed. Inspect again."
+					}
+				},
+				"physicist": {
+					"pattern": "measure",
+					"given": {
+						"year_sent": 2030,
+						"distance_ly": 4.2
+					},
+					"parts": [
+						{
+							"id": "reply",
+							"prompt": "Earliest year a reply could arrive (round trip)",
+							"answer": 2038.4,
+							"tolerance": 0.1,
+							"unit": "yr"
+						}
+					],
+					"title": "Light Lag",
+					"science": "Light takes years to cross space. A reply from a far star is a long wait.",
+					"hint": "A round trip is twice the distance in light years. Add it to 2030.",
+					"mistake": "Entered a reply year outside tolerance.",
+					"emergency": {
+						"id": "bad_lag",
+						"warning": "The lag does not add up. Recompute."
+					}
+				},
+				"mathematician": {
+					"pattern": "figure",
+					"given": {
+						"dishes": 4,
+						"area_each_m2": 25
+					},
+					"parts": [
+						{
+							"id": "area",
+							"prompt": "Total collecting area (m2)",
+							"answer": 100,
+							"tolerance": 0,
+							"unit": "m2"
+						},
+						{
+							"id": "gain",
+							"prompt": "Signal gain compared to one dish (times)",
+							"answer": 4,
+							"tolerance": 0,
+							"unit": "x"
+						}
+					],
+					"title": "Array Gain",
+					"science": "More collecting area means more signal. Four dishes collect four times as much.",
+					"hint": "Multiply dishes by area. Gain is the ratio to one dish.",
+					"mistake": "Miscomputed the array gain.",
+					"emergency": {
+						"id": "clock_error",
+						"warning": "The gain does not add up. Fix the arithmetic."
+					}
+				},
+				"biologist": {
+					"pattern": "procedure",
+					"steps": [
+						{
+							"id": "sterilize",
+							"label": "Sterilize the scoop"
+						},
+						{
+							"id": "label",
+							"label": "Label the bag"
+						},
+						{
+							"id": "scoop",
+							"label": "Scoop the dome soil"
+						},
+						{
+							"id": "focus",
+							"label": "Focus the microscope"
+						},
+						{
+							"id": "record",
+							"label": "Record the result"
+						}
+					],
+					"order": [
+						"sterilize",
+						"label",
+						"scoop",
+						"focus",
+						"record"
+					],
+					"question": "Which view matches ID card D-1: round cells?",
+					"samples": [
+						{
+							"id": "s1",
+							"label": "View 1",
+							"view": "round cells"
+						},
+						{
+							"id": "s2",
+							"label": "View 2",
+							"view": "chains"
+						},
+						{
+							"id": "s3",
+							"label": "View 3",
+							"view": "paired rods"
+						},
+						{
+							"id": "s4",
+							"label": "View 4",
+							"view": "clear, no growth"
+						}
+					],
+					"answer": "s1",
+					"conclusions": [
+						{
+							"id": "c1",
+							"text": "Healthy soil bacteria. The dome garden is fine.",
+							"ok": true
+						},
+						{
+							"id": "c2",
+							"text": "Soil is dead. Replace it all.",
+							"ok": false
+						}
+					],
+					"title": "Dome Garden Soil",
+					"science": "Healthy soil is full of tiny helpers that feed the plants.",
+					"hint": "Sterilize first. Then match the view.",
+					"mistake": "Handled the scoop before sterilizing.",
+					"emergency": {
+						"id": "contamination",
+						"warning": "The scoop was not sterile. Clean it and collect again.",
+						"fail_flag": "contamination_noted"
+					}
+				},
+				"medical": {
+					"pattern": "triage",
+					"scan_first": true,
+					"patients": [
+						{
+							"id": "p1",
+							"name": "Crew A",
+							"vitals": {
+								"sleep_hours": 8,
+								"mood": "calm"
+							},
+							"abnormal": false,
+							"note": "Rested."
+						},
+						{
+							"id": "p2",
+							"name": "Crew B",
+							"vitals": {
+								"sleep_hours": 4,
+								"mood": "restless"
+							},
+							"abnormal": true,
+							"note": "Keeps checking the dish for a reply."
+						},
+						{
+							"id": "p3",
+							"name": "Crew C",
+							"vitals": {
+								"sleep_hours": 7,
+								"mood": "calm"
+							},
+							"abnormal": false,
+							"note": "Fine."
+						}
+					],
+					"actions": [
+						{
+							"id": "rest",
+							"label": "Rest, talk it over, and take a walk",
+							"correct": true,
+							"effect": "A calm night helps the whole team."
+						},
+						{
+							"id": "watch",
+							"label": "Watch the dish all night",
+							"correct": false,
+							"effect": "A tired watch is not a good watch."
+						},
+						{
+							"id": "ignore",
+							"label": "Ignore it",
+							"correct": false,
+							"effect": "Restless minds need a break."
+						}
+					],
+					"correct_patient": "p2",
+					"correct_action": "rest",
+					"title": "The Waiting Game",
+					"science": "Waiting is hard on the mind. Rest and company help.",
+					"hint": "Scan all three crew first.",
+					"mistake": "Treated before scanning every crew member.",
+					"emergency": {
+						"id": "treated_early",
+						"warning": "Treatment began before the scan finished. Stabilize and scan again."
+					}
+				},
+				"comms": {
+					"pattern": "channels",
+					"rule": "Call GO when the reading is 4 of 5 or better. Call HOLD for lower.",
+					"channels": [
+						{
+							"id": "dish1",
+							"label": "Dish 1 feed",
+							"reading": "Quiet 5 of 5",
+							"expected": "GO"
+						},
+						{
+							"id": "dish2",
+							"label": "Dish 2 feed",
+							"reading": "Quiet 5 of 5",
+							"expected": "GO"
+						},
+						{
+							"id": "dish3",
+							"label": "Dish 3 feed",
+							"reading": "Hiss 2 of 5",
+							"expected": "HOLD"
+						},
+						{
+							"id": "dish4",
+							"label": "Dish 4 feed",
+							"reading": "Quiet 4 of 5",
+							"expected": "GO"
+						}
+					],
+					"title": "Quiet Listening",
+					"science": "Listening takes patience. The quieter the line, the better the chance of hearing something faint.",
+					"hint": "Read each channel against the rule.",
+					"mistake": "Gave the wrong call on a channel.",
+					"emergency": {
+						"id": "bad_net_call",
+						"warning": "A noisy channel was called GO. Poll again."
+					}
+				},
+				"director": {
+					"pattern": "decision",
+					"prompt": "The reply has not arrived. Light takes years. How should the team spend the next year?",
+					"choices": [
+						{
+							"id": "listen",
+							"text": "Keep listening and keep the array in good shape.",
+							"result": "success",
+							"consequence": "Patience pays off. The team stays steady."
+						},
+						{
+							"id": "expand",
+							"text": "Add two dishes to hear fainter signals.",
+							"result": "success_cost",
+							"consequence": "The array gets better, and the work takes the whole year."
+						},
+						{
+							"id": "shout",
+							"text": "Send a second message today to speed things up.",
+							"result": "fail",
+							"consequence": "A second message does not make light go faster."
+						}
+					],
+					"title": "Beyond Humanity",
+					"science": "Some questions take many years to answer. Good teams stay curious and patient.",
+					"hint": "Pick the answer a patient team would choose.",
+					"mistake": "Chose to send another message instead of waiting.",
+					"emergency": {
+						"id": "premature_reply",
+						"warning": "A message went out without a plan. Open the review."
+					}
+				}
+			}
+		}
+	]
+}
