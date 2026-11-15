@@ -34,12 +34,50 @@ func _ready() -> void:
 # Black title card before the menu: two lines type themselves out, then a
 # green STATUS ACTIVE stamp, a short hold, and it fades into the menu.
 var _boot: Control = null
+var _tap: Control = null
 var _boot_lines: Array = []
 var _boot_stage := 0
 var _boot_chars := 0.0
 var _boot_hold := 0.0
 
 func _boot_intro() -> void:
+	# Web browsers refuse audio until a user gesture, so on the web the
+	# boot intro waits behind an explicit tap card first.
+	if OS.has_feature("web"):
+		_tap = Control.new()
+		_tap.set_anchors_preset(Control.PRESET_FULL_RECT)
+		add_child(_tap)
+		var veil := ColorRect.new()
+		veil.color = Color("05070d")
+		veil.set_anchors_preset(Control.PRESET_FULL_RECT)
+		_tap.add_child(veil)
+		var hold := CenterContainer.new()
+		hold.set_anchors_preset(Control.PRESET_FULL_RECT)
+		_tap.add_child(hold)
+		var card := VBoxContainer.new()
+		card.add_theme_constant_override("separation", 14)
+		hold.add_child(card)
+		card.add_child(UIKit.heading("STARLIGHT ADVENTURE", 22, UIKit.ACCENT))
+		var prompt := UIKit.heading("TAP TO BEGIN", 14, UIKit.ACCENT_2)
+		prompt.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		card.add_child(prompt)
+		return
+	_boot_card()
+
+
+func _input(event: InputEvent) -> void:
+	# The tap gate: any press on the web start card dismisses it and lets
+	# the typed intro (and audio) begin from a real user gesture.
+	if _tap != null and (event is InputEventMouseButton or event is InputEventKey or event is InputEventScreenTouch):
+		var gate := _tap
+		_tap = null
+		gate.queue_free()
+		_boot_card()
+		AudioManager.unlock()
+
+
+func _boot_card() -> void:
 	_boot = Control.new()
 	_boot.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(_boot)

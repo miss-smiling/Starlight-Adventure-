@@ -35,18 +35,24 @@ func _ready() -> void:
 
 
 # Web browsers suspend all audio until the first user gesture. The music
-# that starts at boot never plays in that state, so on the first real
-# input we restart whatever mood is queued - from then on everything
-# sounds normally.
+# that starts at boot never plays in that state, so after the first real
+# input we restart whatever mood is queued - with a short delay so the
+# browser's audio context is already resumed by then.
+func unlock() -> void:
+	if _current == "":
+		return
+	var mood := _current
+	_current = ""
+	await get_tree().create_timer(0.25).timeout
+	music(mood)
+
+
 func _input(event: InputEvent) -> void:
 	if _audio_unlocked:
 		return
 	if event is InputEventMouseButton or event is InputEventKey or event is InputEventScreenTouch:
 		_audio_unlocked = true
-		if _current != "":
-			var mood := _current
-			_current = ""
-			music(mood)
+		unlock()
 
 
 func _stream(path: String) -> AudioStream:
