@@ -57,16 +57,15 @@ func _watchdog_tick() -> void:
 	_player.play()
 
 
-# Web browsers suspend all audio until the first user gesture. The music
-# that starts at boot never plays in that state, so after the first real
-# input we restart whatever mood is queued - with a short delay so the
-# browser's audio context is already resumed by then.
+# Web browsers suspend all audio until the first user gesture. Probing
+# showed a play() issued synchronously INSIDE the tap gesture works, while
+# delayed restarts can be swallowed - so unlock restarts the queued mood
+# immediately, in the gesture itself.
 func unlock() -> void:
 	if _current == "":
 		return
 	var mood := _current
 	_current = ""
-	await get_tree().create_timer(0.25).timeout
 	music(mood)
 
 
