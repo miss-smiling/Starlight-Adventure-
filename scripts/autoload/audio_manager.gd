@@ -25,12 +25,28 @@ const SFX := {
 var _player: AudioStreamPlayer = null
 var _current := ""
 var _streams := {}
+var _audio_unlocked := false
 
 
 func _ready() -> void:
 	_player = AudioStreamPlayer.new()
 	_player.bus = "Master"
 	add_child(_player)
+
+
+# Web browsers suspend all audio until the first user gesture. The music
+# that starts at boot never plays in that state, so on the first real
+# input we restart whatever mood is queued - from then on everything
+# sounds normally.
+func _input(event: InputEvent) -> void:
+	if _audio_unlocked:
+		return
+	if event is InputEventMouseButton or event is InputEventKey or event is InputEventScreenTouch:
+		_audio_unlocked = true
+		if _current != "":
+			var mood := _current
+			_current = ""
+			music(mood)
 
 
 func _stream(path: String) -> AudioStream:
