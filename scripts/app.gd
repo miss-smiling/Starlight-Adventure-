@@ -25,8 +25,32 @@ func _ready() -> void:
 	if OS.get_cmdline_user_args().has("--shots"):
 		_shots()
 		return
+	if OS.get_cmdline_user_args().has("--audiotest"):
+		_audiotest()
+		return
 	_swap("main_menu")
 	_boot_intro()
+
+
+# Diagnostic: verifies audio resources and playback inside an EXPORTED
+# build (run with -- --audiotest against a .pck or an exported exe).
+func _audiotest() -> void:
+	print("AUDIOTEST mix_rate=", AudioServer.get_mix_rate(), " latency=", AudioServer.get_output_latency())
+	print("AUDIOTEST master mute=", AudioServer.is_bus_mute(0), " vol_db=", AudioServer.get_bus_volume_db(0), " out=", AudioServer.get_output_device_list())
+	for file in ["Background_music.mp3", "sci fi click sound.mp3", "tap click.mp3", "fun music.mp3"]:
+		var path: String = "res://" + file
+		var exists := FileAccess.file_exists(path)
+		var stream: AudioStream = load(path) if exists else null
+		print("AUDIOTEST %s exists=%s stream=%s" % [file, exists, "ok" if stream != null else "MISSING"])
+	var probe := AudioStreamPlayer.new()
+	probe.stream = load("res://Background_music.mp3")
+	probe.bus = "Master"
+	add_child(probe)
+	probe.play()
+	for i in 3:
+		await get_tree().create_timer(0.3).timeout
+		print("AUDIOTEST playing=", probe.playing, " pos=", probe.get_playback_position())
+	get_tree().quit()
 
 
 # ------------------------------------------------------------ boot intro
