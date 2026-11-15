@@ -99,6 +99,31 @@ func _input(event: InputEvent) -> void:
 		gate.queue_free()
 		_boot_card()
 		AudioManager.unlock()
+		_audio_probe()
+
+
+# Web diagnostic: after the tap, actually play a sound and watch whether
+# its playback position advances. The badge shows what the ENGINE sees,
+# so we can tell "browser blocked the audio context" from "engine fine".
+func _audio_probe() -> void:
+	var badge := UIKit.heading("", 11, UIKit.ACCENT_2)
+	badge.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	badge.position = Vector2(0, -26)
+	add_child(badge)
+	badge.text = "AUDIO: checking..."
+	var probe := AudioStreamPlayer.new()
+	probe.stream = load("res://tap click.mp3")
+	probe.bus = "Master"
+	add_child(probe)
+	probe.play()
+	await get_tree().create_timer(1.2).timeout
+	if not is_instance_valid(badge):
+		return
+	if probe.playing and probe.get_playback_position() > 0.0:
+		badge.text = "AUDIO OK  ·  %.0f Hz" % AudioServer.get_mix_rate()
+	else:
+		badge.text = "AUDIO BLOCKED BY BROWSER - try another browser/device"
+	probe.queue_free()
 
 
 func _boot_card() -> void:
