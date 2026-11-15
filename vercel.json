@@ -1,17 +1,5 @@
 {
 	"$schema": "https://openapi.vercel.sh/vercel.json",
-	"builds": [
-		{
-			"src": "web/**",
-			"use": "@vercel/static"
-		}
-	],
-	"routes": [
-		{
-			"src": "/(.*)",
-			"dest": "/web/$1"
-		}
-	],
 	"headers": [
 		{
 			"source": "/(.*)",
@@ -25,6 +13,16 @@
 					"value": "require-corp"
 				}
 			]
+		}
+	],
+	"rewrites": [
+		{
+			"source": "/web/(.*)",
+			"destination": "/web/$1"
+		},
+		{
+			"source": "/(.*)",
+			"destination": "/web/$1"
 		}
 	]
 }
