@@ -5,21 +5,21 @@ extends Node
 # players so overlapping clicks never cut each other off.
 
 const MUSIC := {
-	"menu": "res://Background_music.mp3",
-	"shift": "res://calm and fun.mp3",
-	"puzzle": "res://fun music.mp3",
-	"chat": "res://chat and loading music.mp3",
-	"final": "res://final level.mp3",
-	"rock": "res://rock kindoff music.mp3",
-	"over": "res://game over music.mp3",
+	"menu": "res://audio/Background_music.wav",
+	"shift": "res://audio/calm and fun.wav",
+	"puzzle": "res://audio/fun music.wav",
+	"chat": "res://audio/chat and loading music.wav",
+	"final": "res://audio/final level.wav",
+	"rock": "res://audio/rock kindoff music.wav",
+	"over": "res://audio/game over music.wav",
 }
 
 const SFX := {
-	"primary": "res://sci fi click sound.mp3",
-	"simple": "res://simple mouse click.mp3",
-	"soft": "res://soft mouse click.mp3",
-	"bubble": "res://bubble tap.mp3",
-	"tap": "res://tap click.mp3",
+	"primary": "res://audio/sci fi click sound.wav",
+	"simple": "res://audio/simple mouse click.wav",
+	"soft": "res://audio/soft mouse click.wav",
+	"bubble": "res://audio/bubble tap.wav",
+	"tap": "res://audio/tap click.wav",
 }
 
 var _player: AudioStreamPlayer = null
@@ -58,20 +58,24 @@ func _watchdog_tick() -> void:
 
 
 # Web browsers suspend all audio until the first user gesture. On web the
-# unlock plays the queued mood through the browser's own <audio> element,
-# issued synchronously inside the gesture. Desktop audio starts at boot
-# and works without any unlock.
+# unlock recreates the music player INSIDE the tap gesture (a player that
+# attempted play into the suspended boot context can stay dead), so the
+# queued mood starts immediately. Desktop audio starts at boot and works.
 func unlock() -> void:
+	_audio_unlocked = true
 	if _current == "":
 		return
 	var mood := _current
-	_current = ""
-	if not OS.has_feature("web"):
-		return
-	_audio_unlocked = true
 	var path: String = MUSIC.get(mood, "")
-	if path != "" and FileAccess.file_exists(path):
-		_js_music(path)
+	var stream := _stream(path)
+	if stream == null:
+		return
+	_player.queue_free()
+	_player = AudioStreamPlayer.new()
+	_player.bus = "Master"
+	add_child(_player)
+	_player.stream = stream
+	_player.play()
 
 
 func _input(event: InputEvent) -> void:
@@ -100,28 +104,20 @@ func music(id: String) -> void:
 		return
 	if stream is AudioStreamMP3:
 		stream.loop = true
+	elif stream is AudioStreamWAV:
+		# WAV music loops seamlessly across its whole length.
+		stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		stream.loop_begin = 0
+		stream.loop_end = stream.data.size() / (4 if stream.stereo else 2)
 	_current = id
-	if OS.has_feature("web"):
-		# Web: route through the browser's own <audio> element - immune
-		# to Godot's web audio driver quirks. Playback waits for unlock().
-		if _audio_unlocked:
-			_js_music(path)
-		return
+	if OS.has_feature("web") and not _audio_unlocked:
+		return	# web: queued; unlock() starts it from the tap gesture
 	_player.stream = stream
 	_player.play()
 
 
-# Web-only: play a music file via JavaScript's native Audio element.
-# Files are served next to the build by the web host.
-func _js_music(path: String) -> void:
-	var file: String = path.get_file().uri_encode()
-	JavaScriptBridge.eval("var a = window.__saMusic || (window.__saMusic = new Audio()); a.loop = true; a.src = '/%s'; a.volume = 0.8; a.play();" % file)
-
-
 func stop_music() -> void:
 	_current = ""
-	if OS.has_feature("web"):
-		JavaScriptBridge.eval("if (window.__saMusic) { window.__saMusic.pause(); }")
 	_player.stop()
 
 
@@ -129,11 +125,6 @@ func stop_music() -> void:
 func sfx(id: String) -> void:
 	var path: String = SFX.get(id, "")
 	if path == "" or not FileAccess.file_exists(path):
-		return
-	if OS.has_feature("web"):
-		# Web: browser-native one-shot Audio element, played inside the
-		# button-press gesture so autoplay policy permits it.
-		JavaScriptBridge.eval("new Audio('/%s').play();" % path.get_file().uri_encode())
 		return
 	var stream := _stream(path)
 	if stream == null:

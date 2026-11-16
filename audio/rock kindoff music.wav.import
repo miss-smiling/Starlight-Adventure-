@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c57gkb6wrye7l"
+path="res://.godot/imported/rock kindoff music.wav-958fd9cc606eb94d1db6ac789aa4fa73.sample"
+
+[deps]
+
+source_file="res://audio/rock kindoff music.wav"
+dest_files=["res://.godot/imported/rock kindoff music.wav-958fd9cc606eb94d1db6ac789aa4fa73.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

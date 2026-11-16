@@ -37,13 +37,13 @@ func _ready() -> void:
 func _audiotest() -> void:
 	print("AUDIOTEST mix_rate=", AudioServer.get_mix_rate(), " latency=", AudioServer.get_output_latency())
 	print("AUDIOTEST master mute=", AudioServer.is_bus_mute(0), " vol_db=", AudioServer.get_bus_volume_db(0), " out=", AudioServer.get_output_device_list())
-	for file in ["Background_music.mp3", "sci fi click sound.mp3", "tap click.mp3", "fun music.mp3"]:
+	for file in ["audio/Background_music.wav", "audio/sci fi click sound.wav", "audio/tap click.wav", "audio/fun music.wav"]:
 		var path: String = "res://" + file
 		var exists := FileAccess.file_exists(path)
 		var stream: AudioStream = load(path) if exists else null
 		print("AUDIOTEST %s exists=%s stream=%s" % [file, exists, "ok" if stream != null else "MISSING"])
 	var probe := AudioStreamPlayer.new()
-	probe.stream = load("res://Background_music.mp3")
+	probe.stream = load("res://audio/Background_music.wav")
 	probe.bus = "Master"
 	add_child(probe)
 	probe.play()
@@ -103,38 +103,27 @@ func _input(event: InputEvent) -> void:
 
 
 # Web diagnostic: after the tap, play through the SAME path the game
-# actually uses on web - the browser's own <audio> element - and check
-# that its playback position advances.
+# actually uses on web - Godot's engine player created in the gesture -
+# and check that its playback position advances.
 func _audio_probe() -> void:
 	var badge := UIKit.heading("", 11, UIKit.ACCENT_2)
 	badge.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
 	badge.position = Vector2(0, -26)
 	add_child(badge)
 	badge.text = "AUDIO: checking..."
-	if OS.has_feature("web"):
-		JavaScriptBridge.eval("window.__saProbe = new Audio('/tap%20click.mp3'); window.__saProbe.play();")
-		await get_tree().create_timer(1.2).timeout
-		if not is_instance_valid(badge):
-			return
-		var pos = JavaScriptBridge.eval("window.__saProbe ? window.__saProbe.currentTime : -1")
-		if pos != null and pos > 0.0:
-			badge.text = "AUDIO OK"
-		else:
-			badge.text = "AUDIO BLOCKED BY BROWSER - try another browser/device"
+	var probe := AudioStreamPlayer.new()
+	probe.stream = load("res://audio/tap click.wav")
+	probe.bus = "Master"
+	add_child(probe)
+	probe.play()
+	await get_tree().create_timer(1.2).timeout
+	if not is_instance_valid(badge):
+		return
+	if probe.playing and probe.get_playback_position() > 0.0:
+		badge.text = "AUDIO OK  ·  %.0f Hz" % AudioServer.get_mix_rate()
 	else:
-		var probe := AudioStreamPlayer.new()
-		probe.stream = load("res://tap click.mp3")
-		probe.bus = "Master"
-		add_child(probe)
-		probe.play()
-		await get_tree().create_timer(1.2).timeout
-		if not is_instance_valid(badge):
-			return
-		if probe.playing and probe.get_playback_position() > 0.0:
-			badge.text = "AUDIO OK  ·  %.0f Hz" % AudioServer.get_mix_rate()
-		else:
-			badge.text = "AUDIO BLOCKED BY BROWSER - try another browser/device"
-		probe.queue_free()
+		badge.text = "AUDIO BLOCKED BY BROWSER - try another browser/device"
+	probe.queue_free()
 
 
 func _boot_card() -> void:
