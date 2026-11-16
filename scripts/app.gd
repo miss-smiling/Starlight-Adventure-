@@ -28,8 +28,40 @@ func _ready() -> void:
 	if OS.get_cmdline_user_args().has("--audiotest"):
 		_audiotest()
 		return
+	if OS.get_cmdline_user_args().has("--audiotest2"):
+		_audiotest2()
+		return
 	_swap("main_menu")
 	_boot_intro()
+
+
+# Deep diagnostic: plays the menu music and a click through the engine's
+# exact production path and MEASURES the mixed output samples on the
+# Master bus. If the music's peak is 0, the engine itself outputs
+# silence for that stream and the problem is in the stream/loop setup.
+func _audiotest2() -> void:
+	var bus := AudioServer.get_bus_index("Master")
+	for name in ["audio/tap click.wav", "audio/Background_music.wav"]:
+		var cap := AudioEffectCapture.new()
+		AudioServer.add_bus_effect(bus, cap)
+		var p := AudioStreamPlayer.new()
+		p.stream = load("res://" + name)
+		p.bus = "Master"
+		add_child(p)
+		var s: AudioStreamWAV = p.stream
+		print("AUDIOTEST2 %s: fmt=%d stereo=%s rate=%d data=%d loop=%d loop_end=%d" % [name, s.format, s.stereo, s.mix_rate, s.data.size(), s.loop_mode, s.loop_end])
+		p.play()
+		await get_tree().create_timer(2.0).timeout
+		var avail := cap.get_frames_available()
+		var buf := cap.get_buffer(mini(avail, 200000))
+		var peak := 0.0
+		for i in buf.size():
+			var fr: Vector2 = buf[i]
+			peak = max(peak, absf(fr.x), absf(fr.y))
+		print("AUDIOTEST2 %s: captured=%d peak=%.4f playing=%s pos=%.2f" % [name, buf.size(), peak, p.playing, p.get_playback_position()])
+		p.queue_free()
+		AudioServer.remove_bus_effect(bus, 0)
+	get_tree().quit()
 
 
 # Diagnostic: verifies audio resources and playback inside an EXPORTED
@@ -102,28 +134,30 @@ func _input(event: InputEvent) -> void:
 		_audio_probe()
 
 
-# Web diagnostic: after the tap, play through the SAME path the game
-# actually uses on web - Godot's engine player created in the gesture -
-# and check that its playback position advances.
+# Web diagnostic: after the tap, watch the menu music player and a
+# second click played 1.5s later. The badge distinguishes "engine stuck"
+# (music not advancing) from "browser killed later audio" (click failed).
 func _audio_probe() -> void:
 	var badge := UIKit.heading("", 11, UIKit.ACCENT_2)
 	badge.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
 	badge.position = Vector2(0, -26)
 	add_child(badge)
 	badge.text = "AUDIO: checking..."
-	var probe := AudioStreamPlayer.new()
-	probe.stream = load("res://audio/tap click.wav")
-	probe.bus = "Master"
-	add_child(probe)
-	probe.play()
-	await get_tree().create_timer(1.2).timeout
-	if not is_instance_valid(badge):
-		return
-	if probe.playing and probe.get_playback_position() > 0.0:
-		badge.text = "AUDIO OK  ·  %.0f Hz" % AudioServer.get_mix_rate()
-	else:
-		badge.text = "AUDIO BLOCKED BY BROWSER - try another browser/device"
-	probe.queue_free()
+	var late := AudioStreamPlayer.new()
+	late.stream = load("res://audio/tap click.wav")
+	late.bus = "Master"
+	add_child(late)
+	await get_tree().create_timer(1.5).timeout
+	var mp: AudioStreamPlayer = AudioManager._player
+	var music_pos: float = mp.get_playback_position() if mp != null and mp.stream != null else 0.0
+	late.play()
+	await get_tree().create_timer(1.5).timeout
+	var late_pos: float = late.get_playback_position()
+	badge.text = "MUSIC: %s  ·  CLICK+3s: %s" % [
+		"OK %.2fs" % music_pos if music_pos > 0.0 else "STUCK",
+		"OK" if late_pos > 0.0 else "BLOCKED",
+	]
+	late.queue_free()
 
 
 func _boot_card() -> void:
