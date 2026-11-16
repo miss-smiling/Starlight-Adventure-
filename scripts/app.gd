@@ -165,6 +165,8 @@ func _audio_probe() -> void:
 		AudioManager._current if AudioManager._current != "" else "-",
 		"OK" if late_pos > 0.0 else "BLOCKED",
 	]
+	if state.begins_with("NO"):
+		badge.text += "  [" + AudioManager.diag + "]"
 	late.queue_free()
 
 

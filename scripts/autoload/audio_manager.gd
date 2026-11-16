@@ -27,6 +27,7 @@ var _current := ""
 var _streams := {}
 var _audio_unlocked := false
 var _last_pos := 0.0
+var diag := ""	# web diagnostic: why the last stream lookup failed
 
 
 func _ready() -> void:
@@ -70,7 +71,7 @@ func unlock() -> void:
 	var stream := _stream(path)
 	if stream == null:
 		_streams.erase(path)	# a failed load may have cached null; retry
-		if FileAccess.file_exists(path):
+		if ResourceLoader.exists(path):
 			stream = load(path)
 	if stream == null:
 		return
@@ -95,9 +96,15 @@ func _input(event: InputEvent) -> void:
 
 func _stream(path: String) -> AudioStream:
 	if not _streams.has(path):
-		if not FileAccess.file_exists(path):
+		# ResourceLoader.exists, not FileAccess.file_exists: in web exports
+		# the raw source file is not packed, so file_exists returns false
+		# even though the imported resource loads fine.
+		if not ResourceLoader.exists(path):
+			diag = path + ":missing"
 			return null
 		_streams[path] = load(path)
+		if _streams[path] == null:
+			diag = path + ":load-null"
 	return _streams[path]
 
 
@@ -131,7 +138,7 @@ func stop_music() -> void:
 # One-shot click sound; the player frees itself when finished.
 func sfx(id: String) -> void:
 	var path: String = SFX.get(id, "")
-	if path == "" or not FileAccess.file_exists(path):
+	if path == "" or not ResourceLoader.exists(path):
 		return
 	var stream := _stream(path)
 	if stream == null:
