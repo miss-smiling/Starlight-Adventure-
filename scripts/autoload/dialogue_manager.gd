@@ -23,10 +23,49 @@ func play(data: Dictionary, on_finished: Callable = Callable()) -> void:
 		conversation_ended.emit()
 		return
 	_sequence = Sequence.new()
-	_sequence.setup(data)
+	_sequence.setup(_personalise(data))
 	_on_finished = on_finished
 	active = true
 	_present()
+
+
+# Per-profession conversations: dialogue lines may carry profession-keyed
+# variants. `text_by_prof`/`choices_by_prof` replace a line's own text or
+# choice list for that profession; `extra_by_prof` inserts extra spoken
+# lines before it. Everything resolves from the player's saved profession,
+# so the same scene plays differently for an astronaut and a medic.
+func _personalise(data: Dictionary) -> Dictionary:
+	var prof := _profession()
+	if prof == "" or not data.has("lines"):
+		return data
+	var lines: Array = []
+	for line in data.get("lines", []):
+		if not (line is Dictionary):
+			lines.append(line)
+			continue
+		if line.has("extra_by_prof"):
+			var extras: Dictionary = line.extra_by_prof
+			if extras.has(prof):
+				for extra in extras[prof]:
+					lines.append(extra)
+		var swapped := false
+		var use: Dictionary = line
+		if line.has("text_by_prof") and line.text_by_prof.has(prof):
+			use = line.duplicate()
+			use.text = use.text_by_prof[prof]
+			swapped = true
+		if line.has("choices_by_prof") and line.choices_by_prof.has(prof):
+			if not swapped:
+				use = line.duplicate()
+			use.choices = use.choices_by_prof[prof]
+		lines.append(use)
+	var out := data.duplicate()
+	out.lines = lines
+	return out
+
+
+func _profession() -> String:
+	return str(SaveManager.state.get("profession", ""))
 
 
 func advance() -> void:

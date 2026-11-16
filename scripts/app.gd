@@ -31,8 +31,31 @@ func _ready() -> void:
 	if OS.get_cmdline_user_args().has("--audiotest2"):
 		_audiotest2()
 		return
+	if OS.get_cmdline_user_args().has("--dialogtest"):
+		_dialogtest()
+		return
 	_swap("main_menu")
 	_boot_intro()
+
+
+# Verify per-profession conversations: for each profession, print the
+# personalised lines and choice labels of a shared dialogue + one talk.
+func _dialogtest() -> void:
+	for prof in ["astronaut", "engineer", "medical"]:
+		SaveManager.state["profession"] = prof
+		SaveManager.state["callsign"] = "Test"
+		for id in ["genesis_intro", "genesis_talk_alex_rivera"]:
+			var data: Dictionary = DialogueManager._personalise(CampaignManager.dialogue(id))
+			for line in data.lines:
+				if line.has("choices"):
+					var labels := []
+					for c in line.choices:
+						labels.append(c.text)
+					print("DIALOGTEST %s %s choices: %s" % [prof, id, " | ".join(labels)])
+				else:
+					print("DIALOGTEST %s %s: [%s] %s" % [prof, id, str(line.get("speaker", "?")), str(line.get("text", ""))])
+	print("DIALOGTEST DONE")
+	get_tree().quit()
 
 
 # Deep diagnostic: plays the menu music and a click through the engine's
