@@ -131,43 +131,6 @@ func _input(event: InputEvent) -> void:
 		gate.queue_free()
 		_boot_card()
 		AudioManager.unlock()
-		_audio_probe()
-
-
-# Web diagnostic: after the tap, watch the menu music player and a
-# second click played 1.5s later. The badge distinguishes "engine stuck"
-# (music not advancing) from "browser killed later audio" (click failed).
-func _audio_probe() -> void:
-	var badge := UIKit.heading("", 11, UIKit.ACCENT_2)
-	badge.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-	badge.position = Vector2(0, -26)
-	add_child(badge)
-	badge.text = "AUDIO: checking..."
-	var late := AudioStreamPlayer.new()
-	late.stream = load("res://audio/tap click.wav")
-	late.bus = "Master"
-	add_child(late)
-	await get_tree().create_timer(1.5).timeout
-	var mp: AudioStreamPlayer = AudioManager._player
-	var music_pos: float = mp.get_playback_position() if mp != null and mp.stream != null else 0.0
-	var state := "STUCK"
-	if music_pos > 0.0:
-		state = "OK %.2fs" % music_pos
-	elif mp != null and mp.stream != null:
-		state = "STREAM"			# stream attached but never advanced
-	else:
-		state = "NO-STREAM"			# load failed: nothing attached at all
-	late.play()
-	await get_tree().create_timer(1.5).timeout
-	var late_pos: float = late.get_playback_position()
-	badge.text = "MUSIC: %s(%s)  ·  CLICK+3s: %s" % [
-		state,
-		AudioManager._current if AudioManager._current != "" else "-",
-		"OK" if late_pos > 0.0 else "BLOCKED",
-	]
-	if state.begins_with("NO"):
-		badge.text += "  [" + AudioManager.diag + "]"
-	late.queue_free()
 
 
 func _boot_card() -> void:
