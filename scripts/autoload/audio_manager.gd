@@ -58,22 +58,29 @@ func _watchdog_tick() -> void:
 
 
 # Web browsers suspend all audio until the first user gesture. On web the
-# unlock recreates the music player INSIDE the tap gesture (a player that
-# attempted play into the suspended boot context can stay dead), so the
-# queued mood starts immediately. Desktop audio starts at boot and works.
+# unlock starts the queued mood at the tap; if the big music stream
+# failed to load at boot (large PCM resources can), retry the load right
+# here - and if nothing was ever queued, fall back to the menu bed.
 func unlock() -> void:
 	_audio_unlocked = true
 	if _current == "":
-		return
+		_current = "menu"
 	var mood := _current
 	var path: String = MUSIC.get(mood, "")
 	var stream := _stream(path)
 	if stream == null:
+		_streams.erase(path)	# a failed load may have cached null; retry
+		if FileAccess.file_exists(path):
+			stream = load(path)
+	if stream == null:
 		return
-	_player.queue_free()
-	_player = AudioStreamPlayer.new()
-	_player.bus = "Master"
-	add_child(_player)
+	if stream is AudioStreamMP3:
+		stream.loop = true
+	elif stream is AudioStreamWAV:
+		stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		stream.loop_begin = 0
+		stream.loop_end = stream.data.size() / (4 if stream.stereo else 2)
+	_current = mood
 	_player.stream = stream
 	_player.play()
 

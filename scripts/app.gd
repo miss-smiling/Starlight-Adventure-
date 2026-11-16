@@ -150,11 +150,19 @@ func _audio_probe() -> void:
 	await get_tree().create_timer(1.5).timeout
 	var mp: AudioStreamPlayer = AudioManager._player
 	var music_pos: float = mp.get_playback_position() if mp != null and mp.stream != null else 0.0
+	var state := "STUCK"
+	if music_pos > 0.0:
+		state = "OK %.2fs" % music_pos
+	elif mp != null and mp.stream != null:
+		state = "STREAM"			# stream attached but never advanced
+	else:
+		state = "NO-STREAM"			# load failed: nothing attached at all
 	late.play()
 	await get_tree().create_timer(1.5).timeout
 	var late_pos: float = late.get_playback_position()
-	badge.text = "MUSIC: %s  ·  CLICK+3s: %s" % [
-		"OK %.2fs" % music_pos if music_pos > 0.0 else "STUCK",
+	badge.text = "MUSIC: %s(%s)  ·  CLICK+3s: %s" % [
+		state,
+		AudioManager._current if AudioManager._current != "" else "-",
 		"OK" if late_pos > 0.0 else "BLOCKED",
 	]
 	late.queue_free()
